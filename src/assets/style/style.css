@@ -1,7 +1,7 @@
 #root {
-  max-width: 1280px;
+  max-width: 80rem;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 32px;
   text-align: center;
 }
 
@@ -44,7 +44,7 @@
 
 
 .main{ /* estilos para la hoja de main usando css */
-  padding:20px;
+  padding:1.25rem;
 
 }
 ul{
@@ -53,4 +53,45 @@ ul{
   justify-content: space-around;
   margin: 0;
   align-items: "center";
+}
+
+
+.product-list{
+  border:1px solid pink;
+  display: grid;
+  /* grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); */
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap: 1.5rem;
+  align-self:center;
+  padding: 2rem;
+  
+  .product-card{
+  border: 1px solid #ccc;
+  border-radius: 1rem;
+  padding: 1rem;
+  text-align: center;
+  .product-img{
+    width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+    .product-content{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-grow: 1;
+
+      h3{
+        min-height:48px;
+      }
+    p{
+      min-height:60px;
+      margin:0.5rem 0;
+      button{
+        margin-top:auto;
+      }
+    }
+    }
+  }
+}
 }

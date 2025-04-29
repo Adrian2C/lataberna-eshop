@@ -1,12 +1,66 @@
 export const productsList = [
-    { id: 1, name: "Collar de Perlas", price: 26, img: "https://img.freepik.com/fotos-premium/collar-perlas-elegante-fondo-blanco_88281-1807.jpg" },
-    { id: 2, name: "Pulsera de Cuero Trenzado", price: 16, img: "https://img.freepik.com/fotos-premium/pulsera-cuero-marron-hecha-mano-sobre-fondo-madera_236836-31966.jpg" },
-    { id: 3, name: "Anillo Ajustable de Plata", price: 19, img: "https://img.freepik.com/foto-gratis/anillo-plata-sobre-fondo-blanco_1203-5480.jpg" },
-    { id: 4, name: "Aros Dorados Minimalistas", price: 12, img: "https://img.freepik.com/foto-gratis/aretes-oro-sobre-fondo-blanco_1203-5505.jpg" },
-    { id: 5, name: "Tobillera con Dijes", price: 14, img: "https://img.freepik.com/foto-gratis/pulsera-tobillera-joyeria-sobre-fondo-blanco_1203-5533.jpg" },
-    { id: 6, name: "Broche Vintage con Piedras", price: 22, img: "https://img.freepik.com/foto-gratis/joya-broche-antiguo-sobre-fondo-blanco_1203-5488.jpg" },
-    { id: 7, name: "Set de Anillos Boho", price: 20, img: "https://img.freepik.com/foto-gratis/coleccion-anillos-boho-sobre-fondo-arena_53876-143941.jpg" },
-    { id: 8, name: "Collar con Dije de Luna", price: 18, img: "https://img.freepik.com/foto-gratis/colgante-luna-cadena-plata-fondo-blanco_53876-146204.jpg" },
-    { id: 9, name: "Pulsera de Cuentas Naturales", price: 17, img: "https://img.freepik.com/foto-gratis/pulsera-cuentas-coloridas-sobre-fondo-madera_1150-6615.jpg" },
-    { id: 10, name: "Aros de Acrílico Coloridos", price: 14, img: "https://img.freepik.com/foto-gratis/aretes-acrilico-multicolor-sobre-fondo-blanco_1203-5510.jpg" }
+    {
+        id: 1,
+        name: "Collar de Perlas Clásico",
+        price: 3,
+        description: "Elegante collar con perlas sintéticas de alta calidad.",
+        img: "https://acdn-us.mitiendanube.com/stores/679/075/products/20230517_1825441-566e6d8f170b0f946b16843588789563-240-0.jpg"
+    },
+    {
+        id: 2,
+        name: "Pulsera de Cuero Trenzado",
+        price: 3,
+        description: "Diseño artesanal en cuero genuino, ideal para uso diario.",
+        img: "https://elboyero.com/19322-large_default/pulsera-de-cuero-trenzado-con-pasadores-el-boyero.jpg"
+    },
+    {
+        id: 3,
+        name: "Aros Dorados Minimalistas",
+        price: 3,
+        description: "Pendientes modernos y discretos para combinar con todo.",
+        img: "https://http2.mlstatic.com/D_NQ_NP_701231-MLA54760080277_032023-O.webp"
+    },
+    {
+        id: 4,
+        name: "Anillo de Acero Inoxidable",
+        price: 3,
+        description: "Resistente, elegante y libre de óxido.",
+        img: "https://m.media-amazon.com/images/I/51+97h+WVvL._AC_SL1005_.jpg"
+    },
+    {
+        id: 5,
+        name: "Tobillera con Dijes",
+        price: 3,
+        description: "Delicada tobillera con pequeños dijes de estrellas.",
+        img: "https://cdn.gratia.com.ar/media/catalog/product/cache/77c78ca0c75c6f5568a4ce27f8b70597/t/2/t29044_bo6cajmdyvwxkcse.jpg"
+    },
+    {
+        id: 6,
+        name: "Set de Aros Variados",
+        price: 3,
+        description: "Incluye aros de diferentes formas y tamaños para combinar.",
+        img: "https://ar.todomoda.com/media/catalog/product/7/8/78767302_0_1_20230125180909.jpg?quality=75&bg-color=255,255,255&fit=bounds&height=841&width=657&canvas=657:841"
+    },
+    {
+        id: 7,
+        name: "Collar con Colgante Luna",
+        price: 3,
+        description: "Estilo bohemio con colgante en forma de luna creciente.",
+        img: "https://http2.mlstatic.com/D_NQ_NP_947402-MLA79946267149_102024-O.webp"
+    },
+    {
+        id: 8,
+        name: "Pulsera de Cuentas Naturales",
+        price: 3,
+        description: "Cuentas de piedras volcánicas y colores tierra.",
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoemvOrpYGxwHzAjybx3x-QZaiDhY81d_lrQ&s"
+    },
+    {
+        id: 9,
+        name: "Anillo Ajustable con Piedra",
+        price: 3,
+        description: "Diseño abierto, ajustable, con piedra decorativa central.",
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiLwyLfrlGScczz7x1DxwsOC7FX-TvcT8JEQ&s"
+    }
+
 ];

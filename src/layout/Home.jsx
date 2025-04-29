@@ -12,8 +12,8 @@ const Home = ({ cart, handleAddToCart }) => {
     const countItem = cart.length
     return (
         <>
-            <Header />
             <Nav countItem={countItem} />
+            <Header />
             <Main />
             <ProductsList products={productsList} addToCart={handleAddToCart} />
             <Cart cartItems={cart} />
