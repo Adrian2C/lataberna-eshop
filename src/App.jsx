@@ -4,13 +4,16 @@ import Home from './layout/Home'
 
 function App() {
   const [cart, setCart] = useState([])
-
+  const clearCart = () => {
+    setCart([]);
+  };
   const handleAddToCart = (product) => {
     setCart([...cart, product])
   }
   return (
     <>
-      <Home cart={cart} handleAddToCart={handleAddToCart} />
+
+      <Home cart={cart} handleAddToCart={handleAddToCart} clearCart={clearCart} />
     </>
   )
 }

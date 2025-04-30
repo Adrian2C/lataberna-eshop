@@ -9,7 +9,6 @@ const Product = ({ product, addToCart }) => {
                 <h4>${product.price}</h4>
                 <p>{product.description}</p>
                 <button onClick={() => addToCart(product)}> Agregar</button>
-                <button onClick={() => addToCart(product)}> Eliminar</button>
             </div>
         </div>
     )
