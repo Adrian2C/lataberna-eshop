@@ -1,5 +1,7 @@
 import React from 'react';
 
+
+
 const Product = ({ product, addToCart }) => {
     return (
         <div className="product-card" key={product.id}>

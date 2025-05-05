@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Cart = ({ cartItems, isCartOpen, toggleCart,clearCart }) => {
-    
-    
+const Cart = ({ cartItems, isCartOpen, toggleCart, clearCart, borrarProducto }) => {
+
+
     return (
         <div className={`cart-panel ${isCartOpen ? 'open' : ''}`}>
             <button onClick={toggleCart}>✖ Cerrar</button>
@@ -12,7 +12,10 @@ const Cart = ({ cartItems, isCartOpen, toggleCart,clearCart }) => {
             ) : (
                 <ul className="cart-list">
                     {cartItems.map((item, index) => (
-                        <li key={index} className="cart-item">{item.name} - ${item.price}</li>
+                        <>
+                            <li key={index} className="cart-item">{item.name} - ${item.price} cant:{item.cantidad}</li>
+                            <button onClick={() => borrarProducto(item)}>x</button>
+                        </>
                     ))}
                 </ul>
             )}

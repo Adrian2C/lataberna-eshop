@@ -4,18 +4,33 @@ import Home from './layout/Home'
 
 function App() {
   const [cart, setCart] = useState([])
+
   const clearCart = () => {
     setCart([]);
   };
+
+
   const handleAddToCart = (product) => {
-    setCart([...cart, product])
+    /* setCart([...cart, product]) */
+    const productExist = cart.find(item => item.id === product.id)
+
+    if (productExist) {
+      setCart(cart.map((item) => item.id === product.id ? {
+        ...item, cantidad: item.cantidad + 1
+      } : item))
+    } else {
+      setCart([...cart, product])
+    }
   }
+
+
+
   return (
     <>
-
       <Home cart={cart} handleAddToCart={handleAddToCart} clearCart={clearCart} />
     </>
   )
 }
+
 
 export default App
