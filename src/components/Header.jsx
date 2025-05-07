@@ -1,10 +1,11 @@
 import React from 'react'
+import bg from '../assets/images/bg.jpg'
 
 const Header = () => {
-    let estilos = { backgroundColor: '#e1d3d3', color: 'red', padding: '10px' }
+    
     return (
-        <header style={estilos}>
-            <h1>Mi Tienda</h1>
+        <header className="header">
+            <img src={bg} className="bg-img"/>
         </header>
     )
 }

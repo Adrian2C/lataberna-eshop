@@ -13,8 +13,10 @@ const Cart = ({ cartItems, isCartOpen, toggleCart, clearCart, borrarProducto }) 
                 <ul className="cart-list">
                     {cartItems.map((item, index) => (
                         <>
-                            <li key={index} className="cart-item">{item.nombre} - ${item.precio} cant:{item.cantidad}</li>
-                            <button onClick={() => borrarProducto(item)}>x</button>
+                            <li key={index} className="cart-item">{item.nombre} - ${item.precio} cant:{item.cantidad}
+
+                                <button onClick={() => borrarProducto(item)}>x</button>
+                            </li>
                         </>
                     ))}
                 </ul>
