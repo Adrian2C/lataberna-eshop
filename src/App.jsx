@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './assets/style/style.css'
 import Home from './layout/Home'
-/* import Error from './assets/images/not-found.jpg' */
+import NotFoudn from './components/NotFound'
 
 function App() {
   const [cart, setCart] = useState([])
@@ -12,7 +12,7 @@ function App() {
 
 
   const handleAddToCart = (product) => {
-    /* setCart([...cart, product]) */
+
     const productExist = cart.find(item => item.id === product.id)
 
     if (productExist) {

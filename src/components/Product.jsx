@@ -11,12 +11,12 @@ const Product = ({ product, addToCart }) => {
     return (
         <section className="product">
             <div className="product-card">
-                <img className="product-img" alt={product.name} src={product.img} />
+                <img className="product-img" alt={product.nombre} src={product.imagen} />
                 <div className="product-content">
-                    <h3>{product.name}</h3>
-                    <h4>${product.price}</h4>
-                    <p>Stock: {product.stock}</p>
-                    <p>{product.description}</p>
+                    <h3>{product.nombre}</h3>
+                    <h4>${product.precio}</h4>
+                    {/* <p>Stock: {product.stock}</p> */}
+                    <p>{product.descripcion}</p>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
                         <button onClick={decrease}>-</button>
                         <span>{cantidad}</span>

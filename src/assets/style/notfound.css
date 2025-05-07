@@ -1,0 +1,24 @@
+.notfound-container{
+    background-color:black;
+    
+    /* border:1px solid red; */
+    display:flex;
+}
+.notfound-content{
+    width:100vw;
+    height:100vh;
+    /* border:1px solid yellow; */
+    justify-content:center;
+    align-content:center;
+}
+.notfound-back{
+    border:1px solid grey;
+    background:#7f7f7fa4;
+    border-radius:30px;
+    padding:5px 30px;
+    &:hover{
+        box-shadow: -4px 9px 14px 0px rgba(227,227,227,0.75) inset;
+        -webkit-box-shadow: -4px 9px 14px 0px rgba(227,227,227,0.75) inset;
+        -moz-box-shadow: -4px 9px 14px 0px rgba(227,227,227,0.75) inset;
+    }
+}
