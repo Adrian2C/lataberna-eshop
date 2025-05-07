@@ -6,6 +6,7 @@ import Home from './layout/Home'
 function App() {
   const [cart, setCart] = useState([])
 
+<<<<<<< HEAD
   const borrarProducto = (product) => {
     setCart(prevCart =>
       prevCart
@@ -33,10 +34,13 @@ function App() {
     }
   };
 
+=======
+>>>>>>> refs/remotes/origin/main
   const clearCart = () => {
     setCart([]);
   };
 
+<<<<<<< HEAD
   return (
     <Home
       cart={cart}
@@ -45,6 +49,30 @@ function App() {
       borrarProducto={borrarProducto}
     />
   );
+=======
+
+  const handleAddToCart = (product) => {
+    /* setCart([...cart, product]) */
+    const productExist = cart.find(item => item.id === product.id)
+
+    if (productExist) {
+      setCart(cart.map((item) => item.id === product.id ? {
+        ...item, cantidad: item.cantidad + 1
+      } : item))
+    } else {
+      setCart([...cart, product])
+    }
+  }
+
+
+
+  return (
+    <>
+      <Home cart={cart} handleAddToCart={handleAddToCart} clearCart={clearCart} />
+    </>
+  )
+>>>>>>> refs/remotes/origin/main
 }
+
 
 export default App

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+
+
 const Product = ({ product, addToCart }) => {
     const [cantidad, setCantidad] = useState(1);
 
