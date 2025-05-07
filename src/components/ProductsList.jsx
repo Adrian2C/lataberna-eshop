@@ -1,14 +1,14 @@
 import React from 'react';
-import Product from './Product'
+import Product from './Product';
 
-const ProductList = ({ products, addToCart }) => {
+const ProductsList = ({ products, addToCart }) => {
     return (
         <div className="product-list">
             {products.map(product => (
-                <Product product={product} addToCart={addToCart} />
+                <Product key={product.id} product={product} addToCart={addToCart} />
             ))}
         </div>
-    )
-}
+    );
+};
 
-export default ProductList;
+export default ProductsList;

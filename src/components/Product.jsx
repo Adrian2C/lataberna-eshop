@@ -1,31 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Product = ({ product, addToCart }) => {
+    const [cantidad, setCantidad] = useState(1);
+
+    const increase = () => setCantidad(prev => (prev < product.stock ? prev + 1 : prev));
+    const decrease = () => setCantidad(prev => (prev > 1 ? prev - 1 : 1));
+
     return (
-        <div className="product-card" key={product.id}>
-            <img className="product-img" alt={product.namee} src={product.img} />
-            <div className="product-content">
-                <h3>{product.name}</h3>
-                <h4>${product.price}</h4>
-                <p>{product.description}</p>
-                <button onClick={() => addToCart(product)}> Agregar</button>
+        <section className="product">
+            <div className="product-card">
+                <img className="product-img" alt={product.name} src={product.img} />
+                <div className="product-content">
+                    <h3>{product.name}</h3>
+                    <h4>${product.price}</h4>
+                    <p>Stock: {product.stock}</p>
+                    <p>{product.description}</p>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
+                        <button onClick={decrease}>-</button>
+                        <span>{cantidad}</span>
+                        <button onClick={increase}>+</button>
+                    </div>
+                    <button onClick={() => addToCart({ ...product, cantidad:cantidad })}>
+                        Agregar
+                    </button>
+                </div>
             </div>
-        </div>
-    )
-}
+        </section>
+    );
+};
 
-export default Product
-/* 
-
-const Product = ({ product, addToCart }) => {
-    return (
-        <div>
-
-            <span>{product.name} - ${product.price}</span>
-
-            <button onClick={() => addToCart(product)}> Agregar</button>
-        </div>
-    )
-}
-
- */
+export default Product;

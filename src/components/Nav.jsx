@@ -1,19 +1,29 @@
 import React from 'react';
-import '../assets/style/style.css'
+import '../assets/style/style.css';
+import Cart from './Cart';
 
-const Nav = ({ countItem, toggleCart }) => {
-
+const Nav = ({ countItem, toggleCart, cartItems, borrarProducto, clearCart }) => {
     return (
         <nav style={{ backgroundColor: '#333', color: 'white', padding: '10px' }}>
             <ul className="nav-list">
-                {/* <img src={logo} /> */}
-                <li ><a href="#">Inicio</a></li>
+                <li><a href="#">Inicio</a></li>
                 <li>Acerca De</li>
                 <li>Contacto</li>
-                <li style={{ cursor: 'pointer' }} onClick={toggleCart}>Carrito 🛒:({countItem})</li>
+                <li style={{ cursor: 'pointer' }} onClick={toggleCart}>
+                    Carrito 🛒: ({countItem})
+                </li>
+                <li className="cartNav">
+                    <Cart
+                        cartItems={cartItems}
+                        isCartOpen={false} // siempre visible en Nav, opcional
+                        toggleCart={toggleCart}
+                        clearCart={clearCart}
+                        borrarProducto={borrarProducto}
+                    />
+                </li>
             </ul>
         </nav>
-    )
-}
+    );
+};
 
-export default Nav
+export default Nav;
