@@ -5,7 +5,7 @@ import error from '../assets/images/error'
 const NotFound = () => {
     return (
         <div className="notfound-container">
-            <div className="notfoudn-content">
+            <div className="notfound-content">
                 <img src={error} />
             </div>
         </div>

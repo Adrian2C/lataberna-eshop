@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './assets/style/style.css'
 import Home from './layout/Home'
+/* import Error from './assets/images/not-found.jpg' */
 
 function App() {
   const [cart, setCart] = useState([])

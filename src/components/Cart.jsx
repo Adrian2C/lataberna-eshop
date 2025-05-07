@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const Cart = ({ cartItems, isCartOpen, toggleCart, clearCart, borrarProducto }) => {
 
@@ -25,4 +25,4 @@ const Cart = ({ cartItems, isCartOpen, toggleCart, clearCart, borrarProducto }) 
     );
 };
 
-export default Cart
+export default Cart;
