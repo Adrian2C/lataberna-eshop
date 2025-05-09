@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './assets/style/style.css'
 import Home from './layout/Home'
-import NotFoudn from './components/NotFound'
+import NotFound from './components/NotFound'
 
 function App() {
   const [cart, setCart] = useState([])
