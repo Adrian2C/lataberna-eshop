@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import Header from '../components/Header';
-import Nav from '../components/Nav';
-import Footer from '../components/Footer';
-import Main from '../components/Main';
+import Header from '../components/estaticos/Header';
+import Nav from '../components/estaticos/Nav';
+import Footer from '../components/estaticos/Footer';
+import Main from '../components/estaticos/Main';
 
 import { productsList } from '../utils/data';
 import ProductsList from '../components/ProductsList';
@@ -10,7 +10,7 @@ import ProductsList from '../components/ProductsList';
 import Cart from '../components/Cart';
 
 import Loading from '../assets/images/loading.gif'
-import NotFound from '../components/NotFound';
+import NotFound from './NotFound';
 
 const Home = ({ cart, handleAddToCart, clearCart, borrarProducto }) => {
     const [isCartOpen, setIsCartOpen] = useState(false);

@@ -1,6 +1,6 @@
 import React from 'react';
 import '../assets/style/style.css';
-import Cart from './Cart';
+import Cart from '../Cart';
 /* import { Link } from 'react-router-dom'; */
 
 const Nav = ({ countItem, toggleCart, cartItems, borrarProducto, clearCart }) => {
