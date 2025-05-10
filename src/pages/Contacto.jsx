@@ -1,10 +1,14 @@
 import React from 'react'
+import Header from '../components/estaticos/Header'
+import Footer from '../components/estaticos/Footer'
 
-const Contacto = () => {
+const Contacto = ({ cart, borrarProducto }) => {
   return (
-    <div>
-      
-    </div>
+    <>
+      <Header borrarProducto={borrarProducto} cartItems={cart} />
+      <h1>Contacto</h1>
+      <Footer />
+    </>
   )
 }
 

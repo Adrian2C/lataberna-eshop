@@ -1,15 +1,13 @@
 import React from "react";
-import '../assets/style/notfound.css'
 import error from '../assets/images/error.gif'
+import { Link } from "react-router-dom";
 
 const NotFound = () => {
     return (
         <div className="notfound-container">
             <div className="notfound-content">
                 <img src={error} />
-                <button className="notfound-back">
-                    <a>Volver</a>
-                </button>
+                <button><Link to='/'>Volver al inicio</Link></button>
             </div>
         </div>
     )

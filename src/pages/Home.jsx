@@ -1,69 +1,30 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Header from '../components/estaticos/Header';
-import Nav from '../components/estaticos/Nav';
 import Footer from '../components/estaticos/Footer';
-import Main from '../components/estaticos/Main';
-
-import { productsList } from '../utils/data';
 import ProductsList from '../components/ProductsList';
-
-import Cart from '../components/Cart';
-
 import Loading from '../assets/images/loading.gif'
-import NotFound from './NotFound';
-
-const Home = ({ cart, handleAddToCart, clearCart, borrarProducto }) => {
-    const [isCartOpen, setIsCartOpen] = useState(false);
-    const toggleCart = () => setIsCartOpen(!isCartOpen);
 
 
-    const [productos, setProductos] = useState([])
-    const [carga, setCarga] = useState(true)
-    const [error, setError] = useState(false)
-
-    useEffect(() => {
-        fetch('https://6812b137129f6313e20f46de.mockapi.io/productos-ecommerce/productos')
-            .then((respuesta) => respuesta.json())
-            .then((datos) => {
-                setProductos(datos)
-                setCarga(false)
-            })
-            .catch((error) => {
-                console.error('Error:', error)
-                setCarga(false)
-                setError(true)
-            });
-    }, [])
-
-    if (error) {
-        return <NotFound />
-    }
+const Home = ({ cart, productos, cargando, agregarCarrito, borrarProducto }) => {
 
     return (
         <>
-            <Nav
-                countItem={cart.length}
-                toggleCart={toggleCart}
-                cartItems={cart}
-                borrarProducto={borrarProducto}
-                clearCart={clearCart}
-            />
-            <Header />
-            <Main />
-            {
-                carga ? <img src={Loading} alt='loading' /> :
 
-                
-                <ProductsList products={productos} addToCart={handleAddToCart} />
+            <Header borrarProducto={borrarProducto} cart={cart} />
+            <main>
+                <h1>
+                    Bienvenidos a mi tienda
+                </h1>
 
-            }
-            <Cart
-                cartItems={cart}
-                isCartOpen={isCartOpen}
-                toggleCart={toggleCart}
-                clearCart={clearCart}
-                borrarProducto={borrarProducto}
-            />
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque natus nulla itaque commodi adipisci corporis ipsa voluptatem, labore unde, quos quo aliquid cum perspiciatis deserunt nostrum nobis, odit veritatis nemo.
+                </p>
+
+                {
+                    cargando ? <img src={Loading} /> :
+                        <ProductsList agregarCarrito={agregarCarrito} productos={productos} />
+                }
+            </main>
             <Footer />
         </>
     );

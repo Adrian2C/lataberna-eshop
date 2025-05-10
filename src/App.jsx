@@ -16,7 +16,7 @@ function App() {
   const [error, setError] = useState(false)
 
   useEffect(() => {
-    fetch('/utils/data.json')
+    fetch('https://6812b137129f6313e20f46de.mockapi.io/productos-ecommerce/productos')
       .then(respuesta => respuesta.json())
       .then(datos => {
         setTimeout(() => {
@@ -66,9 +66,14 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<Home cart={cart} handleAddToCart={handleAddToCart} borrarCarrito={handleDeleteFromCart} />} />
+        <Route path='/' element={<Home cart={cart} handleAddToCart={handleAddToCart} borrarCarrito={handleDeleteFromCart} productos={productos} cargando={cargando} />} />
+        <Route path='/acercade' element={<AcercaDe borrarProducto={handleDeleteFromCart} cart={cart} />} />
 
+        <Route path='/productos' element={<Galeria borrarProducto={handleDeleteFromCart} agregarCarrito={handleAddToCart} cart={cart} productos={productos} cargando={cargando} />} />
 
+        <Route path='/contacto' element={<Contacto borrarProducto={handleDeleteFromCart} cart={cart} />} />
+
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </Router>
   )

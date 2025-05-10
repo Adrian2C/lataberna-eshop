@@ -1,5 +1,5 @@
 import React from 'react';
-import '../assets/style/style.css';
+/* import '../assets/style/style.css'; */
 import Cart from '../Cart';
 /* import { Link } from 'react-router-dom'; */
 

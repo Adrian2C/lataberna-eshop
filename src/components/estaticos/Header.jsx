@@ -1,12 +1,12 @@
 import React from 'react'
-import bg from '../assets/images/bg.jpg'
+/* import bg from '../assets/images/bg.jpg' */
 
 const Header = () => {
     
     return (
-        <header className="header">
+        {/* <header className="header">
             <img src={bg} className="bg-img"/>
-        </header>
+        </header> */}
     )
 }
 

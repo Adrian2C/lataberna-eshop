@@ -1,5 +1,4 @@
 import React from 'react';
-import '../assets/style/style.css';
 
 const Main = () => {
     return (
