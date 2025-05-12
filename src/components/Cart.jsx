@@ -1,31 +1,30 @@
-import React from "react";
+import React from 'react'
 
-const Cart = ({ cartItems, isCartOpen, toggleCart, clearCart, borrarProducto }) => {
 
+const Cart = ({ cartItems, isOpen, onClose, borrarProducto }) => {
 
     return (
-        <div className={`cart-panel ${isCartOpen ? 'open' : ''}`}>
-            <button onClick={toggleCart}>✖ Cerrar</button>
-            <h2>Carrito</h2>
-            {cartItems.length === 0 ? (
-                <p>El carrito está vacío</p>
-            ) : (
-                <ul className="cart-list">
+        <div className={`cart-drawer ${isOpen ? 'open' : ''}`}>
+            <div className='cart-header'>
+                <h2 style={{ color: 'black' }}>Carrito de Compras</h2>
+                <button onClick={onClose} className='close-button'>X</button>
+            </div>
+            <div className='cart-content'>
+                {cartItems.length === 0 ? (<p style={{ color: 'red' }}>El carrito esta vacío</p>) : (<ul className='cart-item'>
                     {cartItems.map((item, index) => (
                         <>
-                            <li key={index} className="cart-item">{item.nombre} - ${item.precio} cant:{item.cantidad}
-
-                                <button onClick={() => borrarProducto(item)}>x</button>
+                            <li key={item.id} style={{ color: 'black' }}>
+                                {item.nombre} - {item.precio}
+                                <button onClick={() => borrarProducto(item)}><i className="fa-solid fa-trash"></i></button>
                             </li>
                         </>
                     ))}
-                </ul>
-            )}
+                </ul>)}
 
-            <button onClick={clearCart}>🗑️ vaciar</button>
+            </div>
+
         </div>
-    );
-};
+    )
+}
 
-export default Cart;
-
+export default Cart

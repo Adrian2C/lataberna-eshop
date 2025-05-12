@@ -1,15 +1,16 @@
 import { useEffect, useState } from 'react'
 import './assets/style/style.css'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 import Home from './pages/Home'
 import AcercaDe from './pages/AcercaDe'
-import Contacto from './pages/Contacto'
-import Galeria from './pages/Galeria'
+import Contacto from './pages/Contactos'
+import Galeria from './pages/GaleriaDeProductos'
 import NotFound from './pages/NotFound'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 
 function App() {
+
   const [cart, setCart] = useState([])
   const [productos, setProductos] = useState([])
   const [cargando, setCargando] = useState(true)
@@ -32,25 +33,23 @@ function App() {
 
   }, [])
 
-
   const handleAddToCart = (product) => {
 
-    const productExist = cart.find(item => item.id === product.id)
+    const productInCart = cart.find((item) => item.id === product.id);
+    if (productInCart) {
 
-    if (productExist) {
-      setCart(cart.map((item) => item.id === product.id ? {
-        ...item, cantidad: item.cantidad + 1
-      } : item))
+      setCart(cart.map((item) => item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item));
     } else {
-      setCart([...cart, { ...product, cantidad: 1 }])
+      setCart([...cart, { ...product, quantity: 1 }]);
     }
-  }
+  };
+
   const handleDeleteFromCart = (product) => {
     setCart(prevCart => {
       return prevCart.map(item => {
         if (item.id === product.id) {
-          if (item.cantidad > 1) {
-            return { ...item, cantidad: item.cantidad - 1 };
+          if (item.quantity > 1) {
+            return { ...item, quantity: item.quantity - 1 };
           } else {
             return null; // Si quantity es 1, marcamos para eliminar
           }
@@ -66,7 +65,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<Home cart={cart} handleAddToCart={handleAddToCart} borrarCarrito={handleDeleteFromCart} productos={productos} cargando={cargando} />} />
+        <Route path='/' element={<Home borrarProducto={handleDeleteFromCart} agregarCarrito={handleAddToCart} cart={cart} productos={productos} cargando={cargando} />} />
+
         <Route path='/acercade' element={<AcercaDe borrarProducto={handleDeleteFromCart} cart={cart} />} />
 
         <Route path='/productos' element={<Galeria borrarProducto={handleDeleteFromCart} agregarCarrito={handleAddToCart} cart={cart} productos={productos} cargando={cargando} />} />
