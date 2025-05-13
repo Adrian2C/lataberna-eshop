@@ -9,23 +9,38 @@ const Productos = ({ producto, agregarCarrito }) => {
     const decrease = () => setCantidad(prev => (prev > 1 ? prev - 1 : 1));
 
     return (
-        <section className='flex flex-col items-center p-7 rounded-2xl'>
-            <div className='size-48 shadow-xl rounded-md'>
-                <img src={producto.imagen} alt="" className='imagen' />
+        <section className=' m-2 flex items-center justify-center bg-gray-100 p-4 flex-col align-center'>
+            <div className="w-full max-w-sm overflow-hidden rounded-xl bg-white shadow-lg transition-all hover:shadow-xl">
+                <div className='relative'>
+                    <img src={producto.imagen} alt="" className='h-64 w-full rounded-lg object-cover' />
+                </div>
+                <div className="p-5 space-y-4">
+                    <div>
+                        <h3 className='text-xl font-bold text-gray-900 text-center'>{producto.nombre}</h3>
+                        <div>
+                            <div className='flex justify-between items-center'>
+                                <div className="space-y-4">
+                                    <p className="text-l font-bold text-gray-900">
+                                        ${producto.precio}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-1">
+                            <span class="text-sm text-gray-600 ml-1">Stock: {producto.stock}</span>
+                        </div>
+
+                    </div>
+
+                    <div>
+                        <button className='bg-gray-300 border-none px-3 rounded-lg cursor-pointer text-lg font-bold hover:bg-gray-400' onClick={decrease}>-</button>
+                        <span className="font-bold">  {cantidad}  </span>
+                        <button className='bg-gray-300 border-none px-2 rounded-lg cursor-pointer text-lg font-bold hover:bg-gray-400' onClick={increase}>+</button>
+                    </div>
+
+                    <button className="w-full bg-indigo-500 hover:bg-indigo-800 border-amber-50 text-white font-medium py-3 rounded-lg transition-colors " onClick={() => agregarCarrito(producto)}>Agregar al carrito</button>
+                </div>
             </div>
-
-            <h3 className='nombre'>{producto.nombre}</h3>
-            <p className='precio'>${producto.precio}</p>
-            <p className='stock'>{producto.stock}</p>
-
-            <div className='cantidadContainer'>
-                <button className='bg-gray-300 border-none px-3 py-1 rounded-lg cursor-pointer text-lg font-bold hover:bg-gray-400' onClick={decrease}>-</button>
-                <span>{cantidad}</span>
-                <button className='bg-gray-300 border-none px-3 py-1 rounded-lg cursor-pointer text-lg font-bold hover:bg-gray-400' onClick={increase}>+</button>
-            </div>
-
-            <button className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-orange-400 px-8 py-1 text-base font-medium text-white hover:bg-orange-800 focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:outline-hidden" onClick={() => agregarCarrito(producto)}>Agregar al carrito</button>
-
         </section>
     )
 }

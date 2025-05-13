@@ -1,22 +1,11 @@
-.notfound-container{
-    background-color:black;
-    display:flex;
-}
-.notfound-content{
-    width:100vw;
-    height:100vh;
-    
-    justify-content:center;
-    align-content:center;
-}
 .notfound-back{
-    border:1px solid grey;
+    border:.0625rem solid grey;
     background:#7f7f7fa4;
-    border-radius:30px;
-    padding:5px 30px;
+    border-radius:1.875rem;
+    padding:.3125rem 1.875rem;
     &:hover{
-        box-shadow: -4px 9px 14px 0px rgba(227,227,227,0.75) inset;
-        -webkit-box-shadow: -4px 9px 14px 0px rgba(227,227,227,0.75) inset;
-        -moz-box-shadow: -4px 9px 14px 0px rgba(227,227,227,0.75) inset;
+        box-shadow: -0.25rem .5625rem .875rem 0rem rgba(227,227,227,0.75) inset;
+        -webkit-box-shadow: -0.25rem .5625rem .875rem 0rem rgba(227,227,227,0.75) inset;
+        -moz-box-shadow: -0.25rem .5625rem .875rem 0rem rgba(227,227,227,0.75) inset;
     }
 }
