@@ -9,7 +9,7 @@ const AcercaDe = ({ cart, borrarProducto }) => {
         <>
             <Header borrarProducto={borrarProducto} cartItems={cart} />
 
-            <div className="bg-gray-100 rounded-xl p-4 w-full h-full ">
+            <div className="section bg-gray-200 rounded-xl p-4">
                 <h2 className="text-gray-700 text-3xl font-bold text-center my-10">Nuestro Equipo</h2>
                 <p className="text-gray-500 text-center mt-4">Conoce a nuestro equipo</p>
 

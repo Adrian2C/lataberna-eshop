@@ -26,8 +26,8 @@ const Productos = ({ producto, agregarCarrito }) => {
                                 </div>
                             </div>
                         </div>
-                        <div class="flex items-center gap-1">
-                            <span class="text-sm text-gray-600 mb-1">Stock: {producto.stock}</span>
+                        <div className="flex items-center gap-1">
+                            <span className="text-sm text-gray-600 mb-1">Stock: {producto.stock}</span>
                         </div>
 
                     </div>
@@ -38,7 +38,7 @@ const Productos = ({ producto, agregarCarrito }) => {
                         <button className='qtyButton border-none px-2 rounded-lg cursor-pointer text-lg font-bold hover:bg-gray-400' onClick={increase}>+</button>
                     </div>
 
-                    <button className="w-full bg-indigo-500 hover:bg-indigo-800 border-amber-50 text-white font-medium py-3 rounded-lg transition-colors " onClick={() => agregarCarrito(producto)}>Agregar al carrito</button>
+                    <button className="w-full bg-indigo-500 hover:bg-indigo-800 border-amber-50 text-white font-medium py-3 rounded-lg transition-colors cursor-pointer active:border-indigo-300 border-8" onClick={() => agregarCarrito(producto,cantidad)}>Agregar al carrito</button>
                 </div>
             </div>
         </section>

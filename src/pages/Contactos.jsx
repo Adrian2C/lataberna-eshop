@@ -12,11 +12,11 @@ const Contactos = ({ cart, borrarProducto }) => {
   return (
     <>
       <Header borrarProducto={borrarProducto} cartItems={cart} />
-      <div className="px-6 py-24 sm:py-32 lg:px-8">
+      <div className=" section px-6 py-24 sm:py-32 lg:px-8">
         <div className="bg-gray-200 py-8 rounded-lg">
           <div className="mx-auto max-w-2xl text-center ">
             <h2 className="text-4xl font-semibold tracking-tight text-balance text-gray-900 sm:text-5xl">Contactanos</h2>
-            <p className="mt-2 text-lg/8 text-gray-600">Cuentanos tus necesidades y busquemos la solucion juntos.</p>
+            <p className="mt-2 text-lg/8 text-gray-00">Cuentanos tus necesidades y busquemos la solucion juntos.</p>
           </div>
           <form action="#" method="POST" className="mx-auto mt-16 max-w-xl sm:mt-20">
             <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
