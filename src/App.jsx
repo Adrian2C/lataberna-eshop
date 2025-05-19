@@ -7,7 +7,7 @@ import AcercaDe from './pages/AcercaDe'
 import Contacto from './pages/Contactos'
 import Galeria from './pages/GaleriaDeProductos'
 import NotFound from './pages/NotFound'
-
+import DetalleProductos from './components/DetalleProductos'
 
 function App() {
 
@@ -33,14 +33,14 @@ function App() {
 
   }, [])
 
-  const handleAddToCart = (product) => {
+  const handleAddToCart = (product, cantidad) => {
 
     const productInCart = cart.find((item) => item.id === product.id);
     if (productInCart) {
 
-      setCart(cart.map((item) => item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item));
+      setCart(cart.map((item) => item.id === product.id ? { ...item, quantity: item.quantity + cantidad } : item));
     } else {
-      setCart([...cart, { ...product, quantity: 1 }]);
+      setCart([...cart, { ...product, quantity: cantidad }]);
     }
   };
 
@@ -70,7 +70,7 @@ function App() {
         <Route path='/acercade' element={<AcercaDe borrarProducto={handleDeleteFromCart} cart={cart} />} />
 
         <Route path='/productos' element={<Galeria borrarProducto={handleDeleteFromCart} agregarCarrito={handleAddToCart} cart={cart} productos={productos} cargando={cargando} />} />
-
+        <Route path='/productos/:id' element={<DetalleProductos productos={productos} />}/>
         <Route path='/contacto' element={<Contacto borrarProducto={handleDeleteFromCart} cart={cart} />} />
 
         <Route path='*' element={<NotFound />} />

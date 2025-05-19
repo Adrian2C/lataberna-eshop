@@ -10,11 +10,9 @@ const GaleriaDeProductos = ({ cart, productos, cargando, agregarCarrito, borrarP
       <Header borrarProducto={borrarProducto} cartItems={cart} />
       <h1>Galeria de productos</h1>
       {
-        cargando ? <img src={loading} alt='loading' /> :
-
+        cargando ? <div className='flex justify-center align-middle h-dvh'><img src={loading} alt='loading' className="h-auto w-auto" /></div> :
           <ProductList agregarCarrito={agregarCarrito} productos={productos} />
       }
-
       <Footer />
     </>
   )

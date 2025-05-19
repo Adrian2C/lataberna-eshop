@@ -48,20 +48,8 @@ padding:5px 10px;
   background-color: #e0e0e0;
   transition:background-color 0.2s;
 }
-/* NOT FOUND */
-.notfound-back{
-    border:.0625rem solid grey;
-    background:#7f7f7fa4;
-    border-radius:1.875rem;
-    padding:.3125rem 1.875rem;
-    &:hover{
-        box-shadow: -0.25rem .5625rem .875rem 0rem rgba(227,227,227,0.75) inset;
-        -webkit-box-shadow: -0.25rem .5625rem .875rem 0rem rgba(227,227,227,0.75) inset;
-        -moz-box-shadow: -0.25rem .5625rem .875rem 0rem rgba(227,227,227,0.75) inset;
-    }
-}
 
-/* AOUT */
+/* AbOUT */
 .section{
   height:100dvh;
 }
@@ -82,4 +70,32 @@ padding:5px 10px;
 }
 .fa-cart-shopping{
   color:red;
+}
+
+
+/* -Error- */
+.error{
+  height:100%;
+  background:#ffbc2c;
+  display: flex;
+  justify-content: center;
+  img{
+    height:100dvh;
+  }
+}
+.error-back{
+    border:3px solid #996e11;
+    background:#ffc547;
+    border-radius:15px;
+    font-weight: 700;
+    color:#4a3402;
+    font-size: 28px;
+    padding:5px 30px;
+    &:hover{
+      background:#4a3402;
+      color:#ffc547;
+    }
+    &:active{
+      border:6px solid #996e11;
+    }
 }

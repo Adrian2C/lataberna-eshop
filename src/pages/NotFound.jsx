@@ -1,14 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import error from '../assets/images/error.gif'
-import '../assets/style/style.css'
 
 const NotFound = () => {
     return (
-        <div className="flex bg-black ">
-            <h1>Lo Siento!</h1>
-            <img src={error} alt="error al cargar el archivo" />
-            <button className="notfound-back"><Link to='/'>Volver al inicio</Link></button>
+        <div className="error ">
+
+            <img src={error} alt="error al cargar el archivo" className="a" />
+
+            <div className="absolute bottom-2 right-8  ">
+                <button className="error-back"><Link to='/'>Volver al inicio</Link></button>
+            </div>
         </div>
     )
 }

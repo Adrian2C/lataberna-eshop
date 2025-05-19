@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../../assets/style/style.css'
+import logo from '../../assets/images/logo.png'
 import Cart from '../Cart'
 
 
@@ -11,11 +12,13 @@ const Header = ({ cartItems, borrarProducto }) => {
     return (
         <header>
             <nav className="bg-gray-900 text-white p-3">
-                <ul classsName="flex">
+                <ul classsName="flex ">
+                <img src={logo} alt="logo empresa" className="w-20 h-15 border-red-500 border-2" />
                     <li><Link to='/' className='link'>Inicio</Link></li>
                     <li><Link to='/acercade' className='link'>Sobre nosotros</Link></li>
                     <li><Link to='/productos' className='link'>Galeria de productos</Link></li>
                     <li><Link to='/contacto' className='link'>Contacto</Link></li>
+                    <li><Link to='/Login' className='link'>Login</Link></li>
                     <li className='cartnav'>
                         <button className='bg-transparent border-none' onClick={() => setCartOpen(true)}>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
