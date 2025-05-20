@@ -1,4 +1,48 @@
+/* Variables */
+  :root {
+  /* 🎨 Colores */
+  --color-primary: #5409DA;
+  --color-secondary: #4E71FF;
+  --color-accent: #8DD8FF;
+  --color-muted: #BBFBFF;
+  --color-light-bg: #F2F2F2;
+  --color-dark: #222831;
+
+  /* 🖋️ Tipografía */
+  --font-primary: 'Poppins', sans-serif;
+    /* Ejemplo de escala tipográfica */
+  --text-display: 3.75rem;   /* 60px */
+  --text-title-1: 2.25rem;   /* 36px */
+  --text-title-2: 1.5rem;    /* 24px */
+  --text-body: 1rem;         /* 16px */
+  --text-small: 0.875rem;    /* 14px */
+}
 /* GENERAL */
+*{
+  font-family: var(--font-primary);
+}
+body{
+  font-family: var(--font-primary);
+  background-color: var(--color-light-bg);
+  color: var(--color-dark);
+}
+h1{
+  font-size: var(--text-title-1);
+  color: var(--color-primary);
+}
+button {
+  /* background-color: var(--color-primary); */
+  color: white;
+  /* padding: 0.75rem 1.25rem; */
+  border-radius: 0.5rem;
+  /* font-weight: 600; */
+  font-family: var(--font-primary);
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--color-secondary);
+}
 nav ul{
   list-style: none;
   display:flex;

@@ -15,6 +15,7 @@ const Cart = ({ cartItems, isOpen, onClose, borrarProducto }) => {
                     <p className="text-red-500">El carrito esta vacío</p>
                 ) : (
                     <ul className="flex flex-col gap-4">
+
                         {cartItems.map((item, index) => (
                             <>
                                 <li key={item.id} className="flex items-center justify-between gap-4 border-b pb-2 text-black min-h-[80px] ">
@@ -37,11 +38,13 @@ const Cart = ({ cartItems, isOpen, onClose, borrarProducto }) => {
                                     </button>
                                 </li>
                             </>
+
                         ))}
+                        <button className="w-5/6 rounded-xl py-3 bg-red-500 text-black hover:bg-amber-300">hola</button>
+
                     </ul >
                 )}
             </div>
-
         </div>
     )
 }

@@ -9,12 +9,19 @@ import Galeria from './pages/GaleriaDeProductos'
 import NotFound from './pages/NotFound'
 import DetalleProductos from './components/DetalleProductos'
 
+import Admin from './pages/Admin'
+import Login from './pages/Login'
+import RutaProtegida from './Auth/RutasProtegidas'
+
+
 function App() {
 
   const [cart, setCart] = useState([])
   const [productos, setProductos] = useState([])
   const [cargando, setCargando] = useState(true)
   const [error, setError] = useState(false)
+
+  const [isAuthenticated, setAutenticated] = useState(false)
 
   useEffect(() => {
     fetch('https://6812b137129f6313e20f46de.mockapi.io/productos-ecommerce/productos')
@@ -70,9 +77,12 @@ function App() {
         <Route path='/acercade' element={<AcercaDe borrarProducto={handleDeleteFromCart} cart={cart} />} />
 
         <Route path='/productos' element={<Galeria borrarProducto={handleDeleteFromCart} agregarCarrito={handleAddToCart} cart={cart} productos={productos} cargando={cargando} />} />
-        <Route path='/productos/:id' element={<DetalleProductos productos={productos} />}/>
+        <Route path='/productos/:id' element={<DetalleProductos productos={productos} />} />
         <Route path='/contacto' element={<Contacto borrarProducto={handleDeleteFromCart} cart={cart} />} />
 
+        <Route path='/admin' element={<RutaProtegida isAuthenticated={isAuthenticated}> <Admin /></RutaProtegida>} />
+
+        <Route path='/login' element={<Login />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </Router>
