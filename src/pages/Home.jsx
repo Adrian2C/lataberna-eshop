@@ -3,32 +3,26 @@ import Header from '../components/estaticos/Header'
 import Footer from '../components/estaticos/Footer'
 import ProductList from '../components/ProductList'
 import loading from '../assets/images/loading.gif'
-import intro from '../assets/images/intro.png'
+import bg from '../assets/images/bg.jpg'
 
 const Home = ({ cart, productos, cargando, agregarCarrito, borrarProducto }) => {
     return (
         <>
             <Header borrarProducto={borrarProducto} cartItems={cart} />
             <main>
-                <section className="bg-gray-100 min-h-screen grid grid-cols-1 sm:grid-cols-2 align-middle ">
-                    <div className="bg-pink-100">
-                        <h1 className="text-primary text-2xl font-bold">Bienvenidos a mi Tienda</h1>
+                <section >
+                    <div>
+                        <img src={bg} alt='bg' className="w-full max-h-[70vh] object-center" />
                     </div>
-                    <div className="bg-primary">
-                        <img src={intro} alt='intro' className="h-xl" />
-                    </div>
+
+                    <h1 className="text-center text-2xl">Bienvenidos a donde todo comienza!</h1>
                 </section>
                 {
-                    cargando ? <div className='flex justify-center align-middle h-dvh'><img src={loading} alt='loading' className="h-auto w-auto" /></div> :
+                    cargando ? <div className='flex justify-center align-middle h-dvh  '><img src={loading} alt='loading' className="h-auto w-auto" /></div> :
 
                         <ProductList agregarCarrito={agregarCarrito} productos={productos} />
                 }
-
-
             </main>
-
-
-
             <Footer />
         </>
     )

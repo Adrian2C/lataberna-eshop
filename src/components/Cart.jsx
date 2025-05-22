@@ -7,7 +7,7 @@ const Cart = ({ cartItems, isOpen, onClose, borrarProducto }) => {
         <div className={`cart-drawer ${isOpen ? 'open' : ''}`}>
             <div className='flex justify-between align-center p-4 border-b-2 border-gray-500'>
                 <h2 className="text-black text-lg font-bold">Carrito de Compras</h2>
-                <button onClick={onClose} className='text-xl text-black'>X</button>
+                <button onClick={onClose} className='text-xl text-black close'>X</button>
             </div>
 
             <div className='p-4'>
@@ -40,7 +40,7 @@ const Cart = ({ cartItems, isOpen, onClose, borrarProducto }) => {
                             </>
 
                         ))}
-                        <button className="w-5/6 rounded-xl py-3 bg-red-500 text-black hover:bg-amber-300">hola</button>
+                        
 
                     </ul >
                 )}

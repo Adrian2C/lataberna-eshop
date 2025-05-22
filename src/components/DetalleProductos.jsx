@@ -1,38 +1,73 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 
-const DetalleProductos = ({ productos }) => {
-    console.log(productos)
-
+const DetalleProductos = ({ productos, agregarCarrito }) => {
     const { id } = useParams()
-
     const product = productos.find(producto => producto.id == id)
+    const [cantidad, setCantidad] = useState(1)
+
+    const increase = () => setCantidad(prev => (prev < product.stock ? prev + 1 : prev))
+    const decrease = () => setCantidad(prev => (prev > 1 ? prev - 1 : 1))
 
     return (
-        <div>
-            {/* <h1>producto : {id}</h1> */}
-            {
-                product ? (
-                    <div className="p-8 max-w-4xl mx-auto">
-                        <Link to='/'>volver atras</Link>
-                        <div className="bg-white rounded-xl shadow-md flex flex-col md:flex-row overflow-hidden">
-                            <img src={product.imagen} alt={product.nombre} className="w-full md:w-1/2 object-cover" />
-                            <div className="p-6 md:w-1/2 space-y-4">
-                                <h1 className="text-3xl font-bold">{product.nombre}</h1>
-                                <p className="text-gray-700 text-lg">{product.descripcion}</p>
-                                <p className="text-xl text-blue-700 font-semibold">Precio: ${product.precio}</p>
+        <div className="min-h-screen bg-[#567219b4] py-10 px-4">
+            {product ? (
+                <div className="max-w-5xl mx-auto bg-[#3c4c1ab4] rounded-2xl p-6 shadow-2xl border border-[#6a7f3a]">
+                    <div className="mb-6">
+                        <Link
+                            to="/"
+                            className="inline-block px-6 py-3 text-lg font-bold bg-[#3e4e1e] text-white rounded-xl hover:bg-[#567219] transition"
+                        >
+                            ← Volver atrás
+                        </Link>
+                    </div>
+
+                    <div className="bg-[#f5f1e4] rounded-xl shadow-md flex flex-col md:flex-row overflow-hidden border border-[#d4c9a4]">
+                        <img
+                            src={product.imagen}
+                            alt={product.nombre}
+                            className="w-full md:w-1/2 object-cover h-96 md:h-auto"
+                        />
+
+                        <div className="p-6 md:w-1/2 flex flex-col justify-between space-y-6">
+                            <div>
+                                <h1 className="text-4xl font-bold text-[#5c4c2d] mb-2">{product.nombre}</h1>
+                                <p className="text-[#3e3e3e] text-lg">{product.descripcion}</p>
+                                <p className="text-2xl text-[#D4AF37] font-semibold mt-4">Precio: ${product.precio}</p>
                                 {product.stock && (
-                                    <p className="text-sm text-gray-500">Stock disponible: {product.stock}</p>
+                                    <p className="text-sm text-gray-600">Stock disponible: {product.stock}</p>
                                 )}
+                            </div>
+
+                            <div className="flex items-center gap-4 mt-4">
+                                <button
+                                    onClick={decrease}
+                                    className="px-3 py-1 bg-[#ccc7b6] rounded-md text-xl font-bold hover:bg-[#b9b49e]"
+                                >
+                                    -
+                                </button>
+                                <span className="font-bold text-lg text-[#8c2929]">{cantidad}</span>
+                                <button
+                                    onClick={increase}
+                                    className="px-3 py-1 bg-[#ccc7b6] rounded-md text-xl font-bold hover:bg-[#b9b49e]"
+                                >
+                                    +
+                                </button>
+
+                                <button
+                                    onClick={() => agregarCarrito(product, cantidad)}
+                                    className="ml-auto bg-[#3e4e1e] hover:bg-[#567219] text-white font-semibold px-6 py-2 rounded-xl transition"
+                                >
+                                    Agregar al carrito
+                                </button>
                             </div>
                         </div>
                     </div>
-                ) : (
-                    <p>Producto no Encontrado</p>
-                )
-            }
+                </div>
+            ) : (
+                <p className="text-center text-white text-xl">Producto no encontrado</p>
+            )}
         </div>
-
     )
 }
 

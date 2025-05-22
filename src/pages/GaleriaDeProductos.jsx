@@ -8,12 +8,24 @@ const GaleriaDeProductos = ({ cart, productos, cargando, agregarCarrito, borrarP
   return (
     <>
       <Header borrarProducto={borrarProducto} cartItems={cart} />
-      <h1>Galeria de productos</h1>
-      {
-        cargando ? <div className='flex justify-center align-middle h-dvh'><img src={loading} alt='loading' className="h-auto w-auto" /></div> :
-          <ProductList agregarCarrito={agregarCarrito} productos={productos} />
-      }
-      <Footer />
+
+      <div className="min-h-screen bg-[#567219b4] py-10 px-4">
+        <h1 className="text-[#D4AF37] text-4xl font-bold text-center mb-6">
+          Galería de productos
+        </h1>
+
+        {
+          cargando ? (
+            <div className="flex justify-center items-center h-dvh">
+              <img src={loading} alt="loading" className="h-auto w-32" />
+            </div>
+          ) : (
+            <ProductList agregarCarrito={agregarCarrito} productos={productos} />
+          )
+        }
+      </div>
+
+      
     </>
   )
 }
