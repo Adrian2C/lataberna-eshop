@@ -20,11 +20,11 @@ function App() {
   const [productos, setProductos] = useState([])
   const [cargando, setCargando] = useState(true)
   const [error, setError] = useState(false)
-
-  const [isAuthenticated, setAutenticated] = useState(false)
+  /* con esta funcion se comprueba si el usuario esta o no auth */
+  const [isAuthenticated, setIsAuth] = useState(true)
 
   useEffect(() => {
-    fetch('https://6812b137129f6313e20f46de.mockapi.io/productos-ecommerce/productos')
+    fetch('/data/data.json')
       .then(respuesta => respuesta.json())
       .then(datos => {
         setTimeout(() => {
@@ -81,9 +81,9 @@ function App() {
         <Route path='/contacto' element={<Contacto borrarProducto={handleDeleteFromCart} cart={cart} />} />
 
         <Route path='/admin' element={<RutaProtegida isAuthenticated={isAuthenticated}> <Admin /></RutaProtegida>} />
-
         <Route path='/login' element={<Login />} />
         <Route path='*' element={<NotFound />} />
+
       </Routes>
     </Router>
   )

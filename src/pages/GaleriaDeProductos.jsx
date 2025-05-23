@@ -10,9 +10,9 @@ const GaleriaDeProductos = ({ cart, productos, cargando, agregarCarrito, borrarP
       <Header borrarProducto={borrarProducto} cartItems={cart} />
 
       <div className="min-h-screen bg-[#567219b4] py-10 px-4">
-        <h1 className="text-[#D4AF37] text-4xl font-bold text-center mb-6">
-          Galería de productos
-        </h1>
+        <h2 className="text-[#D4AF37] text-3xl font-bold text-center mb-6">
+          Nuestros productos:
+        </h2>
 
         {
           cargando ? (

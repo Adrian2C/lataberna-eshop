@@ -12,10 +12,10 @@ const Home = ({ cart, productos, cargando, agregarCarrito, borrarProducto }) => 
             <main>
                 <section >
                     <div>
-                        <img src={bg} alt='bg' className="w-full max-h-[70vh] object-center" />
+                        <img src={bg} alt='bg' className="w-full max-h-[70vh] object-center " />
                     </div>
 
-                    <h1 className="text-center text-2xl">Bienvenidos a donde todo comienza!</h1>
+                    <h1 className="text-center text-2xl">Bienvenidos a la tienda!</h1>
                 </section>
                 {
                     cargando ? <div className='flex justify-center align-middle h-dvh  '><img src={loading} alt='loading' className="h-auto w-auto" /></div> :

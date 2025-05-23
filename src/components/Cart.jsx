@@ -38,9 +38,9 @@ const Cart = ({ cartItems, isOpen, onClose, borrarProducto }) => {
                                     </button>
                                 </li>
                             </>
-
                         ))}
-                        
+                        <button className="rounded-lg bg-[#435a12b4] text-gray-200 text-lg font-bold py-2 w-full hover:bg-[#3e4e1e]">hola</button>
+
 
                     </ul >
                 )}

@@ -1,30 +1,29 @@
-/* Variables */
+/* ========= VARIABLES =========== */
 :root {
-  /* 🎨 Colores */
-  --color-background: #1e1b18; /* Fondo oscuro */
-  --color-parchment: #f5ebd0; /* Fondo claro estilo pergamino */
-  --color-dragon: #a42e2c; /* Botón primario / Acento fuerte */
-  --color-arcane: #3a4f9a; /* Azul misterioso para enlaces */
-  --color-rune: #ffcd28; /* Dorado para acentos premium */
-  --color-forge: #6c6c6c; /* Gris neutro para textos */
-  --color-druid: #567219b4; /* Verde natural para zonas orgánicas */
+  /* Colores */
+  --color-background: #1e1b18;
+  --color-parchment: #f5ebd0;
+  --color-dragon: #a42e2c;
+  --color-arcane: #3a4f9a;
+  --color-rune: #e7b81e;
+  --color-forge: #6c6c6c;
+  --color-druid: #567219b4;
 
-  /* 🖋️ Tipografía */
+  /* Tipografía */
   --font-primary: "Poppins", sans-serif;
 
   /* Ejemplo de escala tipográfica */
-  --text-display: 3.75rem; /* 60px */
-  --text-title-1: 2.25rem; /* 36px */
-  --text-title-2: 1.5rem; /* 24px */
-  --text-body: 1rem; /* 16px */
-  --text-small: 0.875rem; /* 14px */
+  --text-display: 3.75rem;
+  --text-title-1: 2.25rem;
+  --text-title-2: 1.5rem;
+  --text-body: 1rem;
+  --text-small: 0.875rem;
 }
 /* GENERAL */
 * {
   font-family: var(--font-primary);
 }
 body {
-  font-family: var(--font-primary);
   background-color: var(--color-druid);
   color: var(--color-parchment);
 }
@@ -32,35 +31,15 @@ h1 {
   font-size: var(--text-title-1);
   color: var(--color-rune);
 }
-.close {
-  background-color: var(--color-dragon);
-  /* color: white; */
-  /* padding: 0.75rem 1.25rem; */
-  border-radius: 0.5rem;
-  /* font-weight: 600; */
-  font-family: var(--font-primary);
-  transition: background-color 0.3s ease;
-  padding: 0 10px;
-}
 
-.close:hover {
-  background-color: var(--color-rune);
-  color: var(--color-background);
-}
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: space-around;
-  margin: 0;
-  align-items: center;
-}
+/* ====== Enlaces ====== */
 
 .link {
   color: var(--color-rune);
   text-decoration: none;
   font-size: 18px;
-  text-transform: capitalize;
   font-weight: 600;
+  text-transform: capitalize;
   &:hover {
     text-decoration: underline;
   }
@@ -71,9 +50,56 @@ nav ul {
     padding: 5px 10px;
   }
 }
-/* HEADER */
+/* ====== Botones ====== */
 
-/* ---CART---- */
+.button,
+.close,
+.qtyButton,
+.error-back {
+  font-family: var(--font-primary);
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.close {
+  background-color: var(--color-dragon);
+  color: var(--color-parchment);
+  padding: 0 10px;
+}
+
+.close:hover {
+  background-color: var(--color-rune);
+  color: var(--color-background);
+}
+
+.qtyButton {
+  background-color: var(--color-forge);
+  color: var(--color-parchment);
+  transition: background-color 0.2s;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  align-items: center;
+}
+/* =========================
+  🧭 NAVBAR
+========================= */
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0;
+}
+
+/* =========================
+  🛒 CART DRAWER
+========================= */
 .cart-drawer {
   position: fixed;
   top: 0;
@@ -88,20 +114,21 @@ nav ul {
   z-index: 999;
   overflow-y: auto;
 }
+
 .cart-drawer.open {
   transform: translateX(0%);
 }
-.qtyButton {
-  background-color: var(--color-forge);
-  color: var(--color-parchment);
-  transition: background-color 0.2s;
-}
 
-
-/* AbOUT */
+/* =========================
+  💼 SECCIONES
+========================= */
 .section {
   height: 100dvh;
 }
+
+/* =========================
+  🧾 TARJETAS
+========================= */
 .cardAbout {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -110,49 +137,67 @@ nav ul {
   gap: 1.5rem;
   padding: 16px;
 }
+
 .card {
   box-shadow: 0 2px 8px rgba(243, 233, 233, 0.1);
   background-color: var(--color-druid);
   color: var(--color-parchment);
   padding: 1rem;
 }
-.cardProdContainer {
-  animation: fadeIn 0.5s ease-in;
-}
-.fa-cart-shopping {
-  color: red;
-}
-/* ANIMACIÓN */
+
 .cardProdContainer {
   animation: fadeIn 0.5s ease-in;
 }
 
+/* =========================
+  🎨 ICONOS
+========================= */
 .fa-cart-shopping {
   color: var(--color-dragon);
 }
-/* -Error- */
+
+/* =========================
+  ⚠️ ERROR
+========================= */
 .error {
   height: 100%;
   background: #ffbc2c;
   display: flex;
   justify-content: center;
-  img {
-    height: 100dvh;
-  }
 }
+
+.error img {
+  height: 100dvh;
+}
+
 .error-back {
   border: 3px solid #996e11;
   background: #ffc547;
   border-radius: 15px;
-  font-weight: 700;
-  color: #4a3402;
   font-size: 28px;
   padding: 5px 30px;
-  &:hover {
-    background: #4a3402;
-    color: #ffc547;
+  color: #4a3402;
+}
+
+.error-back:hover {
+  background: #4a3402;
+  color: #ffc547;
+}
+
+.error-back:active {
+  border: 6px solid #996e11;
+}
+
+/* =========================
+  🎞️ ANIMACIONES
+========================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
-  &:active {
-    border: 6px solid #996e11;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

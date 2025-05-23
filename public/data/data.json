@@ -1,0 +1,162 @@
+[
+  {
+    "id": 1,
+    "nombre": "Set de Dados Élficos",
+    "precio": 12.99,
+    "stock": 15,
+    "imagen": "https://example.com/dados-elficos.jpg",
+    "descripcion": "Juego de dados con inscripciones élficas, ideal para campañas mágicas."
+  },
+  {
+    "id": 2,
+    "nombre": "Miniatura de Dragón Rojo",
+    "precio": 24.99,
+    "stock": 8,
+    "imagen": "https://example.com/dragon-rojo.jpg",
+    "descripcion": "Miniatura de dragón rojo en pose de combate, tamaño estándar de 5 cm."
+  },
+  {
+    "id": 3,
+    "nombre": "Pantalla del Dungeon Master",
+    "precio": 18.5,
+    "stock": 10,
+    "imagen": "https://example.com/pantalla-dm.jpg",
+    "descripcion": "Pantalla plegable con todas las tablas necesarias para el Dungeon Master."
+  },
+  {
+    "id": 4,
+    "nombre": "Mapa de Reinos Olvidados",
+    "precio": 9.99,
+    "stock": 20,
+    "imagen": "https://example.com/mapa-faerun.jpg",
+    "descripcion": "Mapa detallado de los Reinos Olvidados, ideal para ambientar campañas."
+  },
+  {
+    "id": 5,
+    "nombre": "Libro: Guía del Xanathar",
+    "precio": 39.95,
+    "stock": 5,
+    "imagen": "https://example.com/xanathar.jpg",
+    "descripcion": "Manual con nuevas subclases, conjuros y reglas opcionales para jugadores y DMs."
+  },
+  {
+    "id": 6,
+    "nombre": "Miniatura de Guerrero Enano",
+    "precio": 6.99,
+    "stock": 25,
+    "imagen": "https://example.com/enano.jpg",
+    "descripcion": "Miniatura de guerrero enano con hacha de batalla doble."
+  },
+  {
+    "id": 7,
+    "nombre": "Set de Tiles de Mazmorra",
+    "precio": 29.99,
+    "stock": 12,
+    "imagen": "https://example.com/tiles-mazmorra.jpg",
+    "descripcion": "Baldosas modulares para construir tus propias mazmorras en la mesa de juego."
+  },
+  {
+    "id": 8,
+    "nombre": "Dados Metálicos Antiguos",
+    "precio": 19.99,
+    "stock": 10,
+    "imagen": "https://example.com/dados-metal.jpg",
+    "descripcion": "Set completo de dados metálicos estilo envejecido, resistentes y pesados."
+  },
+  {
+    "id": 9,
+    "nombre": "Miniatura de Beholder",
+    "precio": 21.49,
+    "stock": 6,
+    "imagen": "https://example.com/beholder.jpg",
+    "descripcion": "Figura detallada de un Beholder flotante con ojos móviles."
+  },
+  {
+    "id": 10,
+    "nombre": "Pantalla Personalizada para DM",
+    "precio": 22.99,
+    "stock": 7,
+    "imagen": "https://example.com/pantalla-custom.jpg",
+    "descripcion": "Pantalla ilustrada personalizada con bolsillos para hojas de referencia."
+  },
+  {
+    "id": 11,
+    "nombre": "Figuras de Goblins (x3)",
+    "precio": 8.75,
+    "stock": 18,
+    "imagen": "https://example.com/goblins.jpg",
+    "descripcion": "Set de 3 goblins con diferentes armas y poses."
+  },
+  {
+    "id": 12,
+    "nombre": "Libro: Manual del Jugador",
+    "precio": 49.99,
+    "stock": 9,
+    "imagen": "https://example.com/manual-jugador.jpg",
+    "descripcion": "Reglas básicas y avanzadas para todos los jugadores de D&D 5e."
+  },
+  {
+    "id": 13,
+    "nombre": "Set de Dados Brillan en la Oscuridad",
+    "precio": 14.99,
+    "stock": 14,
+    "imagen": "https://example.com/dados-glow.jpg",
+    "descripcion": "Dados acrílicos que brillan en la oscuridad, perfectos para sesiones nocturnas."
+  },
+  {
+    "id": 14,
+    "nombre": "Miniatura de Liche",
+    "precio": 11.99,
+    "stock": 10,
+    "imagen": "https://example.com/liche.jpg",
+    "descripcion": "Poderoso liche con bastón mágico, pintado a mano."
+  },
+  {
+    "id": 15,
+    "nombre": "Caja de Dados con Imán",
+    "precio": 7.99,
+    "stock": 20,
+    "imagen": "https://example.com/caja-dados.jpg",
+    "descripcion": "Caja de transporte para dados con cierre magnético."
+  },
+  {
+    "id": 16,
+    "nombre": "Libro: Guía de Van Richten",
+    "precio": 37.9,
+    "stock": 6,
+    "imagen": "https://example.com/vanrichtens.jpg",
+    "descripcion": "Explora los dominios del terror con esta guía de Ravenloft."
+  },
+  {
+    "id": 17,
+    "nombre": "Tablero de Batalla Reutilizable",
+    "precio": 16.99,
+    "stock": 13,
+    "imagen": "https://example.com/battlegrid.jpg",
+    "descripcion": "Tablero de vinilo cuadriculado, borrable y resistente al agua."
+  },
+  {
+    "id": 18,
+    "nombre": "Miniatura de Tiefling Hechicero",
+    "precio": 9.49,
+    "stock": 11,
+    "imagen": "https://example.com/tiefling.jpg",
+    "descripcion": "Tiefling con bastón arcano, perfecto para personajes carismáticos."
+  },
+  {
+    "id": 19,
+    "nombre": "Póster del Multiverso de D&D",
+    "precio": 5.99,
+    "stock": 22,
+    "imagen": "https://example.com/poster-dd.jpg",
+    "descripcion": "Póster ilustrado del multiverso y planos en Dungeons & Dragons."
+  },
+  {
+    "id": 20,
+    "nombre": "Set de Monstruos de Papel",
+    "precio": 13.5,
+    "stock": 17,
+    "imagen": "https://example.com/monstruos-papel.jpg",
+    "descripcion": "Miniaturas recortables de papel con peanas, incluye más de 30 enemigos."
+  }
+]
