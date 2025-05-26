@@ -25,7 +25,7 @@ const GaleriaDeProductos = ({ cart, productos, cargando, agregarCarrito, borrarP
         }
       </div>
 
-      
+      <Footer />
     </>
   )
 }

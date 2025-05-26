@@ -29,7 +29,6 @@ body {
 }
 h1 {
   font-size: var(--text-title-1);
-  color: var(--color-rune);
 }
 
 /* ====== Enlaces ====== */
@@ -79,15 +78,8 @@ h1 {
   transition: background-color 0.2s;
 }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: space-around;
-  margin: 0;
-  align-items: center;
-}
 /* =========================
-  🧭 NAVBAR
+ NAVBAR
 ========================= */
 nav ul {
   list-style: none;
@@ -98,7 +90,7 @@ nav ul {
 }
 
 /* =========================
-  🛒 CART DRAWER
+  CART DRAWER
 ========================= */
 .cart-drawer {
   position: fixed;
@@ -120,14 +112,14 @@ nav ul {
 }
 
 /* =========================
-  💼 SECCIONES
+    SECCIONES
 ========================= */
 .section {
   height: 100dvh;
 }
 
 /* =========================
-  🧾 TARJETAS
+   TARJETAS
 ========================= */
 .cardAbout {
   display: grid;
@@ -138,26 +130,19 @@ nav ul {
   padding: 16px;
 }
 
-.card {
-  box-shadow: 0 2px 8px rgba(243, 233, 233, 0.1);
-  background-color: var(--color-druid);
-  color: var(--color-parchment);
-  padding: 1rem;
-}
-
 .cardProdContainer {
   animation: fadeIn 0.5s ease-in;
 }
 
 /* =========================
-  🎨 ICONOS
+   ICONOS
 ========================= */
 .fa-cart-shopping {
   color: var(--color-dragon);
 }
 
 /* =========================
-  ⚠️ ERROR
+   ERROR
 ========================= */
 .error {
   height: 100%;
@@ -189,7 +174,7 @@ nav ul {
 }
 
 /* =========================
-  🎞️ ANIMACIONES
+   ANIMACIONES
 ========================= */
 @keyframes fadeIn {
   from {

@@ -10,6 +10,9 @@ const DetalleProductos = ({ productos, agregarCarrito }) => {
     const decrease = () => setCantidad(prev => (prev > 1 ? prev - 1 : 1))
 
     return (
+
+
+
         <div className="min-h-screen bg-[#567219b4] py-10 px-4">
             {product ? (
                 <div className="max-w-5xl mx-auto bg-[#3c4c1ab4] rounded-2xl p-6 shadow-2xl border border-[#6a7f3a]">
@@ -31,9 +34,9 @@ const DetalleProductos = ({ productos, agregarCarrito }) => {
 
                         <div className="p-6 md:w-1/2 flex flex-col justify-between space-y-6">
                             <div>
-                                <h1 className="text-4xl font-bold text-[#5c4c2d] mb-2">{product.nombre}</h1>
+                                <h1 className="text-4xl font-bold text-red mb-2 text-[#866c17]">{product.nombre}</h1>
                                 <p className="text-[#3e3e3e] text-lg">{product.descripcion}</p>
-                                <p className="text-2xl text-[#D4AF37] font-semibold mt-4">Precio: ${product.precio}</p>
+                                <p className="text-2xl text-[#866c17] font-semibold mt-4">Precio: ${product.precio}</p>
                                 {product.stock && (
                                     <p className="text-sm text-gray-600">Stock disponible: {product.stock}</p>
                                 )}
@@ -68,6 +71,8 @@ const DetalleProductos = ({ productos, agregarCarrito }) => {
                 <p className="text-center text-white text-xl">Producto no encontrado</p>
             )}
         </div>
+
+
     )
 }
 

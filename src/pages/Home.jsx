@@ -18,7 +18,11 @@ const Home = ({ cart, productos, cargando, agregarCarrito, borrarProducto }) => 
                     <h1 className="text-center text-2xl">Bienvenidos a la tienda!</h1>
                 </section>
                 {
-                    cargando ? <div className='flex justify-center align-middle h-dvh  '><img src={loading} alt='loading' className="h-auto w-auto" /></div> :
+                    cargando ?
+                        <div className="flex justify-center items-center h-dvh">
+                            <img src={loading} alt="loading" className="h-auto w-32" />
+                        </div>
+                        :
 
                         <ProductList agregarCarrito={agregarCarrito} productos={productos} />
                 }
