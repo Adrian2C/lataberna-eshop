@@ -3,12 +3,8 @@ import React from 'react'
 import Header from '../components/estaticos/Header'
 import Footer from '../components/estaticos/Footer'
 
-import { ChevronDownIcon } from '@heroicons/react/16/solid'
-
-
 const Contactos = ({ cart, borrarProducto }) => {
-
-
+  
   return (
     <>
       <Header borrarProducto={borrarProducto} cartItems={cart} />
@@ -66,7 +62,7 @@ const Contactos = ({ cart, borrarProducto }) => {
                 </label>
                 <div className="mt-2.5">
                   <div className="flex rounded-md bg-white outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-lime-800">
-                    
+
                     <input
                       id="phone-number"
                       name="phone-number"

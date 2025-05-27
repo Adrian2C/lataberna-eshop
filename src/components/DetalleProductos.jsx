@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import Footer from './estaticos/Footer'
+
 
 const DetalleProductos = ({ productos, agregarCarrito }) => {
     const { id } = useParams()
@@ -10,10 +12,7 @@ const DetalleProductos = ({ productos, agregarCarrito }) => {
     const decrease = () => setCantidad(prev => (prev > 1 ? prev - 1 : 1))
 
     return (
-
-
-
-        <div className="min-h-screen bg-[#567219b4] py-10 px-4">
+        <div className="section bg-[#567219b4] pt-10">
             {product ? (
                 <div className="max-w-5xl mx-auto bg-[#3c4c1ab4] rounded-2xl p-6 shadow-2xl border border-[#6a7f3a]">
                     <div className="mb-6">
@@ -70,9 +69,8 @@ const DetalleProductos = ({ productos, agregarCarrito }) => {
             ) : (
                 <p className="text-center text-white text-xl">Producto no encontrado</p>
             )}
+            <Footer />
         </div>
-
-
     )
 }
 

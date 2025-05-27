@@ -83,7 +83,6 @@ function App() {
         <Route path='/admin' element={<RutaProtegida isAuthenticated={isAuthenticated}> <Admin /></RutaProtegida>} />
         <Route path='/login' element={<Login />} />
         <Route path='*' element={<NotFound />} />
-
       </Routes>
     </Router>
   )

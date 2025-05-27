@@ -26,6 +26,7 @@
 body {
   background-color: var(--color-druid);
   color: var(--color-parchment);
+  
 }
 h1 {
   font-size: var(--text-title-1);
