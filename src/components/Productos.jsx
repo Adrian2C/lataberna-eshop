@@ -10,7 +10,7 @@ const Productos = ({ producto, agregarCarrito }) => {
     const decrease = () => setCantidad(prev => (prev > 1 ? prev - 1 : 1))
 
     return (
-        <section className="w-full max-w-xs sm:max-w-sm md:max-w-sm lg:max-w-sm xl:max-w-sm m-2 flex m-auto items-center justify-center">
+        <section className="w-full max-w-xs sm:max-w-sm md:max-w-sm lg:max-w-sm xl:max-w-sm m-2 flex items-center justify-center">
             <div className="w-full h-[500px] overflow-hidden rounded-xl bg-[#f5f1e4] shadow-lg transition-all hover:shadow-2xl border border-[#d4c9a4] flex flex-col">
                 <div className="relative h-64">
                     <img
