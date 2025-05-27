@@ -11,11 +11,8 @@ const Header = ({ cartItems, borrarProducto }) => {
 
     return (
         <header>
-            <nav className="bg-gray-900/60 text-white p-3">
+            <nav className="bg-gray-900 text-white p-3">
                 <ul classsName="flex ">
-                    <li><Link to='/' className='link'>
-                        <img src={logo} alt="logo empresa" className="w-15 h-10" />
-                    </Link></li>
                     <li><Link to='/' className='link'>Inicio</Link></li>
                     <li><Link to='/acercade' className='link'>Sobre nosotros</Link></li>
                     <li><Link to='/productos' className='link'>Galeria de productos</Link></li>
