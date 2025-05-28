@@ -1,81 +1,92 @@
 /* ========= VARIABLES =========== */
 :root {
-  /* Colores */
-  --color-background: #1e1b18;
-  --color-parchment: #f5ebd0;
-  --color-dragon: #a42e2c;
-  --color-arcane: #3a4f9a;
-  --color-rune: #e7b81e;
-  --color-forge: #6c6c6c;
-  --color-druid: #567219;
+  /* Colores medieval fantasy */
+  --color-bg: #2F2F2F; /* Fondo principal oscuro (piedra/caverna) */
+  --color-pergamino: #F6F1E7; /* Fondo claro tipo pergamino */
+  --color-dragon: #8B0000; /* Rojo dragón para acciones intensas */
+  --color-arcane: #5E4B8B; /* Azul arcano para enlaces y detalles mágicos */
+  --color-rune: #C9B037; /* Amarillo runa para hover y acentos */
+  --color-forge: #3B6BA5; /* Gris forja para elementos neutros */
+  --color-druid: #2C5E4A; /* Verde druídico para fondos suaves */
 
   /* Tipografía */
-  --font-primary: "Poppins", sans-serif;
+  --font-main: "Cinzel Decorative", serif;
+  --font-regular: "Lora", serif;
 
-  /* Ejemplo de escala tipográfica */
+  /* Escala tipográfica */
   --text-display: 3.75rem;
   --text-title-1: 2.25rem;
   --text-title-2: 1.5rem;
   --text-body: 1rem;
   --text-small: 0.875rem;
 }
-/* GENERAL */
+
+/* ====== GENERAL ====== */
 * {
-  font-family: var(--font-primary);
+  font-family: var(--font-regular);
 }
 body {
   background-color: var(--color-druid);
-  color: var(--color-parchment);
+  color: var(--color-pergamino);
 }
-h1 {
+h1,
+h2 {
+  font-family: var(--font-main);
   font-size: var(--text-title-1);
 }
-
+footer,
+header,
+.banner {
+  background: #2f2f2f;
+}
 /* ====== Enlaces ====== */
-
 .link {
   color: var(--color-rune);
   text-decoration: none;
   font-size: 18px;
-  font-weight: 600;
-  text-transform: capitalize;
-  &:hover {
-    text-decoration: underline;
-  }
-  &:active {
-    background-color: var(--color-parchment);
-    color: var(--color-background);
-    border-radius: 5px;
-    padding: 5px 10px;
-  }
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: background-color 0.5s ease-in;
 }
-/* ====== Botones ====== */
+.link:hover {
+  color: var(--color-rune);
+  text-decoration: underline;
+  
+}
+.link:active {
+  background-color: var(--color-pergamino);
+  color: var(--color-bg);
+  border-radius: 5px;
+  padding: 5px 10px;
+}
 
+/* ====== Botones ====== */
 .button,
 .close,
 .qtyButton,
 .error-back {
-  font-family: var(--font-primary);
+  font-family: var(--font-regular);
   border-radius: 0.5rem;
   font-weight: 600;
   transition: background-color 0.3s ease;
 }
 
 .close {
-  background-color: var(--color-dragon);
-  color: var(--color-parchment);
+  /* background-color: var(--color-dragon); */
+  /* color: var(--color-pergamino); */
   padding: 0 10px;
 }
-
 .close:hover {
   background-color: var(--color-rune);
-  color: var(--color-background);
+  color: var(--color-bg);
 }
 
 .qtyButton {
   background-color: var(--color-forge);
-  color: var(--color-parchment);
-  transition: background-color 0.2s;
+  color: var(--color-pergamino);
+}
+.qtyButton:hover {
+  background-color: var(--color-bg);
 }
 
 /* =========================
@@ -99,7 +110,7 @@ nav ul {
   right: 0;
   width: 300px;
   height: 100%;
-  background: var(--color-parchment);
+  background: var(--color-pergamino);
   color: var(--color-dragon);
   box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
   transform: translateX(100%);
@@ -107,7 +118,6 @@ nav ul {
   z-index: 999;
   overflow-y: auto;
 }
-
 .cart-drawer.open {
   transform: translateX(0%);
 }
@@ -134,28 +144,27 @@ nav ul {
 .cardProdContainer {
   animation: fadeIn 0.5s ease-in;
 }
+
 /* =========================
    ADMIN
 ========================= */
 .admin {
   background: url("../images/bg-admin.jpg");
   display: flex;
-  
 }
 .admin-login {
   background: var(--color-druid);
   margin: auto;
   height: 700px;
-
   width: 500px;
 }
 
 /* =========================
    ICONOS
 ========================= */
-.fa-cart-shopping {
+/* .fa-cart-shopping {
   color: var(--color-dragon);
-}
+} */
 
 /* =========================
    ERROR

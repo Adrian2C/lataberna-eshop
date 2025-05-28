@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../../assets/style/style.css'
-import logo from '../../assets/images/logo.png'
+/* import logo from '../../assets/images/logo.png' */
 import Cart from '../Cart'
 
 
@@ -11,8 +11,8 @@ const Header = ({ cartItems, borrarProducto }) => {
 
     return (
         <header>
-            <nav className="bg-gray-900 text-white p-3">
-                <ul classsName="flex ">
+            <nav className="absolute top-0 w-full pt-2">
+                <ul classsName="flex">
                     <li><Link to='/' className='link'>Inicio</Link></li>
                     <li><Link to='/acercade' className='link'>Sobre nosotros</Link></li>
                     <li><Link to='/productos' className='link'>Galeria de productos</Link></li>

@@ -11,8 +11,8 @@ const Home = ({ cart, productos, cargando, agregarCarrito, borrarProducto }) => 
             <Header borrarProducto={borrarProducto} cartItems={cart} />
             <main>
                 <section >
-                    <div>
-                        <img src={bg} alt='bg' className="w-full max-h-[70vh] object-center " />
+                    <div className=" w-full h-dvh">
+                        <img src={bg} alt='bg' className="w-full max-h-dvh object-center " />
                     </div>
 
                     <h1 className="text-center text-2xl">Bienvenidos a la tienda!</h1>
