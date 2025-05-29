@@ -1,64 +1,60 @@
 /* ========= VARIABLES =========== */
 :root {
   /* Colores medieval fantasy */
-  --color-bg: #2F2F2F; /* Fondo principal oscuro (piedra/caverna) */
-  --color-pergamino: #F6F1E7; /* Fondo claro tipo pergamino */
-  --color-dragon: #8B0000; /* Rojo dragón para acciones intensas */
-  --color-arcane: #5E4B8B; /* Azul arcano para enlaces y detalles mágicos */
-  --color-rune: #C9B037; /* Amarillo runa para hover y acentos */
-  --color-forge: #3B6BA5; /* Gris forja para elementos neutros */
-  --color-druid: #2C5E4A; /* Verde druídico para fondos suaves */
+  --color-bg: #2f2f2f; /* Fondo principal oscuro (piedra/caverna) */
+  --color-pergamino: #f6f1e7; /* Fondo claro tipo pergamino */
+  --color-dragon: #8b0000; /* Rojo dragón para acciones intensas */
+  --color-arcane: #5e4b8b; /* Azul arcano para enlaces y detalles mágicos */
+  --color-rune: #c9b037; /* Amarillo runa para hover y acentos */
+  --color-forge: #bdbdbd; /* Gris forja para elementos neutros */
+  --color-druid: #2c5e4a; /* Verde druídico para fondos suaves */
 
   /* Tipografía */
   --font-main: "Cinzel Decorative", serif;
   --font-regular: "Lora", serif;
 
   /* Escala tipográfica */
-  --text-display: 3.75rem;
-  --text-title-1: 2.25rem;
-  --text-title-2: 1.5rem;
-  --text-body: 1rem;
-  --text-small: 0.875rem;
+  /* --text-display: 3.75rem; */
+  --text-main: 2.25rem;
+  
+  --text-sub: 1.5rem;
+  --text-body: 1.2rem;
 }
 
 /* ====== GENERAL ====== */
 * {
   font-family: var(--font-regular);
+  scroll-behavior: smooth;
 }
 body {
   background-color: var(--color-druid);
   color: var(--color-pergamino);
+  font-size: var(--text-body);
 }
 h1,
 h2 {
   font-family: var(--font-main);
-  font-size: var(--text-title-1);
 }
-footer,
-header,
+
 .banner {
-  background: #2f2f2f;
+  background-image: url("../images/bg.jpg");
 }
 /* ====== Enlaces ====== */
 .link {
-  color: var(--color-rune);
+  color: var(--color-forge);
   text-decoration: none;
-  font-size: 18px;
-  font-weight: 700;
+  /* font-size: 18px; */
   text-transform: uppercase;
-  transition: background-color 0.5s ease-in;
 }
 .link:hover {
   color: var(--color-rune);
-  text-decoration: underline;
-  
 }
-.link:active {
+/* .link:active {
   background-color: var(--color-pergamino);
-  color: var(--color-bg);
+  color: var(--color-dragon);
   border-radius: 5px;
-  padding: 5px 10px;
-}
+  padding: 5px 0;
+} */
 
 /* ====== Botones ====== */
 .button,
@@ -72,8 +68,6 @@ header,
 }
 
 .close {
-  /* background-color: var(--color-dragon); */
-  /* color: var(--color-pergamino); */
   padding: 0 10px;
 }
 .close:hover {
@@ -82,7 +76,7 @@ header,
 }
 
 .qtyButton {
-  background-color: var(--color-forge);
+  background-color: var(--color-dragon);
   color: var(--color-pergamino);
 }
 .qtyButton:hover {

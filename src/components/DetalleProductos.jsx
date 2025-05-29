@@ -44,14 +44,14 @@ const DetalleProductos = ({ productos, agregarCarrito }) => {
                             <div className="flex items-center gap-4 mt-4">
                                 <button
                                     onClick={decrease}
-                                    className="px-3 py-1 bg-[#ccc7b6] rounded-md text-xl font-bold hover:bg-[#b9b49e]"
+                                    className="qtyButton"
                                 >
                                     -
                                 </button>
                                 <span className="font-bold text-lg text-[#8c2929]">{cantidad}</span>
                                 <button
                                     onClick={increase}
-                                    className="px-3 py-1 bg-[#ccc7b6] rounded-md text-xl font-bold hover:bg-[#b9b49e]"
+                                    className="qtyButton"
                                 >
                                     +
                                 </button>

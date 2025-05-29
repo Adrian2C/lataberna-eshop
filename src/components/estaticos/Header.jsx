@@ -11,7 +11,7 @@ const Header = ({ cartItems, borrarProducto }) => {
 
     return (
         <header>
-            <nav className="absolute top-0 w-full pt-2">
+            <nav className=" w-full py-4 z-100  bg-bg">
                 <ul classsName="flex">
                     <li><Link to='/' className='link'>Inicio</Link></li>
                     <li><Link to='/acercade' className='link'>Sobre nosotros</Link></li>

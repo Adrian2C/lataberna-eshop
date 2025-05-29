@@ -8,8 +8,7 @@ const GaleriaDeProductos = ({ cart, productos, cargando, agregarCarrito, borrarP
   return (
     <>
       <Header borrarProducto={borrarProducto} cartItems={cart} />
-
-      <div className="min-h-screen bg-[#567219b4] py-10 px-4">
+      <div className="min-h-screen px-4">
         <h2 className="text-[#D4AF37] text-3xl font-bold text-center mb-6">
           Nuestros productos:
         </h2>

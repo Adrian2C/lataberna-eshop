@@ -1,1 +1,17 @@
 @import "tailwindcss";
+
+@theme {
+  --color-bg: #2f2f2f;
+  --color-pergamino: #f6f1e7; 
+  --color-dragon: #8b0000;
+  --color-arcane: #5e4b8b;
+  --color-rune: #c9b037; 
+  --color-forge: #bdbdbd; 
+  --color-druid: #2c5e4a; 
+
+  --text-display: 3.75rem;
+  --text-main: 2.25rem;
+  --text-sub: 1.5rem;
+  --text-body: 1.2rem;
+  --text-small: .875rem;
+}
