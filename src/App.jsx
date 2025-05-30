@@ -8,7 +8,7 @@ import Contacto from './pages/Contactos'
 import Galeria from './pages/GaleriaDeProductos'
 import NotFound from './pages/NotFound'
 import DetalleProductos from './components/DetalleProductos'
-
+import Cart from './components/Cart'
 import Admin from './pages/Admin'
 import Login from './pages/Login'
 import RutaProtegida from './Auth/RutasProtegidas'
@@ -79,6 +79,7 @@ function App() {
         <Route path='/productos' element={<Galeria borrarProducto={handleDeleteFromCart} agregarCarrito={handleAddToCart} cart={cart} productos={productos} cargando={cargando} />} />
         <Route path='/productos/:id' element={<DetalleProductos productos={productos} />} />
         <Route path='/contacto' element={<Contacto borrarProducto={handleDeleteFromCart} cart={cart} />} />
+        <Route path='/cart' element={<RutaProtegida isAuthenticated={isAuthenticated}><Cart /></RutaProtegida>} />
 
         <Route path='/admin' element={<RutaProtegida isAuthenticated={isAuthenticated}> <Admin /></RutaProtegida>} />
         <Route path='/login' element={<Login />} />

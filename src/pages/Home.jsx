@@ -16,9 +16,9 @@ const Home = ({ cart, productos, cargando, agregarCarrito, borrarProducto }) => 
                     <div className="absolute inset-0 bg-black/40 " />
                     <div className="relative z-20 flex flex-col items-center justify-center gap-8 h-full text-center text-parchment px-4">
 
-                        <p className="text-main">Guías, conjuros, builds y artefactos para llevar tu partida al siguiente nivel.</p>
+                        <p className="text-main">Guías, Mapas, builds y artefactos para llevar tu partida al siguiente nivel.</p>
                         <h1 className="text-display font-bold mb-4 ">
-                            "Descubre los Secretos del Multiverso"
+                            La tabero del Rol
                         </h1>
 
                         <Link to="/productos"><button className="bg-dragon/80 font-semibold mt-8 py-2 px-6 rounded-4xl hover:bg-druid hover:text-rune  transition ease-in-out duration-300 cursor-pointer"
