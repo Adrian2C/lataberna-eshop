@@ -1,7 +1,9 @@
 import React from 'react'
 import '../assets/style/style.css'
+import { CartContext } from '../context/cartContext'
 
 const Cart = ({ cartItems, isOpen, onClose, borrarProducto }) => {
+    const { cart, productos, cargando, error, handleAddToCart, handleDeleteFromCart, isAuthenticated } = useContext(CartContext)
 
     return (
         <div className={`cart-drawer ${isOpen ? 'open' : ''}`}>
@@ -11,12 +13,12 @@ const Cart = ({ cartItems, isOpen, onClose, borrarProducto }) => {
             </div>
 
             <div className='p-4'>
-                {cartItems.length === 0 ? (
+                {cart.length === 0 ? (
                     <p className="text-red-500">El carrito esta vacío</p>
                 ) : (
                     <ul className="flex flex-col gap-4">
 
-                        {cartItems.map((item, index) => (
+                        {cart.map((item, index) => (
                             <>
                                 <li key={item.id} className="flex items-center justify-between gap-4 border-b pb-2 text-black min-h-[80px] ">
                                     {item.imagen && (

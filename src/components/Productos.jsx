@@ -1,13 +1,19 @@
 import React, { useState } from 'react'
+import '../assets/style/style.css'
 import { Link } from 'react-router-dom'
 
-import '../assets/style/style.css'
-
 const Productos = ({ producto, agregarCarrito }) => {
-    const [cantidad, setCantidad] = useState(1)
+    const [cantidad, setCantidad] = useState(producto.cantidad);
 
-    const increase = () => setCantidad(prev => (prev < producto.stock ? prev + 1 : prev))
-    const decrease = () => setCantidad(prev => (prev > 1 ? prev - 1 : 1))
+    const increase = () => {
+        if (cantidad + producto.cantidad <= producto.stock) {
+            setCantidad(prev => prev + 1)
+        }
+    }
+
+    const decrease = () => {
+        setCantidad(prev => (prev > 1 ? prev - 1 : prev))
+    }
 
     return (
         <section className="w-full max-w-xs sm:max-w-sm md:max-w-sm lg:max-w-sm xl:max-w-sm m-2 flex items-center justify-center">
@@ -51,9 +57,9 @@ const Productos = ({ producto, agregarCarrito }) => {
                         </Link>
                     </div>
 
-                    <button
+                    <button style={{ display: cantidad == 0 ? 'none' : 'block' }}
                         className="w-full bg-[#3e4e1e] hover:bg-[#567219] text-white font-semibold py-2 rounded-xl mt-3 transition-colors duration-300 border-2 border-[#3e4e1e] active:scale-95"
-                        onClick={() => agregarCarrito(producto, cantidad)}
+                        onClick={() => agregarCarrito({ ...producto, cantidad: cantidad })}
                     >
                         Agregar al carrito
                     </button>
