@@ -1,5 +1,6 @@
-import React, { Children, useState } from 'react'
-import Productos from '../components/Productos';
+import React, { createContext, useState, useEffect } from 'react'
+/* import Productos from '../components/Productos'; */
+
 
 export const CartContext = createContext();
 

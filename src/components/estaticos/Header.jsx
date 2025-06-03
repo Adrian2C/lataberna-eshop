@@ -2,11 +2,8 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../../assets/style/style.css'
 import Cart from '../Cart'
-import { CartContext } from '../../context/cartContext'
-
-
-
-
+import { CartContext } from '../../context/CartContext.jsx'
+import { useContext } from 'react'
 
 const Header = ({ cartItems, borrarProducto }) => {
     const [isCartOpen, setCartOpen] = useState(false)

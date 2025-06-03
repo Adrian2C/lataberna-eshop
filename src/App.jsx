@@ -12,12 +12,12 @@ import Cart from './components/Cart'
 import Admin from './pages/Admin'
 import Login from './pages/Login'
 import RutaProtegida from './Auth/RutasProtegidas'
-import { CartContext } from './context/cartContext'
+import { CartContext } from './context/CartContext'
 
 function App() {
 
   const { cart, productos, cargando, error, handleAddToCart, handleDeleteFromCart, isAuthenticated } = useContext(CartContext)
-  
+
   return (
     <Router>
       <Routes>
