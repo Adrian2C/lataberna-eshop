@@ -1,4 +1,4 @@
-/* import React, { useState } from 'react';
+import React, { useState } from 'react';
 
 function FormularioProducto({ onAgregar }) {
     const [producto, setProducto] = useState({
@@ -68,18 +68,4 @@ function FormularioProducto({ onAgregar }) {
     );
 }
 
-export default FormularioProducto; */
-
-import React, { useState } from 'react'
-
-const FormularioProducto = ({ onAgregar }) => {
-    const [producto, setProducto
-    ]
-    return (
-        <div>
-
-        </div>
-    )
-}
-
-export default FormularioProducto
+export default FormularioProducto;
