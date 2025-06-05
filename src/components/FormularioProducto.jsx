@@ -34,7 +34,11 @@ function FormularioProducto({ onAgregar }) {
             return;
         }
         onAgregar(producto); // Llamada a la función para agregar el producto
-        setProducto({ nombre: '', precio: '', descripcion: '' }); // Limpiar el formulario
+        setProducto({
+            nombre: '',
+            precio: '',
+            descripcion: ''
+        }); // Limpiar el formulario
     };
 
     return (

@@ -1,10 +1,9 @@
 import React, { createContext, useState, useEffect } from 'react'
-/* import Productos from '../components/Productos'; */
-
 
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
+    
     const [cart, setCart] = useState([])
     const [productos, setProductos] = useState([])
     const [cargando, setCargando] = useState(true)
@@ -13,7 +12,7 @@ export const CartProvider = ({ children }) => {
     const [isAuthenticated, setIsAuth] = useState(true)
 
     useEffect(() => {
-        fetch('/data/data.json')
+        fetch('https://6840875d5b39a8039a5860f6.mockapi.io/productos')
             .then(respuesta => respuesta.json())
             .then(datos => {
                 setTimeout(() => {

@@ -3,11 +3,11 @@ import React from 'react'
 import Header from '../components/estaticos/Header'
 import Footer from '../components/estaticos/Footer'
 
-const Contactos = ({ cart, borrarProducto }) => {
+const Contactos = () => {
   
   return (
     <>
-      <Header borrarProducto={borrarProducto} cartItems={cart} />
+      <Header />
       <div className=" section px-6 py-24 sm:py-32 lg:px-8">
         <div className="bg-gray-200/40 backdrop-blur-md py-8 rounded-lg">
           <div className="mx-auto max-w-2xl text-center ">
