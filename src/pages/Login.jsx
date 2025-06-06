@@ -4,8 +4,8 @@ import { CartContext } from '../context/CartContext'
 import { useAuth } from '../context/AuthContext'
 
 const Login = () => {
-    const { setIsAuth } = useContext(CartContext)
-    const { email, setEmail, password, setPassword, handleSubmit } = useAuth()
+
+    const { email, setEmail, password, setPassword, handleSubmit, errors } = useAuth()
     return (
         <div className="admin h-dvh">
             <div className="admin-login rounded-2xl">

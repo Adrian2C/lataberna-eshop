@@ -6,9 +6,9 @@ const Admin = () => {
     const [form, setForm] = useState({ id: null, name: "", price: "" });
     const [loading, setLoading] = useState(true);
     const [open, setOpen] = useState(false)//se encarga cuando se muestre el formulario y cuando no
-
+    const apiUrl = 'https://6840875d5b39a8039a5860f6.mockapi.io/productos'
     useEffect(() => {
-        fetch("/data/data.json")
+        fetch(apiUrl)
             .then((response) => response.json())
             .then((data) => {
                 setTimeout(() => {
@@ -23,6 +23,15 @@ const Admin = () => {
             });
     }, []);
 
+    const cargarProductos = async () => {
+        try {
+            const res = await fetch(apiUrl)
+            const data = await res.json()
+            setProductos(data)
+        } catch (error) {
+            console.log('Error al cargar prouctos', error)
+        }
+    }
     //
     const agregarProducto = async (producto) => {
         try {
@@ -40,9 +49,26 @@ const Admin = () => {
             }
             const data = await respuesta.json()
             alert('Producto agregado correctamente')
+            cargarProductos()
         } catch (error) {
             console.log(error.message);
+        }
+    }
 
+    //como tiene que eseprar un evento, se conviertre en una funcion asincrona
+    const eliminarProducto = async (id) => {
+        const confirmar = window.confirm('Estas seguro de elimnar el producto?')
+        if (confirmar) {
+            try {
+                const respuesta = await fetch(`https://6840875d5b39a8039a5860f6.mockapi.io/productos/${id}`, {
+                    method: 'DELETE',
+                })
+                if (!respuesta.ok) throw Error('Error al eliminar')
+                alert('producto eliminado correctamente')
+                cargarProductos()
+            } catch (error) {
+                alert('hubo un problema al eliminar el prodcuto)')
+            }
         }
     }
 
@@ -79,7 +105,7 @@ const Admin = () => {
                                 <div>
                                     <button className="editButton">Editar</button>
 
-                                    <button className="deleteButton">Eliminar</button>
+                                    <button className="deleteButton" onClick={() => eliminarProducto(product.id)}>Eliminar</button>
                                 </div>
                             </li>
                         ))}

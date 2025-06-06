@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import './assets/style/style.css'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 
 import Home from './pages/Home'
 import AcercaDe from './pages/AcercaDe'
@@ -15,22 +15,21 @@ import RutaProtegida from './Auth/RutasProtegidas'
 import { CartContext } from './context/CartContext'
 
 function App() {
+  const { isAuthenticated } = useContext(CartContext)
 
   const { cart, productos, cargando, error, handleAddToCart, handleDeleteFromCart, isAuthenticated } = useContext(CartContext)
 
   return (
-    <Router>
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/acercade' element={<AcercaDe />} />
-        <Route path='/productos' element={<Galeria />} />
-        <Route path='/productos/:id' element={<DetalleProductos productos={productos} />} />
-        <Route path='/contacto' element={<Contacto borrarProducto={handleDeleteFromCart} cart={cart} />} />
-        <Route path='/admin' element={<RutaProtegida isAuthenticated={isAuthenticated}> <Admin /></RutaProtegida>} />
-        <Route path='/login' element={<Login />} />
-        <Route path='*' element={<NotFound />} />
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path='/' element={<Home />} />
+      <Route path='/acercade' element={<AcercaDe />} />
+      <Route path='/productos' element={<Galeria />} />
+      <Route path='/productos/:id' element={<DetalleProductos productos={productos} />} />
+      <Route path='/contacto' element={<Contacto borrarProducto={handleDeleteFromCart} cart={cart} />} />
+      <Route path='/admin' element={<RutaProtegida isAuthenticated={isAuthenticated}> <Admin /></RutaProtegida>} />
+      <Route path='/login' element={<Login />} />
+      <Route path='*' element={<NotFound />} />
+    </Routes>
   )
 }
 
