@@ -3,7 +3,14 @@ import FormularioProducto from "../components/FormularioProducto";
 
 const Admin = () => {
     const [productos, setProductos] = useState([]);
-    const [form, setForm] = useState({ id: null, name: "", price: "" });
+    const [form, setForm] = useState({
+        nombre: '',
+        precio: '',
+        stock: '',
+        imagen: '',
+        categorir: '',
+        descripcion: '',
+    });
     const [loading, setLoading] = useState(true);
     const [open, setOpen] = useState(false)//se encarga cuando se muestre el formulario y cuando no
     const apiUrl = 'https://6840875d5b39a8039a5860f6.mockapi.io/productos'

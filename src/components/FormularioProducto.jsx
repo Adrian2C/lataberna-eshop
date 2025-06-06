@@ -4,6 +4,9 @@ function FormularioProducto({ onAgregar }) {
     const [producto, setProducto] = useState({
         nombre: '',
         precio: '',
+        stock: '',
+        imagen: '',
+        categorir: '',
         descripcion: '',
     });
     const [errores, setErrores] = useState({});
