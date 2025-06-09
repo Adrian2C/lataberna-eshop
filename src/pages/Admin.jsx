@@ -1,19 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import FormularioProducto from "../components/FormularioProducto";
+import { CartContext } from "../context/CartContext";
+import { useNavigate } from "react-router-dom";
 
 const Admin = () => {
+    const { setIsAuth } = useContext(CartContext)
     const [productos, setProductos] = useState([]);
-    const [form, setForm] = useState({
-        nombre: '',
-        precio: '',
-        stock: '',
-        imagen: '',
-        categorir: '',
-        descripcion: '',
-    });
     const [loading, setLoading] = useState(true);
     const [open, setOpen] = useState(false)//se encarga cuando se muestre el formulario y cuando no
+    const [seleccionado, setSeleccionaodo] = useState(null)
+    const [openEditor, setOpenEditor] = useState(false)
+    const navigate = useNavigate()
+
+    
     const apiUrl = 'https://6840875d5b39a8039a5860f6.mockapi.io/productos'
+
     useEffect(() => {
         fetch(apiUrl)
             .then((response) => response.json())
@@ -62,6 +63,27 @@ const Admin = () => {
         }
     }
 
+    //actualizazr productos
+    const actualizarProducto = async (producto) => {
+        try {
+            const respuesta = await fetch(`${apiUrl}/${producto.id}`,
+                {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(producto)
+                })
+            if (!respuesta.ok) throw Error('Error al actualizar el producto');
+            const data = await respuesta.json()
+            alert('producto actualizado correctamente')
+            setOpenEditor(false)
+            setSeleccionaodo(null)
+            cargarProductos()
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
     //como tiene que eseprar un evento, se conviertre en una funcion asincrona
     const eliminarProducto = async (id) => {
         const confirmar = window.confirm('Estas seguro de elimnar el producto?')
@@ -88,7 +110,11 @@ const Admin = () => {
                     <nav>
                         <ul className="nav">
                             <li className="navItem">
-                                <button className="navButton">
+                                <button className="navButton" onClick={() => {
+                                    setIsAuth(false)
+                                    navigate('/')
+                                    localStorage.removeItem('isAuth')
+                                }}>
                                     <i className="fa-solid fa-right-from-bracket"></i>
                                 </button>
                             </li>
@@ -110,7 +136,10 @@ const Admin = () => {
                                 <span>{product.nombre}</span>
                                 <span>${product.precio}</span>
                                 <div>
-                                    <button className="editButton">Editar</button>
+                                    <button className="editButton" onClick={() => {
+                                        setOpenEditor(true)
+                                        setSeleccionaodo(product)
+                                    }}>Editar</button>
 
                                     <button className="deleteButton" onClick={() => eliminarProducto(product.id)}>Eliminar</button>
                                 </div>
@@ -122,6 +151,7 @@ const Admin = () => {
             {/* mediante el boton, se llama la funcion para abrir el formulario y agregar el producto */}
             <button onClick={() => setOpen(true)}>Agregar producto nuevo</button>
             {open && (<FormularioProducto onAgregar={agregarProducto} />)}
+            {openEditor && (<FormularioEdicion productoSeleccionado={seleccionado} onActualizar={actualizarProducto} />)}
         </div>
     );
 };

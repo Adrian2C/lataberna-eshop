@@ -16,7 +16,7 @@
   /* Escala tipográfica */
   /* --text-display: 3.75rem; */
   --text-main: 2.25rem;
-  
+
   --text-sub: 1.5rem;
   --text-body: 1.2rem;
 }
@@ -49,12 +49,10 @@ h2 {
 .link:hover {
   color: var(--color-rune);
 }
-/* .link:active {
-  background-color: var(--color-pergamino);
+.link:active {
   color: var(--color-dragon);
-  border-radius: 5px;
-  padding: 5px 0;
-} */
+  font-weight: bold;
+}
 
 /* ====== Botones ====== */
 .button,

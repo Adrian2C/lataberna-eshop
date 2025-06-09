@@ -10,8 +10,8 @@ function FormularioEdicion({ productoSeleccionado, onActualizar }) {
     const handleChange = (e) => {
         const { name, value } = e.target;
         setProducto({ ...producto, [name]: value });
-
     };
+
     return (
         <form onSubmit={(e) => {
             e.preventDefault()

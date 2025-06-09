@@ -11,13 +11,13 @@ export const AuthProvider = ({ children }) => {
     const navigate = useNavigate()
     const { setIsAuth } = useContext(CartContext)
 
-    useEffect((() => {
+    useEffect(() => {
         const isAuthenticated = localStorage.getItem('isAuth') === 'true'
         if (isAuthenticated) {
             setIsAuth(true)
             navigate('/admin')
         }
-    }))
+    }, [])
 
     const handleSubmit = async (e) => {
         e.preventDefault()
