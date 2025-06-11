@@ -1,15 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Header from '../components/estaticos/Header'
 import Footer from '../components/estaticos/Footer'
 import ProductList from '../components/ProductList'
 import loading from '../assets/images/loading.gif'
 import { Link } from 'react-router-dom'
+import { CartContext } from '../context/CartContext'
 
 
-const Home = ({ cart, productos, cargando, agregarCarrito, borrarProducto }) => {
+const Home = () => {
+    const { cargando } = useContext(CartContext)
     return (
         <>
-            <Header borrarProducto={borrarProducto} cartItems={cart} />
+            <Header />
             <main>
                 <section className="banner relative h-[90dvh] bg-fixed bg-center bg-cover flex items-center justify-center">
 
@@ -35,7 +37,7 @@ const Home = ({ cart, productos, cargando, agregarCarrito, borrarProducto }) => 
                         </div>
                         :
 
-                        <ProductList agregarCarrito={agregarCarrito} productos={productos} />
+                        <ProductList />
                 }
             </main>
             <Footer />

@@ -3,9 +3,9 @@ import Header from '../components/estaticos/Header'
 import Footer from '../components/estaticos/Footer'
 import ProductList from '../components/ProductList'
 import loading from '../assets/images/loading.gif'
-import { CartContext } from '../context/cartContext'
+import { CartContext } from '../context/CartContext'
 
-const GaleriaDeProductos = ({ cart, productos, cargando, agregarCarrito, borrarProducto }) => {
+const GaleriaDeProductos = () => {
 
   const { cargando } = useContext(CartContext)
 
@@ -18,13 +18,13 @@ const GaleriaDeProductos = ({ cart, productos, cargando, agregarCarrito, borrarP
         </h2>
 
         {
-          cargando ? 
+          cargando ?
             <div className="flex justify-center items-center h-dvh">
               <img src={loading} alt="loading" className="h-auto w-32" />
             </div>
-           : 
+            :
             <ProductList />
-          
+
         }
       </div>
 
