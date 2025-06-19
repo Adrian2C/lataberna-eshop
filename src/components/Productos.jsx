@@ -1,15 +1,17 @@
-import React, { useState } from 'react'
-import '../assets/style/style.css'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
+import '../assets/style/style.css'
+import { CartContext } from '../context/cartContext'
 
-const Productos = ({ producto, agregarCarrito }) => {
+const Productos = ({ producto }) => {
     const [cantidad, setCantidad] = useState(producto.cantidad);
+    const { handleAddToCart } = useContext(CartContext)
 
     const increase = () => {
         if (cantidad + producto.cantidad <= producto.stock) {
-            setCantidad(prev => prev + 1)
+            setCantidad(prev => prev + 1);
         }
-    }
+    };
 
     const decrease = () => {
         setCantidad(prev => (prev > 1 ? prev - 1 : prev))
@@ -59,7 +61,7 @@ const Productos = ({ producto, agregarCarrito }) => {
 
                     <button style={{ display: cantidad == 0 ? 'none' : 'block' }}
                         className="w-full bg-[#3e4e1e] hover:bg-[#567219] text-white font-semibold py-2 rounded-xl mt-3 transition-colors duration-300 border-2 border-[#3e4e1e] active:scale-95"
-                        onClick={() => agregarCarrito({ ...producto, cantidad: cantidad })}
+                        onClick={() => handleAddToCart({ ...producto, cantidad: cantidad })}
                     >
                         Agregar al carrito
                     </button>

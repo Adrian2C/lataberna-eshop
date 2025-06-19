@@ -19,7 +19,7 @@ const ProductList = () => {
                 {
                     productosFiltrados.map(producto => (
                         <Productos key={producto.id} producto={producto} />
-                        //<Productos key={producto.id} producto={producto} agregarCarrito={agregarCarrito} />
+                      //  <Productos key={producto.id} producto={producto} agregarCarrito={agregarCarrito} />
                     ))
                 }
             </div>

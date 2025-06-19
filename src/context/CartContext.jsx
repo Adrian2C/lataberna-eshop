@@ -8,13 +8,14 @@ export const CartProvider = ({ children }) => {
     const [productos, setProductos] = useState([])
     const [cargando, setCargando] = useState(true)
     const [error, setError] = useState(false)
+
     /* con esta funcion se comprueba si el usuario esta o no auth */
     const [isAuthenticated, setIsAuth] = useState(true)
     const [busqueda, setBusqueda] = useState("")
 
     useEffect(() => {
         fetch('https://6840875d5b39a8039a5860f6.mockapi.io/productos')
-        
+
             .then(respuesta => respuesta.json())
             .then(datos => {
                 setTimeout(() => {
