@@ -1,11 +1,11 @@
 import React, { useContext, useState } from 'react'
-import { CartContext } from '../context/CartContext'
-
+import { CartContext } from '../context/cartContext'
 import { useAuth } from '../context/AuthContext'
 
 const Login = () => {
 
     const { email, setEmail, password, setPassword, handleSubmit, errors } = useAuth()
+    
     return (
         <div className="admin h-dvh">
             <div className="admin-login rounded-2xl">

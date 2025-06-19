@@ -3,19 +3,18 @@ import React, { useContext, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import '../../assets/style/style.css'
 import Cart from '../Cart'
-import { CartContext } from '../../context/CartContext.jsx'
+
 
 const Header = () => {
     const [isCartOpen, setCartOpen] = useState(false)
 
-    /* const { cart, productos, cargando, error, handleAddToCart, handleDeleteFromCart, isAuthenticated } = useContext(CartContext) */
     return (
         <header>
             <nav className=" w-full py-4 z-100  bg-bg">
-                <ul classsName="flex">
+                <ul classsName="flex ">
                     <li><NavLink to='/' className='link'>Inicio</NavLink></li>
+                    <li><NavLink to='/productos' className='link'>Nuestros Productos</NavLink></li>
                     <li><NavLink to='/acercade' className='link'>Sobre nosotros</NavLink></li>
-                    <li><NavLink to='/productos' className='link'>Galeria de productos</NavLink></li>
                     <li><NavLink to='/contacto' className='link'>Contacto</NavLink></li>
                     <li ><NavLink to='/Login' className='link'><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
@@ -28,12 +27,6 @@ const Header = () => {
                             </svg>
                         </button>
                         <Cart isOpen={isCartOpen} onClose={() => setCartOpen(false)} />
-                    </li>
-                    <li className='btnLogin'>
-                        <NavLink to='/login' className='link'><i className="fa-solid fa-right-to-bracket"></i></NavLink>
-                    </li>
-                    <li className='btnAdmin'>
-                        <NavLink to='/admin' className='link'><i className="fa-solid fa-user-tie"></i></NavLink>
                     </li>
                 </ul>
             </nav>

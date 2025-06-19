@@ -35,10 +35,6 @@ h1,
 h2 {
   font-family: var(--font-main);
 }
-
-.banner {
-  background-image: url("../images/bg.jpg");
-}
 /* ====== Enlaces ====== */
 .link {
   color: var(--color-forge);
@@ -87,7 +83,7 @@ h2 {
 nav ul {
   list-style: none;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   gap: 100px;
   align-items: center;
   margin: 0;

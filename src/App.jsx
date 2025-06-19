@@ -12,7 +12,7 @@ import Admin from './pages/Admin'
 import DetalleProductos from './components/DetalleProductos'
 import Login from './pages/Login'
 import RutaProtegida from './Auth/RutasProtegidas'
-import { CartContext } from './context/CartContext'
+import { CartContext } from './context/cartContext'
 
 function App() {
   const { isAuthenticated } = useContext(CartContext)

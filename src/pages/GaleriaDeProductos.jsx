@@ -3,7 +3,7 @@ import Header from '../components/estaticos/Header'
 import Footer from '../components/estaticos/Footer'
 import ProductList from '../components/ProductList'
 import loading from '../assets/images/loading.gif'
-import { CartContext } from '../context/CartContext'
+import { CartContext } from '../context/cartContext'
 
 const GaleriaDeProductos = () => {
 
@@ -14,7 +14,7 @@ const GaleriaDeProductos = () => {
       <Header />
       <div className="min-h-screen px-4">
         <h2 className="text-[#D4AF37] text-3xl font-bold text-center mb-6">
-          Nuestros productos:
+          Nuestros productos
         </h2>
 
         {

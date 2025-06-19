@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { CartContext } from "./CartContext";
+import { CartContext } from "./cartContext";
 
 const AuthContext = createContext()
 
@@ -17,7 +17,7 @@ export const AuthProvider = ({ children }) => {
             setIsAuth(true)
             navigate('/admin')
         }
-    }, [])
+    },[])
 
     const handleSubmit = async (e) => {
         e.preventDefault()
