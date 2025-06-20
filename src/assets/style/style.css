@@ -14,7 +14,7 @@
   --font-regular: "Lora", serif;
 
   /* Escala tipográfica */
-  /* --text-display: 3.75rem; */
+  /* --text-display: 60px; */
   --text-main: 2.25rem;
 
   --text-sub: 1.5rem;
@@ -30,6 +30,7 @@ body {
   background-color: var(--color-druid);
   color: var(--color-pergamino);
   font-size: var(--text-body);
+  padding-top:32px;
 }
 h1,
 h2 {
@@ -39,7 +40,7 @@ h2 {
 .link {
   color: var(--color-forge);
   text-decoration: none;
-  /* font-size: 18px; */
+  /* font-size: 1.125rem; */
   text-transform: uppercase;
 }
 .link:hover {
@@ -56,13 +57,13 @@ h2 {
 .qtyButton,
 .error-back {
   font-family: var(--font-regular);
-  border-radius: 0.5rem;
+  border-radius: 8px;
   font-weight: 600;
   transition: background-color 0.3s ease;
 }
 
 .close {
-  padding: 0 10px;
+  padding: 0 .625rem;
 }
 .close:hover {
   background-color: var(--color-rune);
@@ -80,11 +81,18 @@ h2 {
 /* =========================
  NAVBAR
 ========================= */
+header {
+  position: fixed;
+  top: 0;
+  width: 100dvw;
+  z-index: 200;
+  box-shadow: 0 .125rem .3125rem rgba(0, 0, 0, 0.1);
+}
 nav ul {
   list-style: none;
   display: flex;
   justify-content: space-evenly;
-  gap: 100px;
+  /* gap: 6.25rem; */
   align-items: center;
   margin: 0;
 }
@@ -96,11 +104,11 @@ nav ul {
   position: fixed;
   top: 0;
   right: 0;
-  width: 300px;
+  width: 23rem;
   height: 100%;
   background: var(--color-pergamino);
   color: var(--color-dragon);
-  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: -0.125rem 0 .625rem rgba(0, 0, 0, 0.2);
   transform: translateX(100%);
   transition: transform 0.3s ease-in-out;
   z-index: 999;
@@ -122,11 +130,11 @@ nav ul {
 ========================= */
 .cardAbout {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  max-width: 1080px;
+  grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr));
+  max-width: 67.5rem;
   margin: 0 auto;
-  gap: 1.5rem;
-  padding: 16px;
+  gap: 24px;
+  padding: 1rem;
 }
 
 .cardProdContainer {
@@ -143,8 +151,8 @@ nav ul {
 .admin-login {
   background: var(--color-druid);
   margin: auto;
-  height: 700px;
-  width: 500px;
+  height: 43.75rem;
+  width: 31.25rem;
 }
 
 /* =========================
@@ -169,11 +177,11 @@ nav ul {
 }
 
 .error-back {
-  border: 3px solid #996e11;
+  border: .1875rem solid #996e11;
   background: #ffc547;
-  border-radius: 15px;
-  font-size: 28px;
-  padding: 5px 30px;
+  border-radius: .9375rem;
+  font-size: 1.75rem;
+  padding: .3125rem 1.875rem;
   color: #4a3402;
 }
 
@@ -183,7 +191,7 @@ nav ul {
 }
 
 .error-back:active {
-  border: 6px solid #996e11;
+  border: .375rem solid #996e11;
 }
 
 /* =========================
@@ -192,7 +200,7 @@ nav ul {
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(.625rem);
   }
   to {
     opacity: 1;

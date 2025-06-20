@@ -4,7 +4,11 @@ export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
 
-    const [cart, setCart] = useState([])
+    const [cart, setCart] = useState(() => {
+        const savedCart = localStorage.getItem('cart')
+        return savedCart ? JSON.parse(savedCart) : []
+    })
+
     const [productos, setProductos] = useState([])
     const [cargando, setCargando] = useState(true)
     const [error, setError] = useState(false)
@@ -30,6 +34,9 @@ export const CartProvider = ({ children }) => {
             })
 
     }, [])
+    useEffect(() => {
+        localStorage.setItem('cart', JSON.stringify(cart))
+    }, [cart])
 
     const productosFiltrados = productos.filter((producto) => producto?.nombre.toLowerCase().includes(busqueda.toLocaleLowerCase()))
 
@@ -38,7 +45,7 @@ export const CartProvider = ({ children }) => {
         const productInCart = cart.find((item) => item.id === product.id);
         if (productInCart) {
 
-            setCart(cart.map((item) => item.id === product.id ? { ...item, cantidad: product.cantidad } : item));
+            setCart(cart.map((item) => item.id === product.id ? { ...item, cantidad: item.cantidad + product.cantidad } : item));
         } else {
             setCart([...cart, { ...product, cantidad: product.cantidad }]);
         }
@@ -60,6 +67,10 @@ export const CartProvider = ({ children }) => {
         });
     };
 
+    /* const clearCart = () => {
+        setCart([])
+        localStorage.remoteItem('cart')
+    } */
     return (
         <CartContext.Provider
             value={{ cart, productos, cargando, error, handleAddToCart, handleDeleteFromCart, isAuthenticated, setIsAuth, productosFiltrados, busqueda, setBusqueda }}>
