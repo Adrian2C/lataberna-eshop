@@ -17,6 +17,12 @@ export const CartProvider = ({ children }) => {
     const [isAuthenticated, setIsAuth] = useState(true)
     const [busqueda, setBusqueda] = useState("")
 
+    //Equipo
+    const [equipo, setEquipo] = useState([]);
+    const [loadingEquipo, setLoadingEquipo] = useState(true);
+    const [errorEquipo, setErrorEquipo] = useState(null);
+
+    //productos
     useEffect(() => {
         fetch('https://6840875d5b39a8039a5860f6.mockapi.io/productos')
 
@@ -34,9 +40,24 @@ export const CartProvider = ({ children }) => {
             })
 
     }, [])
+    // Guardar carrito en localStorage
     useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(cart))
     }, [cart])
+    // Cargar equipo para AcercaDe
+    useEffect(() => {
+        fetch('https://6812b137129f6313e20f46de.mockapi.io/productos-ecommerce/productos')
+            .then((respuesta) => respuesta.json())
+            .then((datos) => {
+                setEquipo(datos)
+                setLoading(false)
+            })
+            .catch((error) => {
+                setError('hubo un Problema al cargar al team.')
+                setLoading(false);
+            })
+    },
+        [])
 
     const productosFiltrados = productos.filter((producto) => producto?.nombre.toLowerCase().includes(busqueda.toLocaleLowerCase()))
 
@@ -73,7 +94,9 @@ export const CartProvider = ({ children }) => {
     } */
     return (
         <CartContext.Provider
-            value={{ cart, productos, cargando, error, handleAddToCart, handleDeleteFromCart, isAuthenticated, setIsAuth, productosFiltrados, busqueda, setBusqueda }}>
+            value={{
+                cart, productos, cargando, error, handleAddToCart, handleDeleteFromCart, isAuthenticated, setIsAuth, productosFiltrados, busqueda, setBusqueda, equipo, loadingEquipo, errorEquipo,
+            }}>
             {children}
         </CartContext.Provider>
     )

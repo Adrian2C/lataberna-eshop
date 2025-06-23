@@ -1,33 +1,17 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Header from '../components/estaticos/Header'
 import Footer from '../components/estaticos/Footer'
 import cargando from '../assets/images/loading.gif'
+import { CartContext } from '../context/cartContext'
 
 const AcercaDe = () => {
-
-    const [equipo, setEquipo] = useState([]);
-    const [loading, setLoading] = useState(true)
-    const [error, setError] = useState(null)
-
-    useEffect(() => {
-        fetch('https://6812b137129f6313e20f46de.mockapi.io/productos-ecommerce/productos')
-            .then((respuesta) => respuesta.json())
-            .then((datos) => {
-                setEquipo(datos)
-                setLoading(false)
-            })
-            .catch((error) => {
-                setError('hubo un Problema al cargar al team.')
-                setLoading(false);
-            })
-    },
-        [])
+    const { equipo, loadingEquipo, errorEquipo } = useContext(CartContext)
 
     return (
         <>
             <Header />
 
-            {loading ? (<div className="flex justify-center items-center h-dvh">
+            {loadingEquipo ? (<div className="flex justify-center items-center h-dvh">
                 <img src={cargando} alt="loading" className="h-auto w-32" />
             </div>) : (
                 <div className=" rounded-xl p-4">
@@ -36,7 +20,7 @@ const AcercaDe = () => {
                     <p className="text-[#F5EBD0] text-center mt-2 py-2 bg-[#3a4e10b4]">Conoce a nuestro equipo</p>
 
                     <div>
-                        {error && (
+                        {errorEquipo && (
                             <p className="text-center text-red-500 font-bold mt-4">{error}</p>
                         )}
                         <div className="cardAbout ">
