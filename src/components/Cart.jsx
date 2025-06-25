@@ -25,7 +25,7 @@ const Cart = ({ isOpen, onClose }) => {
                                         {item.imagen && (
                                             <img src={item.imagen}
                                                 alt={item.nombre}
-                                                className='w-18 h-18 object-cover rounded'
+                                                className='w-20 h-20 object-cover rounded'
                                             />
                                         )}
                                         <div className='flex flex-col flex-1 min-w-[150px]'>

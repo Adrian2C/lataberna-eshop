@@ -97,7 +97,9 @@ header {
   align-items: center;
   margin: 0;
 }
-
+navlink:active{
+  color:red;
+}
 /* =========================
   CART DRAWER
 ========================= */

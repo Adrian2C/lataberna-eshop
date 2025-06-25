@@ -4,18 +4,18 @@ import '../assets/style/style.css'
 import { CartContext } from '../context/cartContext'
 
 const Productos = ({ producto }) => {
-    const [cantidad, setCantidad] = useState(producto.cantidad);
+    const [cantidad, setCantidad] = useState(1);
     const { handleAddToCart } = useContext(CartContext)
 
     const increase = () => {
-        if (cantidad + producto.cantidad <= producto.stock) {
+        if (cantidad < producto.stock) {
             setCantidad(prev => prev + 1);
         }
     };
 
     const decrease = () => {
-        setCantidad(prev => (prev > 1 ? prev - 1 : prev))
-    }
+        setCantidad(prev => (prev > 1 ? prev - 1 : prev));
+    };
 
     return (
         <section className="w-full max-w-xs sm:max-w-sm md:max-w-sm lg:max-w-sm xl:max-w-sm m-2 flex items-center justify-center">
@@ -61,7 +61,7 @@ const Productos = ({ producto }) => {
 
                     <button style={{ display: cantidad == 0 ? 'none' : 'block' }}
                         className="w-full bg-[#3e4e1e] hover:bg-[#567219] text-white font-semibold py-2 rounded-xl mt-3 transition-colors duration-300 border-2 border-[#3e4e1e] active:scale-95"
-                        onClick={() => handleAddToCart({ ...producto, cantidad: cantidad })}
+                        onClick={() => handleAddToCart({ ...producto, cantidad })}
                     >
                         Agregar al carrito
                     </button>

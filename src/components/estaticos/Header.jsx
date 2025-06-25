@@ -35,8 +35,8 @@ const Header = () => {
 
                 <ul className="navbar-list">
                     <li><NavLink to='/' className='link'>Inicio</NavLink></li>
-                    <li><NavLink to='/productos' className='link'>Nuestros Productos</NavLink></li>
-                    <li><NavLink to='/acercade' className='link'>Sobre nosotros</NavLink></li>
+                    <li><NavLink to='/productos' className='link'>Productos</NavLink></li>
+                    <li><NavLink to='/acercade' className='link'>Nosotros</NavLink></li>
                     <li><NavLink to='/contacto' className='link'>Contacto</NavLink></li>
                 </ul>
                 <div className="flex items-center space-x-4 relative">
@@ -49,7 +49,7 @@ const Header = () => {
                                 </svg>
                             </button>
                         ) : (
-                                <input className="absolute -top-5 right-0 mt-2 w-48 bg-white text-black px-3 py-1 rounded-md shadow-md border focus:outline-none transition-all duration-300"
+                            <input className="absolute -top-5 right-0 mt-2 w-48 bg-white text-black px-3 py-1 rounded-md shadow-md border focus:outline-none transition-all duration-300"
                                 type="text"
                                 placeholder='buscar...'
                                 value={busqueda}

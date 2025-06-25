@@ -52,8 +52,9 @@ export const CartProvider = ({ children }) => {
                 setEquipo(datos)
                 setLoadingEquipo(false)
             })
-            .catch((setErrorEquipo) => {
-                setError('hubo un Problema al cargar al team.')
+            .catch((error) => {
+                console.error('Hubo un error al cargar el equipo', error)
+                setErrorEquipo('hubo un Problema al cargar al team.')
                 setLoadingEquipo(false);
             })
     },
@@ -62,11 +63,21 @@ export const CartProvider = ({ children }) => {
     const productosFiltrados = productos.filter((producto) => producto?.nombre.toLowerCase().includes(busqueda.toLocaleLowerCase()))
 
     const handleAddToCart = (product) => {
+        // Validación de cantidad
+        if (!product.cantidad || product.cantidad <= 0) {
+            alert('Debes seleccionar una cantidad válida');
+            return;
+        }
 
         const productInCart = cart.find((item) => item.id === product.id);
-        if (productInCart) {
 
-            setCart(cart.map((item) => item.id === product.id ? { ...item, cantidad: item.cantidad + product.cantidad } : item));
+
+        if (productInCart) {
+            setCart(cart.map((item) =>
+                item.id === product.id
+                    ? { ...item, cantidad: item.cantidad + product.cantidad }
+                    : item
+            ));
         } else {
             setCart([...cart, { ...product, cantidad: product.cantidad }]);
         }
