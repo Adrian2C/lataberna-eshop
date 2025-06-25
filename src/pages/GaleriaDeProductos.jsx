@@ -12,8 +12,8 @@ const GaleriaDeProductos = () => {
   return (
     <>
       <Header />
-      <div className="min-h-screen px-4">
-        <h2 className="text-[#D4AF37] text-3xl font-bold text-center mb-6">
+      <div className="min-h-screen  px-4">
+        <h2 className="text-[#D4AF37] text-3xl font-bold text-center mt-20 mb-6 py-5">
           Nuestros productos
         </h2>
 

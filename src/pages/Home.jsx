@@ -41,7 +41,7 @@ const Home = () => {
 
                         <p className="text-main">Guías, Mapas, builds y artefactos para llevar tu partida al siguiente nivel.</p>
                         <h1 className="text-display font-bold mb-4 ">
-                            La tabero del Rol
+                            La Taberna del Rol
                         </h1>
 
                         <Link to="/productos"><button className="bg-dragon/90 font-semibold mt-8 py-2 px-6 rounded hover:bg-druid hover:text-rune hover:rounded-4xl transition:ease-out duration-500 cursor-pointer"
