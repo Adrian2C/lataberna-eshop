@@ -99,14 +99,15 @@ export const CartProvider = ({ children }) => {
         });
     };
 
-    /* const clearCart = () => {
+    const clearCart = () => {
         setCart([])
-        localStorage.remoteItem('cart')
-    } */
+        localStorage.removeItem("cart")
+        toast.info('Compra finalizada!')
+    }
     return (
         <CartContext.Provider
             value={{
-                cart, productos, cargando, error, handleAddToCart, handleDeleteFromCart, isAuthenticated, setIsAuth, productosFiltrados, busqueda, setBusqueda, equipo, loadingEquipo, errorEquipo,
+                cart, productos, cargando, error, handleAddToCart, handleDeleteFromCart, isAuthenticated, setIsAuth, productosFiltrados, busqueda, setBusqueda, equipo, loadingEquipo, errorEquipo, clearCart
             }}>
             {children}
         </CartContext.Provider>

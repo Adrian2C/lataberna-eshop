@@ -4,8 +4,8 @@ import '../assets/style/style.css'
 import { CartContext } from '../context/cartContext'
 
 const Productos = ({ producto }) => {
-    const [cantidad, setCantidad] = useState(1);
     const { handleAddToCart } = useContext(CartContext)
+    const [cantidad, setCantidad] = useState(1);
 
     const increase = () => {
         if (cantidad < producto.stock) {
@@ -52,7 +52,7 @@ const Productos = ({ producto }) => {
                     <div className="flex justify-between items-center mt-2">
                         <p className="text-xl font-bold text-[#866c17]">${producto.precio}</p>
                         <Link
-                            to={`/productos/${producto.id}`}
+                            to={`/productos/${producto.nombre}`}
                             className="text-sm font-semibold text-[#3e4e1e] hover:underline"
                         >
                             Ver más

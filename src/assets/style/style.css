@@ -47,10 +47,7 @@ h2 {
 .link:hover {
   color: var(--color-rune);
 }
-.link:active {
-  color: var(--color-dragon);
-  font-weight: bold;
-}
+
 
 /* ====== Botones ====== */
 .button,

@@ -3,7 +3,7 @@ import { CartContext } from '../context/cartContext'
 import '../assets/style/style.css'
 
 const Cart = ({ isOpen, onClose }) => {
-    const { cart, handleDeleteFromCart } = useContext(CartContext)
+    const { cart, handleDeleteFromCart, clearCart } = useContext(CartContext)
 
     return (
         <div className={`cart-drawer ${isOpen ? 'open' : ''}`}>
@@ -48,7 +48,7 @@ const Cart = ({ isOpen, onClose }) => {
                             <p>
                                 Total: ${cart.reduce((total, item) => total + (item.precio * item.cantidad), 0)}
                             </p>
-                            <button className="rounded-lg bg-[#435a12b4] text-gray-200 text-lg font-bold py-2 w-full hover:bg-[#3e4e1e] btnCheckout">Finalizar Compra</button>
+                            <button className="rounded-lg bg-[#435a12b4] text-gray-200 text-lg font-bold py-2 w-full hover:bg-[#3e4e1e] btnCheckout" onClick={() => clearCart()}>Finalizar Compra</button>
                         </div>
                     </>)}
             </div>

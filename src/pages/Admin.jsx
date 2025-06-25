@@ -1,15 +1,27 @@
 import React, { useState, useEffect, useContext } from "react";
-import FormularioProducto from "../components/FormularioProducto";
+import FormularioEdicion from '../components/admin/FormularioEdicion'
+import FormularioProducto from '../components/admin/FormularioProducto'
 import { CartContext } from "../context/CartContext";
+import { AdminContext } from "../context/AdminContext";
 import { useNavigate } from "react-router-dom";
 
 const Admin = () => {
     const { setIsAuth } = useContext(CartContext)
+    const {
+        productos,
+        loading,
+        open,
+        setOpen,
+        openEditor,
+        setOpenEditor,
+        seleccionado,
+        setSeleccionado,
+        agregarProducto,
+        actualizarProducto,
+        eliminarProducto,
+    } = useContext(AdminContext)
 
     const navigate = useNavigate()
-
-
-
 
     return (
         <div className="container">

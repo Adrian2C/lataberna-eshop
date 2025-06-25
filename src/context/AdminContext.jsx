@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+
 export const AdminContext = createContext()
 
 export const AdminProvider = ({ children }) => {
@@ -7,8 +8,8 @@ export const AdminProvider = ({ children }) => {
     const [open, setOpen] = useState(false)//se encarga cuando se muestre el formulario y cuando no
     const [seleccionado, setSeleccionado] = useState(null)
     const [openEditor, setOpenEditor] = useState(false)
-    const [error, setError] = useState(false)
-    
+
+
     const apiUrl = 'https://6840875d5b39a8039a5860f6.mockapi.io/productos'
 
     useEffect(() => {
@@ -36,12 +37,10 @@ export const AdminProvider = ({ children }) => {
             console.log('Error al cargar prouctos', error)
         }
     }
-    //
+
     const agregarProducto = async (producto) => {
         try {
-            //aca se crea la variable, que es la respuesta, a la llamada a la url, y espera la respuesta.
             const respuesta = await fetch('https://6840875d5b39a8039a5860f6.mockapi.io/productos', {
-                //como tengo que enviar(o agregar nuevos prod)
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -52,14 +51,19 @@ export const AdminProvider = ({ children }) => {
                 throw new Error('Error al agregar producto')
             }
             const data = await respuesta.json()
-            alert('Producto agregado correctamente')
+
+            Swal.fire({
+                title: ":)!",
+                text: "Producto agregado correctamente!",
+                icon: "success"
+            });
             cargarProductos()
+            setOpen(false)
         } catch (error) {
             console.log(error.message);
         }
     }
 
-    //actualizazr productos
     const actualizarProducto = async (producto) => {
         try {
             const respuesta = await fetch(`${apiUrl}/${producto.id}`,
@@ -89,7 +93,11 @@ export const AdminProvider = ({ children }) => {
                     method: 'DELETE',
                 })
                 if (!respuesta.ok) throw Error('Error al eliminar')
-                alert('producto eliminado correctamente')
+                Swal.fire({
+                    title: ":(!",
+                    text: "Producto Eliminado correctamente!",
+                    icon: "error"
+                });
                 cargarProductos()
             } catch (error) {
                 alert('hubo un problema al eliminar el prodcuto)')
@@ -109,7 +117,7 @@ export const AdminProvider = ({ children }) => {
             setSeleccionado,
             agregarProducto,
             actualizarProducto,
-            eliminarProducto
+            eliminarProducto,
         }}>
             {children}
         </AdminContext.Provider>
