@@ -50,11 +50,11 @@ export const CartProvider = ({ children }) => {
             .then((respuesta) => respuesta.json())
             .then((datos) => {
                 setEquipo(datos)
-                setLoading(false)
+                setLoadingEquipo(false)
             })
-            .catch((error) => {
+            .catch((setErrorEquipo) => {
                 setError('hubo un Problema al cargar al team.')
-                setLoading(false);
+                setLoadingEquipo(false);
             })
     },
         [])
