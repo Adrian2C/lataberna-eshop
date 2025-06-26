@@ -18,6 +18,7 @@ const Productos = ({ producto }) => {
     };
 
     return (
+
         <section className="w-full max-w-xs sm:max-w-sm md:max-w-sm lg:max-w-sm xl:max-w-sm m-2 flex items-center justify-center">
             <div className="w-full h-[500px] overflow-hidden rounded-xl bg-[#f5f1e4] shadow-lg transition-all hover:shadow-2xl border border-[#d4c9a4] flex flex-col">
                 <div className="relative h-64">
@@ -52,14 +53,14 @@ const Productos = ({ producto }) => {
                     <div className="flex justify-between items-center mt-2">
                         <p className="text-xl font-bold text-[#866c17]">${producto.precio}</p>
                         <Link
-                            to={`/productos/${producto.nombre}`}
+                            to={`/productos/${producto.id}`}
                             className="text-sm font-semibold text-[#3e4e1e] hover:underline"
                         >
                             Ver más
                         </Link>
                     </div>
 
-                    <button style={{ display: cantidad == 0 ? 'none' : 'block' }}
+                    <button
                         className="w-full bg-[#3e4e1e] hover:bg-[#567219] text-white font-semibold py-2 rounded-xl mt-3 transition-colors duration-300 border-2 border-[#3e4e1e] active:scale-95"
                         onClick={() => handleAddToCart({ ...producto, cantidad })}
                     >

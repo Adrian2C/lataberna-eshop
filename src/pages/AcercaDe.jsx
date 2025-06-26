@@ -14,12 +14,11 @@ const AcercaDe = () => {
             {loadingEquipo ? (<div className="flex justify-center items-center h-dvh">
                 <img src={cargando} alt="loading" className="h-auto w-32" />
             </div>) : (
-                <div className=" rounded-xl p-4">
-
+                <div className=" rounded-xl p-4 ">
                     <h2 className="text-[#D4AF37] text-3xl font-bold text-center my-10">Nuestro Equipo</h2>
                     <p className="text-[#F5EBD0] text-center mt-2 py-2 bg-[#3a4e10b4]">Conoce a nuestro equipo</p>
 
-                    <div>
+                    <div className="h-[70dvh] content-center mt-5">
                         {errorEquipo && (
                             <p className="text-center text-red-500 font-bold mt-4">{error}</p>
                         )}
