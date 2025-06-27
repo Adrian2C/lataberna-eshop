@@ -37,17 +37,6 @@ h1,
 h2 {
   font-family: var(--font-main);
 }
-/* ====== Enlaces ====== */
-.link {
-  color: var(--color-forge);
-  text-decoration: none;
-  /* font-size: 1.125rem; */
-  text-transform: uppercase;
-}
-.link:hover {
-  color: var(--color-rune);
-}
-
 
 /* ====== Botones ====== */
 .button,
@@ -94,9 +83,7 @@ header {
   align-items: center;
   margin: 0;
 }
-navlink:active{
-  color:red;
-}
+
 /* =========================
   CART DRAWER
 ========================= */

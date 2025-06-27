@@ -4,7 +4,7 @@ import Header from '../components/estaticos/Header'
 import Footer from '../components/estaticos/Footer'
 import ProductList from '../components/ProductList'
 import loading from '../assets/images/loading.gif'
-import { CartContext } from '../context/cartContext'
+import { CartContext } from '../context/CartContext'
 import bgImage from '../assets/images/bg.jpg';
 
 const Home = () => {

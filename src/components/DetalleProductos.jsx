@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import Footer from './estaticos/Footer'
 import Header from './estaticos/Header'
-import { CartContext } from '../context/cartContext'
+import { CartContext } from '../context/CartContext'
 
 
 const DetalleProductos = ({ producto }) => {

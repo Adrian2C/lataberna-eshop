@@ -15,3 +15,15 @@
   --text-body: 1.2rem;
   --text-small: .875rem;
 }
+
+
+.link.active {
+  color: var(--color-rune);
+  font-weight: bold;
+}
+.link{
+    margin-right: 20px;
+    text-transform: uppercase;
+    color: var(--color-forge);
+    text-decoration: none;
+}

@@ -69,16 +69,6 @@ function FormularioEdicion({ productoSeleccionado, onActualizar }) {
                     required
                 />
             </div>
-            <div>
-                <label>Categoria:</label>
-                <input
-                    type="text"
-                    name="categoria"
-                    value={producto.categoria || ''}
-                    onChange={handleChange}
-                    required
-                />
-            </div>
             <button type="submit">Actualizar Producto</button>
         </form>
     );

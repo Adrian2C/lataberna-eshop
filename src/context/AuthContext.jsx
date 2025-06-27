@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { CartContext } from "./cartContext";
+import { CartContext } from "./CartContext";
 
 const AuthContext = createContext()
 
@@ -17,12 +17,11 @@ export const AuthProvider = ({ children }) => {
             setIsAuth(true)
             navigate('/admin')
         }
-    },[])
+    }, [])
 
     const handleSubmit = async (e) => {
         e.preventDefault()
         let validationErrors = {}
-
         if (!email) validationErrors.email = 'Email es requerido'
         if (!password) validationErrors.password = 'La contraseña es requerida'
 
@@ -44,7 +43,6 @@ export const AuthProvider = ({ children }) => {
             } else {
                 if (foundUser.rol === 'admin') {
                     setIsAuth(true)
-
                     //mantiene el login abiero.t hasta q haga logout
                     localStorage.setItem('isAuth', true)
                     navigate('/admin')

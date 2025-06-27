@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../assets/style/style.css'
-import { CartContext } from '../context/cartContext'
+import { CartContext } from '../context/CartContext'
 
 const Productos = ({ producto }) => {
     const { handleAddToCart } = useContext(CartContext)

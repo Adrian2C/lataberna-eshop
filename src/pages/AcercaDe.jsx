@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import Header from '../components/estaticos/Header'
 import Footer from '../components/estaticos/Footer'
 import cargando from '../assets/images/loading.gif'
-import { CartContext } from '../context/cartContext'
+import { CartContext } from '../context/CartContext'
 
 const AcercaDe = () => {
     const { equipo, loadingEquipo, errorEquipo } = useContext(CartContext)

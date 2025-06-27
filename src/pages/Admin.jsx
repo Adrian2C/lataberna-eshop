@@ -29,15 +29,18 @@ const Admin = () => {
                 <p>Cargando...</p>
             ) : (
                 <>
-                    <nav>
+                    <h1 className="bg-red-500 w-dvw">Panel Administrativo</h1>
+                    <nav className="bg-amber-400 w-dvw">
                         <ul className="nav">
                             <li className="navItem">
-                                <button className="navButton" onClick={() => {
+                                <button className="flex click-pointer" onClick={() => {
                                     setIsAuth(false)
                                     navigate('/')
                                     localStorage.removeItem('isAuth')
-                                }}>
-                                    <i className="fa-solid fa-right-from-bracket"></i>
+                                }}>Logout
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9" />
+                                    </svg>
                                 </button>
                             </li>
                             <li className="navItem">
@@ -45,7 +48,7 @@ const Admin = () => {
                             </li>
                         </ul>
                     </nav>
-                    <h1 className="title">Panel Administrativo</h1>
+
 
                     <ul className="list">
                         {productos.map((product) => (
