@@ -29,8 +29,8 @@ const Admin = () => {
                 <p>Cargando...</p>
             ) : (
                 <>
-                    <h1 className="bg-red-500 w-dvw">Panel Administrativo</h1>
-                    <nav className="bg-amber-400 w-dvw">
+                    <h1 className="bg-red-500 w-dvw text-4xl py-3 text-center">Panel Administrativo</h1>
+                    <nav className="bg-blue-400 w-dvw">
                         <ul className="nav">
                             <li className="navItem">
                                 <button className="flex click-pointer" onClick={() => {
@@ -49,34 +49,40 @@ const Admin = () => {
                         </ul>
                     </nav>
 
+                    <button className="bg-rune text-3xl text-bg hover:bg-dragon hover:text-pergamino px-6 py-3 rounded-xl" onClick={() => setOpen(true)}>Agregar Producto Nuevo</button>
 
-                    <ul className="list">
-                        {productos.map((product) => (
-                            <li key={product.id} className="listItem">
-                                <img
-                                    src={product.imagen}
-                                    alt={product.nombre}
-                                    className="listItemImage"
-                                />
-                                <span>{product.nombre}</span>
-                                <span>${product.precio}</span>
-                                <div>
-                                    <button className="editButton" onClick={() => {
-                                        setOpenEditor(true)
-                                        setSeleccionado(product)
-                                    }}>Editar</button>
 
-                                    <button className="deleteButton" onClick={() => eliminarProducto(product.id)}>Eliminar</button>
-                                </div>
-                            </li>
-                        ))}
-                    </ul>
+                    {open && (<FormularioProducto onAgregar={agregarProducto} />)}
+                    {openEditor && (<FormularioEdicion productoSeleccionado={seleccionado} onActualizar={actualizarProducto} />)
+                    }
+
+                    <div className="w-screen flex justify-center">
+                        <ul className="jamon2 w-[90%] grid grid-cols-2 lg:grid-cols-5 gap-4 p-4  bg-forge/80">
+                            {productos.map((product) => (
+                                <li key={product.id} className=" border border-amber-400 rounded shadow p-4 h-full w-full text-black">
+                                    <img
+                                        src={product.imagen}
+                                        alt={product.nombre}
+                                        className="listItemImage w-full"
+                                    />
+                                    <span>{product.nombre}</span>
+                                    <span>${product.precio}</span>
+                                    <div className="mt-4 flex gap-2 ">
+                                        <button className="border-2 hover:bg-dragon hover:border-none hover:text-pergamino px-8 me-3 py-1 rounded-xl " onClick={() => {
+                                            setOpenEditor(true)
+                                            setSeleccionado(product)
+                                        }}>Editar</button>
+
+                                        <button className="bg-rune text-bg hover:bg-dragon hover:text-pergamino px-8 me-3 py-1 rounded-xl" onClick={() => eliminarProducto(product.id)}>Eliminar</button>
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                 </>
             )}
-            {/* mediante el boton, se llama la funcion para abrir el formulario y agregar el producto */}
-            <button onClick={() => setOpen(true)}>Agregar producto nuevo</button>
-            {open && (<FormularioProducto onAgregar={agregarProducto} />)}
-            {openEditor && (<FormularioEdicion productoSeleccionado={seleccionado} onActualizar={actualizarProducto} />)}
+
+
         </div>
     );
 };

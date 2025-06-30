@@ -79,7 +79,7 @@ function FormularioEdicion({ productoSeleccionado, onActualizar }) {
                     required
                 />
             </div>
-            <button type="submit">Actualizar Producto</button>
+            <button type="submit" className="text-red-900">Actualizar Producto</button>
         </form>
     );
 }
