@@ -30,13 +30,13 @@ const Header = () => {
 
     return (
         <header className="bg-[#1e1e1e] text-white fixed top-0 left-0 w-full shadow-lg z-50">
-            <nav className="w-full max-w-[1200px] min-w-[290px] mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <nav className="w-full min-w-[290px] mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
 
                 {/* Logo */}
                 <Link to="/" className="text-2xl font-bold text-yellow-400">La Taberna</Link>
 
                 {/* Enlaces centrales */}
-                <ul className="hidden md:flex gap-6 items-center">
+                <ul className="hidden md:flex gap-8 items-center font-bold">
                     <li><NavLink to='/' className='link'>Inicio</NavLink></li>
                     <li><NavLink to='/productos' className='link'>Productos</NavLink></li>
                     <li><NavLink to='/acercade' className='link'>Nosotros</NavLink></li>

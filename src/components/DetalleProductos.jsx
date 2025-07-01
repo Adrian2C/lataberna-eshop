@@ -6,12 +6,11 @@ import { CartContext } from '../context/CartContext'
 
 
 const DetalleProductos = ({ producto }) => {
-    const { productos } = useContext(CartContext)
-    const { handleAddToCart } = useContext(CartContext)
+    const { productos, handleAddToCart } = useContext(CartContext)
     const [cantidad, setCantidad] = useState(1)
-
     const { id } = useParams()
 
+    const product = productos.find(producto => producto.id == id)
 
     const increase = () => {
         if (cantidad < producto.stock) {
@@ -22,12 +21,16 @@ const DetalleProductos = ({ producto }) => {
     const decrease = () => {
         setCantidad(prev => (prev > 1 ? prev - 1 : prev));
     };
-    const product = productos.find(producto => producto.id == id)
+
     if (!product) {
         return (
             <div style={{ padding: '2rem', textAlign: 'center' }}>
-                <h1 className="text-red-500 font-extrabold">Detalle del producto: {id}</h1>
-                <p className="size-6">Producto no encontrado</p>
+                <h1 className="text-rune text-6xl font-extrabold">Detalle del producto: {id}</h1>
+                <br />
+                <p className="text-3xl">Producto no encontrado</p>
+                <div className="mt-6">
+                    <Link to="/" className="inline-block px-16 py-3 text-lg font-bold bg-dragon text-white rounded-xl hover:bg-rune hover:text-druid transition delay-100 duration-300 ease-in">← Pagina Anterior</Link>
+                </div>
             </div>
         )
     }
@@ -35,9 +38,9 @@ const DetalleProductos = ({ producto }) => {
     return (
         <>
             <Header />
-            <div className="section bg-[#567219b4] pt-10">
-                <div className="max-w-5xl mx-auto bg-[#3c4c1ab4] rounded-2xl p-6 shadow-2xl border border-[#6a7f3a]">
-                    <div className="bg-[#f5f1e4] rounded-xl shadow-md flex flex-col md:flex-row overflow-hidden border border-[#d4c9a4]">
+            <div className="h-[91vh] pt-10">
+                <div className="w-3/4 mx-auto rounded-2xl p-6 shadow-2xl border border-rune">
+                    <div className="bg-[#f5f1e4] rounded-xl shadow-md flex flex-col md:flex-row overflow-hidden">
                         <img
                             src={product.imagen}
                             alt={product.nombre}
@@ -53,16 +56,16 @@ const DetalleProductos = ({ producto }) => {
                                 <p>Categoría: {product.categoria}</p>
 
 
-                                <div className="flex items-center gap-2 justify-center my-2 bg-red-500">
+                                <div className="flex items-center gap-2 justify-center">
                                     <button
-                                        className="bg-[#ccc7b6] px-3 py-1 rounded-md text-lg font-bold hover:bg-[#b9b49e] transition"
+                                        className="bg-[#ccc7b6] px-3 text-black py-1 rounded-md text-3xl font-bold hover:bg-[#b9b49e]"
                                         onClick={decrease}
                                     >
                                         -
                                     </button>
-                                    <span className="font-bold text-[#8c2929]">{cantidad}</span>
+                                    <span className="font-bold text-black text-3xl">{cantidad}</span>
                                     <button
-                                        className="bg-[#ccc7b6] px-3 py-1 rounded-md text-lg font-bold hover:bg-[#b9b49e] transition"
+                                        className="bg-[#ccc7b6] px-3 text-black py-1 rounded-md text-3xl font-bold hover:bg-[#b9b49e]"
                                         onClick={increase}
                                     >
                                         +
@@ -70,7 +73,7 @@ const DetalleProductos = ({ producto }) => {
                                 </div>
                                 <button
                                     className="w-full bg-[#3e4e1e] hover:bg-[#567219] text-white font-semibold py-2 rounded-xl mt-3 transition-colors duration-300 border-2 border-[#3e4e1e] active:scale-95"
-                                    onClick={() => handleAddToCart({ ...producto, cantidad })}
+                                    onClick={() => handleAddToCart({ ...product, cantidad })}
                                 >
                                     Agregar al carrito
                                 </button>
@@ -79,8 +82,8 @@ const DetalleProductos = ({ producto }) => {
                             </div>
                         </div>
                     </div>
-                    <div classNAme="mb-6">
-                        <Link to="/" className="inline-block px-6 py-3 text-lg font-bold bg-[#3e4e1e] text-white rounded-xl hover:bg-[#567219] transition">← Volver atrás</Link>
+                    <div className="mt-4">
+                        <Link to="/" className="inline-block px-20 py-3 text-lg font-bold bg-forge text-black rounded-xl hover:bg-rune transition">← Volver atrás</Link>
                     </div>
                 </div>
             </div>

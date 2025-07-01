@@ -56,24 +56,24 @@ const Admin = () => {
                     {openEditor && (<FormularioEdicion productoSeleccionado={seleccionado} onActualizar={actualizarProducto} />)
                     }
 
-                    <div className="w-screen flex justify-center">
-                        <ul className="jamon2 w-[90%] grid grid-cols-2 lg:grid-cols-5 gap-4 p-4  bg-forge/80">
+                    <div>
+                        <ul className="min-h-screen w-[98vw] text-center grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 border-2 gap-4 p-4">
                             {productos.map((product) => (
-                                <li key={product.id} className=" border border-amber-400 rounded shadow p-4 h-full w-full text-black">
+                                <li key={product.id} className=" flex flex-col justify-between border border-amber-400 rounded shadow p-4 h-full w-full bg-white text-black">
                                     <img
                                         src={product.imagen}
                                         alt={product.nombre}
-                                        className="listItemImage w-full"
+                                        className="h-30 w-30 m-auto"
                                     />
-                                    <span>{product.nombre}</span>
-                                    <span>${product.precio}</span>
-                                    <div className="mt-4 flex gap-2 ">
-                                        <button className="border-2 hover:bg-dragon hover:border-none hover:text-pergamino px-8 me-3 py-1 rounded-xl " onClick={() => {
+                                    <span className="text-2xl">{product.nombre}</span>
+                                    <span className="font-extrabold text-xl">${product.precio}</span>
+                                    <div className="block">
+                                        <button className="w-full border-2 hover:bg-dragon hover:border-none hover:text-pergamino  py-1 rounded-xl  font-bold" onClick={() => {
                                             setOpenEditor(true)
                                             setSeleccionado(product)
                                         }}>Editar</button>
 
-                                        <button className="bg-rune text-bg hover:bg-dragon hover:text-pergamino px-8 me-3 py-1 rounded-xl" onClick={() => eliminarProducto(product.id)}>Eliminar</button>
+                                        <button className="w-full bg-rune text-bg hover:bg-dragon hover:text-pergamino mt-2 py-1 rounded-xl font-bold" onClick={() => eliminarProducto(product.id)}>Eliminar</button>
                                     </div>
                                 </li>
                             ))}
