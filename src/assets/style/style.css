@@ -108,9 +108,9 @@ header {
 /* =========================
     SECCIONES
 ========================= */
-.section {
+/* .section {
   height: 100dvh;
-}
+} */
 
 /* =========================
    TARJETAS
@@ -127,7 +127,12 @@ header {
 .cardProdContainer {
   animation: fadeIn 0.5s ease-in;
 }
-
+.contact-title{
+  text-align: center;
+  font-size: clamp(1.6rem, 0.175rem + 3vw, 3.5rem);
+  font-weight: bold;
+  color:var(--color-dragon);
+}
 /* =========================
    ADMIN
 ========================= */
@@ -172,14 +177,6 @@ header {
 .error-back:active {
   border: .375rem solid #996e11;
 }
-
-/* .jamon{
-width:100%;
-
-}
-.jamon2{
-width:90%;
-} */
 /* =========================
    ANIMACIONES
 ========================= */

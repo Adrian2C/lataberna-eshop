@@ -1,75 +1,79 @@
 import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
-import '../assets/style/style.css'
 import { CartContext } from '../context/CartContext'
 
 const Productos = ({ producto }) => {
     const { handleAddToCart } = useContext(CartContext)
-    const [cantidad, setCantidad] = useState(1);
+    const [cantidad, setCantidad] = useState(1)
 
     const increase = () => {
         if (cantidad < producto.stock) {
-            setCantidad(prev => prev + 1);
+            setCantidad(prev => prev + 1)
         }
-    };
+    }
 
     const decrease = () => {
-        setCantidad(prev => (prev > 1 ? prev - 1 : prev));
-    };
+        setCantidad(prev => (prev > 1 ? prev - 1 : prev))
+    }
 
     return (
-
-        <section className="w-full max-w-xs sm:max-w-sm md:max-w-sm lg:max-w-sm xl:max-w-sm m-2 flex items-center justify-center">
-            <div className="w-full h-[500px] overflow-hidden rounded-xl bg-[#f5f1e4] shadow-lg transition-all hover:shadow-2xl border border-[#d4c9a4] flex flex-col">
-                <div className="relative h-64">
+        <article className="w-full max-w-xs sm:max-w-sm m-3 flex items-stretch">
+            <div className="flex flex-col bg-pergamino text-bg rounded-2xl shadow-md hover:shadow-xl transition border border-forge/60 w-full overflow-hidden">
+                {/* Imagen */}
+                <div className="relative h-64 w-full">
                     <img
                         src={producto.imagen}
-                        alt={producto.nombre}
-                        className="w-full h-full object-cover rounded-t-xl"
+                        alt={`Imagen de ${producto.nombre}`}
+                        className="w-full h-full object-cover rounded-t-2xl"
                     />
                 </div>
 
-                <div className="p-5 flex flex-col justify-between flex-grow">
-                    <h3 className="text-2xl font-bold text-[#5c4c2d] text-center min-h-[56px]">
+                {/* Info */}
+                <div className="flex flex-col flex-grow justify-between p-4 gap-3">
+                    <h2 className="text-xl font-bold text-center text-dragon min-h-[56px]">
                         {producto.nombre}
-                    </h3>
+                    </h2>
 
-                    <div className="flex items-center gap-2 justify-center my-2">
+                    {/* Controles de cantidad */}
+                    <div className="flex items-center justify-center gap-3">
                         <button
-                            className="bg-[#ccc7b6] px-3 py-1 rounded-md text-lg font-bold hover:bg-[#b9b49e] transition"
+                            className="bg-forge px-3 py-1 rounded-md text-lg font-bold text-bg hover:bg-rune hover:text-pergamino transition"
                             onClick={decrease}
+                            aria-label="Reducir cantidad"
                         >
                             -
                         </button>
-                        <span className="font-bold text-[#8c2929]">{cantidad}</span>
+                        <span className="text-lg font-semibold text-dragon">{cantidad}</span>
                         <button
-                            className="bg-[#ccc7b6] px-3 py-1 rounded-md text-lg font-bold hover:bg-[#b9b49e] transition"
+                            className="bg-forge px-3 py-1 rounded-md text-lg font-bold text-bg hover:bg-rune hover:text-pergamino transition"
                             onClick={increase}
+                            aria-label="Aumentar cantidad"
                         >
                             +
                         </button>
                     </div>
 
-                    <div className="flex justify-between items-center mt-2">
-                        <p className="text-xl font-bold text-[#866c17]">${producto.precio}</p>
+                    {/* Precio + enlace */}
+                    <div className="flex items-center justify-between mt-2">
+                        <p className="text-xl font-bold text-dragon">${producto.precio}</p>
                         <Link
                             to={`/productos/${producto.id}`}
-                            className="text-sm font-semibold text-[#3e4e1e] hover:underline"
+                            className="text-sm font-semibold text-arcane hover:text-rune transition"
                         >
                             Ver más
                         </Link>
                     </div>
 
+                    {/* Botón agregar */}
                     <button
-                        className="w-full bg-[#3e4e1e] hover:bg-[#567219] text-white font-semibold py-2 rounded-xl mt-3 transition-colors duration-300 border-2 border-[#3e4e1e] active:scale-95"
+                        className="bg-druid hover:bg-[#47684c] text-pergamino font-semibold py-2 rounded-xl transition-colors duration-300 border-2 border-druid active:scale-95"
                         onClick={() => handleAddToCart({ ...producto, cantidad })}
                     >
                         Agregar al carrito
                     </button>
                 </div>
             </div>
-        </section>
-
+        </article>
     )
 }
 

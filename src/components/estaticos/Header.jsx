@@ -47,7 +47,7 @@ const Header = () => {
                 <div className="flex items-center gap-4 relative">
 
                     {/* Búsqueda */}
-                    <div ref={searchRef} className="relative">
+                    <div ref={searchRef} className="relative w-8">
                         {!showSearch ? (
                             <button onClick={() => setShowSearch(true)} className="hover:text-yellow-300 transition-colors">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="size-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -60,7 +60,7 @@ const Header = () => {
                                 placeholder="Buscar..."
                                 value={busqueda}
                                 onChange={(e) => setBusqueda(e.target.value)}
-                                className="absolute -top-5 right-0 mt-2 w-48 bg-white text-black px-3 py-1 rounded-md shadow-md border focus:outline-none transition-all duration-300"
+                                className="absolute -top-[25px] right-0 mt-2 w-48 bg-white text-black px-3 py-1 rounded-md shadow-md border focus:outline-none transition-all duration-300 z-50"
                             />
                         )}
                     </div>

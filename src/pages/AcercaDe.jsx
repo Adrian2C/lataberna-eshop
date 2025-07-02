@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import Header from '../components/estaticos/Header'
 import Footer from '../components/estaticos/Footer'
 import cargando from '../assets/images/loading.gif'
@@ -11,37 +11,42 @@ const AcercaDe = () => {
         <>
             <Header />
 
-            {loadingEquipo ? (<div className="flex justify-center items-center h-dvh">
-                <img src={cargando} alt="loading" className="h-auto w-32" />
-            </div>) : (
-                <div className=" rounded-xl p-4 ">
-                    <h2 className="text-[#D4AF37] text-3xl font-bold text-center my-10">Nuestro Equipo</h2>
-                    <p className="text-[#F5EBD0] text-center mt-2 py-2 bg-[#3a4e10b4]">Conoce a nuestro equipo</p>
+            <main className="min-h-screen px-4 py-16 bg-druid text-pergamino">
+                {loadingEquipo ? (
+                    <div className="flex justify-center items-center h-screen">
+                        <img src={cargando} alt="Cargando equipo" className="w-24 h-auto" />
+                    </div>
+                ) : (
+                    <section className="max-w-6xl mx-auto text-center">
+                        <h1 className="text-4xl sm:text-5xl font-bold text-rune mb-4">Nuestro Equipo</h1>
+                        <p className="text-lg text-forge mb-12">
+                            Conocé a las personas detrás de este proyecto.
+                        </p>
 
-                    <div className="h-[70dvh] content-center mt-5">
                         {errorEquipo && (
-                            <p className="text-center text-red-500 font-bold mt-4">{error}</p>
+                            <p className="text-red-500 font-semibold mb-6">{errorEquipo}</p>
                         )}
-                        <div className="cardAbout ">
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                             {equipo.map((persona) => (
                                 <div
                                     key={persona.id}
-                                    className="bg-[#3D6B3D] shadow-md shadow-black rounded-xl p-6 text-center hover:bg-[#2f5530] transition"
+                                    className="bg-forge/30 p-6 rounded-xl shadow-lg hover:shadow-xl transition border border-forge text-center"
                                 >
                                     <img
                                         src={persona.imagen}
-                                        alt={persona.nombre}
-                                        className="rounded-full mx-auto mb-4 w-32 h-32 object-cover border-4 border-[#D4AF37]"
+                                        alt={`Foto de ${persona.nombre}`}
+                                        className="rounded-full mx-auto mb-4 w-28 h-28 object-cover border-4 border-rune"
                                     />
-                                    <h3 className="text-lg font-semibold text-[#F5EBD0]">{persona.nombre}</h3>
-                                    <p className="text-[#BBAC88]">{persona.rol}</p>
+                                    <h2 className="text-2xl font-extrabold text-pergamino">{persona.nombre}</h2>
+                                    <p className="text-sm text-pergamino">{persona.rol}</p>
                                 </div>
                             ))}
                         </div>
-                    </div>
+                    </section>
+                )}
+            </main>
 
-                </div>
-            )}
             <Footer />
         </>
     )
