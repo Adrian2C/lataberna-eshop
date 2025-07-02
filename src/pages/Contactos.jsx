@@ -8,8 +8,8 @@ const Contactos = () => {
       <Header />
       <main className="min-h-screen bg-druid px-4 py-16 sm:py-24">
         <section className="bg-pergamino/90 backdrop-blur-md max-w-4xl mx-auto p-8 rounded-xl shadow-lg border border-forge">
-          <div className="text-center mb-10">
-            <h1 className="contact-title">Contáctanos</h1>
+          <div className="text-center mb-10 ">
+            <h1 className="contact-title ">Contáctanos</h1>
             <p className="mt-4 text-lg text-druid">
               Cuéntanos tus necesidades y encontraremos una solución juntos.
             </p>

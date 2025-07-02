@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-
+import Swal from "sweetalert2";
 export const AdminContext = createContext()
 
 export const AdminProvider = ({ children }) => {
@@ -8,8 +8,6 @@ export const AdminProvider = ({ children }) => {
     const [open, setOpen] = useState(false)//se encarga cuando se muestre el formulario y cuando no
     const [seleccionado, setSeleccionado] = useState(null)
     const [openEditor, setOpenEditor] = useState(false)
-
-
     const apiUrl = 'https://6840875d5b39a8039a5860f6.mockapi.io/productos'
 
     useEffect(() => {

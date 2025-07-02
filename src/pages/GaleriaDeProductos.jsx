@@ -13,7 +13,7 @@ const GaleriaDeProductos = () => {
     <>
       <Header />
       <div className="min-h-screen  px-4">
-        <h2 className="text-[#D4AF37] text-3xl font-bold text-center mt-20 mb-6 py-5">
+        <h2 className="text-[#D4AF37] text-3xl font-bold text-center mt-20 mb-6 py-5 bg-dragon">
           Nuestros productos
         </h2>
 

@@ -11,14 +11,14 @@ const AcercaDe = () => {
         <>
             <Header />
 
-            <main className="min-h-screen px-4 py-16 bg-druid text-pergamino">
+            <main className="min-h-screen px-4 py-16 text-pergamino">
                 {loadingEquipo ? (
                     <div className="flex justify-center items-center h-screen">
                         <img src={cargando} alt="Cargando equipo" className="w-24 h-auto" />
                     </div>
                 ) : (
                     <section className="max-w-6xl mx-auto text-center">
-                        <h1 className="text-4xl sm:text-5xl font-bold text-rune mb-4">Nuestro Equipo</h1>
+                        <h1 className="text-4xl sm:text-5xl font-bold text-rune mb-4 bg-dragon py-4">Nuestro Equipo</h1>
                         <p className="text-lg text-forge mb-12">
                             Conocé a las personas detrás de este proyecto.
                         </p>

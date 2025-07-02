@@ -29,7 +29,7 @@ const Admin = () => {
                 <p>Cargando...</p>
             ) : (
                 <>
-                    <h1 className="bg-red-500 w-dvw text-4xl py-3 text-center">Panel Administrativo</h1>
+                    <h1 className="admin-panel py-4">Panel Administrativo</h1>
                     <nav className="bg-blue-400 w-dvw">
                         <ul className="nav">
                             <li className="navItem">
@@ -49,7 +49,7 @@ const Admin = () => {
                         </ul>
                     </nav>
 
-                    <button className="bg-rune text-3xl text-bg hover:bg-dragon hover:text-pergamino px-6 py-3 rounded-xl" onClick={() => setOpen(true)}>Agregar Producto Nuevo</button>
+                    <button className="bg-rune text-3xl text-bg hover:bg-arcane hover:text-pergamino px-6 py-3 rounded-xl" onClick={() => setOpen(true)}>Agregar Producto Nuevo</button>
 
 
                     {open && (<FormularioProducto onAgregar={agregarProducto} />)}
@@ -57,13 +57,13 @@ const Admin = () => {
                     }
 
                     <div>
-                        <ul className="min-h-screen w-[98vw] text-center grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 border-2 gap-4 p-4">
+                        <ul className="min-h-screen w-[98vw] text-center grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5  gap-4 p-4">
                             {productos.map((product) => (
-                                <li key={product.id} className=" flex flex-col justify-between border border-amber-400 rounded shadow p-4 h-full w-full bg-white text-black">
+                                <li key={product.id} className=" flex flex-col justify-between rounded shadow p-4 h-full w-full bg-white text-black">
                                     <img
                                         src={product.imagen}
                                         alt={product.nombre}
-                                        className="h-30 w-30 m-auto"
+                                        className=" w-full m-auto"
                                     />
                                     <span className="text-2xl">{product.nombre}</span>
                                     <span className="font-extrabold text-xl">${product.precio}</span>

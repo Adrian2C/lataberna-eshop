@@ -46,7 +46,7 @@ function FormularioProducto({ onAgregar }) {
 
     return (
         <form onSubmit={handleSubmit}>
-            <h2>Agregar Producto</h2>
+            <h2 style={{ background: 'red' }}>Agregar Producto</h2>
             <div>
                 <label>Nombre:</label>
                 <input

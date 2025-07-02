@@ -16,7 +16,9 @@ function FormularioEdicion({ productoSeleccionado, onActualizar }) {
         <form onSubmit={(e) => {
             e.preventDefault()
             onActualizar(producto)
-        }}>
+            
+        }}
+        className="bg-red-600 p-4">
             <h2>Editar Producto</h2>
             <div>
                 <label>ID:</label>
@@ -79,7 +81,7 @@ function FormularioEdicion({ productoSeleccionado, onActualizar }) {
                     required
                 />
             </div>
-            <button type="submit" className="text-red-900">Actualizar Producto</button>
+            <button type="submit">Actualizar Producto</button>
         </form>
     );
 }
