@@ -1,104 +1,150 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-function FormularioProducto({ onAgregar }) {
-    const [producto, setProducto] = useState({
-        nombre: '',
-        precio: '',
-        stock: '',
-        imagen: '',
-        categoria: '',
-    });
-    const [errores, setErrores] = useState({});
+function FormularioProducto({ onAgregar, onClose }) {
+  const [producto, setProducto] = useState({
+    nombre: '',
+    precio: '',
+    stock: '',
+    imagen: '',
+    categoria: '',
+  });
+  const [errores, setErrores] = useState({});
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setProducto({ ...producto, [name]: value });
+  useEffect(() => {
+    // Bloquea el scroll de fondo mientras el modal esté abierto
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'auto';
     };
+  }, []);
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setProducto({ ...producto, [name]: value });
+  };
 
-    const validarFormulario = () => {
-        const nuevosErrores = {};
-        if (!producto.nombre.trim()) {
-            nuevosErrores.nombre = 'El nombre es obligatorio.';
-        }
-        if (!producto.precio || producto.precio <= 0) {
-            nuevosErrores.precio = 'El precio debe ser mayor a 0.';
-        }
-        if (!producto.categoria.trim() || producto.categoria.length < 5) {
-            nuevosErrores.categoria = 'La categoria debe tener al menos 5 caracteres.';
-        }
-        setErrores(nuevosErrores);
-        return Object.keys(nuevosErrores).length === 0;
-    };
+  const validarFormulario = () => {
+    const nuevosErrores = {};
+    if (!producto.nombre.trim()) {
+      nuevosErrores.nombre = 'El nombre es obligatorio.';
+    }
+    if (!producto.precio || producto.precio <= 0) {
+      nuevosErrores.precio = 'El precio debe ser mayor a 0.';
+    }
+    if (!producto.stock || producto.stock < 0) {
+      nuevosErrores.stock = 'Stock no puede ser negativo.';
+    }
+    if (!producto.imagen.trim()) {
+      nuevosErrores.imagen = 'La URL de la imagen es obligatoria.';
+    }
+    if (!producto.categoria.trim() || producto.categoria.length < 3) {
+      nuevosErrores.categoria = 'La categoría debe tener al menos 3 caracteres.';
+    }
+    setErrores(nuevosErrores);
+    return Object.keys(nuevosErrores).length === 0;
+  };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (!validarFormulario()) {
-            return;
-        }
-        onAgregar(producto); // Llamada a la función para agregar el producto
-        setProducto({
-            nombre: '',
-            precio: '',
-            stock: '',
-            imagen: '',
-            categoria: '',
-        }); // Limpiar el formulario
-    };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!validarFormulario()) return;
+    onAgregar(producto);
+    onClose();
+  };
 
-    return (
-        <form onSubmit={handleSubmit}>
-            <h2>Agregar Producto</h2>
-            <div>
-                <label>Nombre:</label>
-                <input
-                    type="text" name="nombre" value={producto.nombre} onChange={handleChange} required />
-                {errores.nombre && <p style={{ color: 'red' }}>{errores.nombre}</p>}
-            </div>
-            <div>
-                <label>Precio:</label>
-                <input type="number" name="precio" value={producto.precio} onChange={handleChange} required
-                    min="0" />
-                {errores.precio && <p style={{ color: 'red' }}>{errores.precio}</p>}
-            </div>
+  const handleCerrar = () => {
+    if (window.confirm('¿Seguro que querés cerrar el formulario sin guardar?')) {
+      onClose();
+    }
+  };
 
-            <div>
-                <label>Stock:</label>
-                <input
-                    type="number"
-                    name="stock"
-                    value={producto.stock || ''}
-                    onChange={handleChange}
-                    required
-                />
-                {errores.stock && <p style={{ color: 'red' }}>{errores.stock}</p>}
-            </div>
-            <div>
-                <label>Imagen URL:</label>
-                <input
-                    type="text"
-                    name="imagen"
-                    value={producto.imagen || ''}
-                    onChange={handleChange}
-                    required
-                />
-                {errores.imagen && <p style={{ color: 'red' }}>{errores.imagen}</p>}
-            </div>
-            <div>
-                <label>Categoría:</label>
-                <input
-                    type="text"
-                    name="categoria"
-                    value={producto.categoria || ''}
-                    onChange={handleChange}
-                    required
-                />
-                {errores.categoria && <p style={{ color: 'red' }}>{errores.categoria}</p>}
-            </div>
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60">
+      <div className="relative bg-pergamino text-druid rounded-2xl w-full max-w-xl p-8 shadow-xl overflow-y-auto max-h-[90vh]">
+        {/* Botón de cierre */}
+        <button
+          onClick={handleCerrar}
+          className="absolute top-3 right-3 text-red-700 hover:text-red-900 font-bold text-xl"
+          aria-label="Cerrar formulario"
+        >
+          ×
+        </button>
 
-            <button type="submit">Agregar Producto</button>
+        <h2 className="text-3xl font-extrabold text-center text-rune mb-6">Agregar Producto</h2>
+
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label className="block text-sm font-semibold mb-1">Nombre</label>
+            <input
+              type="text"
+              name="nombre"
+              value={producto.nombre}
+              onChange={handleChange}
+              className="w-full rounded-md px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-rune"
+            />
+            {errores.nombre && <p className="text-sm text-red-600">{errores.nombre}</p>}
+          </div>
+
+          <div>
+            <label className="block text-sm font-semibold mb-1">Precio</label>
+            <input
+              type="number"
+              name="precio"
+              value={producto.precio}
+              onChange={handleChange}
+              min="0"
+              className="w-full rounded-md px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-rune"
+            />
+            {errores.precio && <p className="text-sm text-red-600">{errores.precio}</p>}
+          </div>
+
+          <div>
+            <label className="block text-sm font-semibold mb-1">Stock</label>
+            <input
+              type="number"
+              name="stock"
+              value={producto.stock}
+              onChange={handleChange}
+              className="w-full rounded-md px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-rune"
+            />
+            {errores.stock && <p className="text-sm text-red-600">{errores.stock}</p>}
+          </div>
+
+          <div>
+            <label className="block text-sm font-semibold mb-1">Imagen URL</label>
+            <input
+              type="text"
+              name="imagen"
+              value={producto.imagen}
+              onChange={handleChange}
+              className="w-full rounded-md px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-rune"
+            />
+            {errores.imagen && <p className="text-sm text-red-600">{errores.imagen}</p>}
+          </div>
+
+          <div>
+            <label className="block text-sm font-semibold mb-1">Categoría</label>
+            <input
+              type="text"
+              name="categoria"
+              value={producto.categoria}
+              onChange={handleChange}
+              className="w-full rounded-md px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-rune"
+            />
+            {errores.categoria && <p className="text-sm text-red-600">{errores.categoria}</p>}
+          </div>
+
+          <div className="pt-4">
+            <button
+              type="submit"
+              className="w-full py-2 px-4 bg-rune text-white font-semibold rounded-md hover:bg-arcane transition-colors duration-300"
+            >
+              Agregar Producto
+            </button>
+          </div>
         </form>
-    );
+      </div>
+    </div>
+  );
 }
 
 export default FormularioProducto;

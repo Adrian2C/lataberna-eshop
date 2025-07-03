@@ -52,8 +52,8 @@ const Admin = () => {
                     <button className="bg-rune text-3xl text-bg hover:bg-arcane hover:text-pergamino px-6 py-3 rounded-xl" onClick={() => setOpen(true)}>Agregar Producto Nuevo</button>
 
 
-                    {open && (<FormularioProducto onAgregar={agregarProducto} />)}
-                    {openEditor && (<FormularioEdicion productoSeleccionado={seleccionado} onActualizar={actualizarProducto} />)
+                    {open && (<FormularioProducto onAgregar={agregarProducto} onClose={() => setOpen(false)} />)}
+                    {openEditor && (<FormularioEdicion productoSeleccionado={seleccionado} onActualizar={actualizarProducto} onClose={() => setOpen(false)} />)
                     }
 
                     <div>

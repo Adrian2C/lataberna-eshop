@@ -98,7 +98,7 @@ export const AdminProvider = ({ children }) => {
                 });
                 cargarProductos()
             } catch (error) {
-                alert('hubo un problema al eliminar el prodcuto)')
+                alert('hubo un problema al eliminar el producto')
             }
         }
     }
