@@ -119,12 +119,7 @@ header {
 .text-display{
     font-size:clamp(2.5rem, -0.0563rem + 4.5070vw, 4rem);
 }
-.admin-panel{
-  background-color:var(--color-dragon);
-  width:100dvw;
-  font-size: clamp(1.5rem,-0.0563rem + 4.5070vw,2.25rem);
-  text-align: center; 
-}/* 
+/* 
 .edicion{
   background:var(--color-arcane);
 }
@@ -172,12 +167,14 @@ font-weight: bold;
 .admin {
   background: url("../images/bg-admin.jpg");
   display: flex;
+  margin-top:-32px;
 }
-.admin-login {
-  background: var(--color-druid);
-  margin: auto;
-  height: 43.75rem;
-  width: 31.25rem;
+
+.admin-panel{
+  background-color:var(--color-dragon);
+  width:100dvw;
+  font-size: clamp(1.5rem,-0.0563rem + 4.5070vw,2.25rem);
+  text-align: center; 
 }
 /* =========================
    ERROR
