@@ -1,64 +1,69 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { CartContext } from "./CartContext";
 
-const AuthContext = createContext()
+const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [errors, setErrors] = useState({})
-    const navigate = useNavigate()
-    const { setIsAuth } = useContext(CartContext)
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [errors, setErrors] = useState({});
+    const navigate = useNavigate();
+    const location = useLocation();
+    const { setIsAuth } = useContext(CartContext);
 
+    // Redirige si ya está autenticado y no está en /admin
     useEffect(() => {
-        const isAuthenticated = localStorage.getItem('isAuth') === 'true'
+        const isAuthenticated = localStorage.getItem('isAuth') === 'true';
         if (isAuthenticated) {
-            setIsAuth(true)
-            navigate('/admin')
+            setIsAuth(true);
+            // Solo redirige si no estás ya en /admin o en otra ruta protegida
+            if (location.pathname === '/login' || location.pathname === '/') {
+                navigate('/admin');
+            }
         }
-    }, [])
+    }, []);
 
     const handleSubmit = async (e) => {
-        e.preventDefault()
-        let validationErrors = {}
-        if (!email) validationErrors.email = 'Email es requerido'
-        if (!password) validationErrors.password = 'La contraseña es requerida'
+        e.preventDefault();
+        let validationErrors = {};
+        if (!email) validationErrors.email = 'Email es requerido';
+        if (!password) validationErrors.password = 'La contraseña es requerida';
 
         if (Object.keys(validationErrors).length > 0) {
-            setErrors(validationErrors)
-            return
+            setErrors(validationErrors);
+            return;
         }
 
         try {
-            const res = await fetch('data/users.json')
-            const users = await res.json()
+            const res = await fetch('data/users.json');
+            const users = await res.json();
 
             const foundUser = users.find(
                 (user) => user.email === email && user.password === password
-            )
+            );
 
             if (!foundUser) {
-                setErrors({ email: 'Credenciales inválidas' })
+                setErrors({ email: 'Credenciales inválidas' });
             } else {
-                if (foundUser.rol === 'admin') {
-                    setIsAuth(true)
-                    //mantiene el login abiero.t hasta q haga logout
-                    localStorage.setItem('isAuth', true)
-                    navigate('/admin')
-                } else {
-                    navigate('/')
-                }
+                setIsAuth(true);
+                localStorage.setItem('isAuth', true);
+                setEmail('');
+                setPassword('');
+                navigate('/admin');
             }
+
         } catch (err) {
-            console.error('error fetching user', err)
-            setErrors({ email: 'Algo salió mal, por favor intentelo más tarde' })
+            console.error('error fetching user', err);
+            setErrors({ email: 'Algo salió mal, por favor intentelo más tarde' });
         }
-    }
+    };
+
     return (
         <AuthContext.Provider value={{ email, setEmail, password, setPassword, handleSubmit, errors }}>
             {children}
         </AuthContext.Provider>
-    )
-}
-export const useAuth = () => useContext(AuthContext)
+    );
+};
+
+export const useAuth = () => useContext(AuthContext);

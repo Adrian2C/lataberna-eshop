@@ -119,32 +119,6 @@ header {
 .text-display{
     font-size:clamp(2.5rem, -0.0563rem + 4.5070vw, 4rem);
 }
-/* 
-.edicion{
-  background:var(--color-arcane);
-}
-.creacion{
-  background:red;
-  
-}
-.creacion h2{
-  color:var(--color-rune);
-  font-weight: bolder;
-  text-decoration: underline;
-}
-.creacion label{
-font-weight: bold;
-}
-.creacion input{
-  background:var(--color-rune);
-  border-radius: 5px;
-  border:1px solid black;
-  box-shadow: inset 0px 5px 28px 4px rgba(0,0,0,0.1);
-  color:black;
-  &:hover{
-   background:red; 
-  }
-} */
 /* =========================
    TARJETAS
 ========================= */
@@ -172,10 +146,11 @@ font-weight: bold;
 
 .admin-panel{
   background-color:var(--color-dragon);
-  width:100dvw;
+  width:100%;
   font-size: clamp(1.5rem,-0.0563rem + 4.5070vw,2.25rem);
   text-align: center; 
 }
+
 /* =========================
    ERROR
 ========================= */

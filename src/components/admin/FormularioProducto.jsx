@@ -48,7 +48,7 @@ function FormularioProducto({ onAgregar, onClose }) {
     e.preventDefault();
     if (!validarFormulario()) return;
     onAgregar(producto);
-    onClose();
+    onClose();  
   };
 
   const handleCerrar = () => {
@@ -69,7 +69,7 @@ function FormularioProducto({ onAgregar, onClose }) {
           ×
         </button>
 
-        <h2 className="text-3xl font-extrabold text-center text-rune mb-6">Agregar Producto</h2>
+        <h2 className="text-2xl font-extrabold mb-4 text-druid text-center">Agregar Producto</h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
@@ -79,7 +79,7 @@ function FormularioProducto({ onAgregar, onClose }) {
               name="nombre"
               value={producto.nombre}
               onChange={handleChange}
-              className="w-full rounded-md px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-rune"
+              className="w-full text-arcane/80 bg-white rounded-md px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-rune"
             />
             {errores.nombre && <p className="text-sm text-red-600">{errores.nombre}</p>}
           </div>
@@ -89,11 +89,14 @@ function FormularioProducto({ onAgregar, onClose }) {
             <input
               type="number"
               name="precio"
-              value={producto.precio}
+              value={producto.precio || ''}
               onChange={handleChange}
+              required
               min="0"
-              className="w-full rounded-md px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-rune"
+              step="0.01" // ✅ permite decimales con punto
+              className="w-full bg-white text-arcane/80 px-3 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-rune"
             />
+
             {errores.precio && <p className="text-sm text-red-600">{errores.precio}</p>}
           </div>
 
@@ -104,7 +107,7 @@ function FormularioProducto({ onAgregar, onClose }) {
               name="stock"
               value={producto.stock}
               onChange={handleChange}
-              className="w-full rounded-md px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-rune"
+              className="w-full text-arcane/80 bg-white rounded-md px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-rune"
             />
             {errores.stock && <p className="text-sm text-red-600">{errores.stock}</p>}
           </div>
@@ -116,7 +119,7 @@ function FormularioProducto({ onAgregar, onClose }) {
               name="imagen"
               value={producto.imagen}
               onChange={handleChange}
-              className="w-full rounded-md px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-rune"
+              className="w-full text-arcane/80 bg-white rounded-md px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-rune"
             />
             {errores.imagen && <p className="text-sm text-red-600">{errores.imagen}</p>}
           </div>
@@ -128,7 +131,7 @@ function FormularioProducto({ onAgregar, onClose }) {
               name="categoria"
               value={producto.categoria}
               onChange={handleChange}
-              className="w-full rounded-md px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-rune"
+              className="w-full text-arcane/80 bg-white rounded-md px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-rune"
             />
             {errores.categoria && <p className="text-sm text-red-600">{errores.categoria}</p>}
           </div>
@@ -136,7 +139,7 @@ function FormularioProducto({ onAgregar, onClose }) {
           <div className="pt-4">
             <button
               type="submit"
-              className="w-full py-2 px-4 bg-rune text-white font-semibold rounded-md hover:bg-arcane transition-colors duration-300"
+              className="w-full py-2 px-4 hover:bg-arcane text-white bg-dragon  font-semibold rounded- transition-colors duration-300"
             >
               Agregar Producto
             </button>

@@ -67,7 +67,15 @@ const Productos = ({ producto }) => {
                     {/* Botón agregar */}
                     <button
                         className="bg-druid hover:bg-[#47684c] text-pergamino font-semibold py-2 rounded-xl transition-colors duration-300 border-2 border-druid active:scale-95"
-                        onClick={() => handleAddToCart({ ...producto, cantidad })}
+                        /* onClick={() => handleAddToCart({ ...producto, cantidad })} */
+                        onClick={() => {
+                            console.log('Producto:', producto);
+                            console.log('Nombre:', producto.nombre);
+                            console.log('Precio:', producto.precio);
+                            console.log('typeof precio:', typeof producto.precio);
+                            handleAddToCart({ ...producto, cantidad });
+                        }}
+
                     >
                         Agregar al carrito
                     </button>

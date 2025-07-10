@@ -24,6 +24,7 @@ const Contactos = () => {
                 id="first-name"
                 name="first-name"
                 type="text"
+                placeholder='Nombre'
                 required
                 className="rounded-md px-4 py-2 bg-white text-gray-900 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-rune"
               />
@@ -36,6 +37,7 @@ const Contactos = () => {
               <input
                 id="last-name"
                 name="last-name"
+                placeholder='Apellido'
                 type="text"
                 required
                 className="rounded-md px-4 py-2 bg-white text-gray-900 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-rune"
@@ -50,6 +52,7 @@ const Contactos = () => {
                 id="email"
                 name="email"
                 type="email"
+                placeholder='mail@mail.com'
                 required
                 className="rounded-md px-4 py-2 bg-white text-gray-900 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-rune"
               />
@@ -75,6 +78,7 @@ const Contactos = () => {
               <textarea
                 id="message"
                 name="message"
+                placeholder='Cuentanos un poco mas...'
                 rows={4}
                 required
                 className="rounded-md px-4 py-2 bg-white text-gray-900 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-rune"
