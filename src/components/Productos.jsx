@@ -55,10 +55,10 @@ const Productos = ({ producto }) => {
 
                     {/* Precio + enlace */}
                     <div className="flex items-center justify-between mt-2">
-                        <p className="text-xl font-bold text-dragon">${producto.precio}</p>
+                        <p className="text-2xl font-bold text-dragon">${producto.precio}</p>
                         <Link
                             to={`/productos/${producto.id}`}
-                            className="text-sm font-semibold text-arcane hover:text-rune transition"
+                            className="text-md font-semibold text-black hover:text-rune transition"
                         >
                             Ver más
                         </Link>
@@ -66,16 +66,8 @@ const Productos = ({ producto }) => {
 
                     {/* Botón agregar */}
                     <button
-                        className="bg-druid hover:bg-[#47684c] text-pergamino font-semibold py-2 rounded-xl transition-colors duration-300 border-2 border-druid active:scale-95"
-                        /* onClick={() => handleAddToCart({ ...producto, cantidad })} */
-                        onClick={() => {
-                            console.log('Producto:', producto);
-                            console.log('Nombre:', producto.nombre);
-                            console.log('Precio:', producto.precio);
-                            console.log('typeof precio:', typeof producto.precio);
-                            handleAddToCart({ ...producto, cantidad });
-                        }}
-
+                        className="font-semibold py-2 rounded-xl transition-colors duration-300 active:scale-95 bg-rune text-bg hover:text-pergamino hover:bg-dragon "
+                        onClick={() => handleAddToCart({ ...producto, cantidad })}
                     >
                         Agregar al carrito
                     </button>

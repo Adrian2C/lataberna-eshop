@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Login = () => {
     const { email, setEmail, password, setPassword, handleSubmit, errors } = useAuth();
-
-    // Auto focus al campo de email
+    
     useEffect(() => {
         document.getElementById('formBasicEmail')?.focus();
     }, []);
@@ -59,7 +58,7 @@ const Login = () => {
 
                     <button
                         type="submit"
-                        className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded transition duration-200"
+                        className="bg-rune text-bg hover:text-pergamino hover:bg-dragon  font-semibold py-2 rounded transition duration-200"
                     >
                         Iniciar sesión
                     </button>
@@ -67,7 +66,7 @@ const Login = () => {
                     <div className="w-full text-center">
                         <Link
                             to="/"
-                            className="inline-block mt-2 px-10 py-3 text-sm font-bold bg-rune text-bg rounded-xl hover:bg-arcane hover:text-pergamino transition delay-100"
+                            className="inline-block mt-2 px-10 py-3 text-sm font-bold rounded-xl bg-rune text-bg hover:text-pergamino hover:bg-dragon  transition delay-100"
                             aria-label="Volver al inicio"
                         >
                             ← Volver atrás

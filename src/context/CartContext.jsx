@@ -13,16 +13,13 @@ export const CartProvider = ({ children }) => {
     const [cargando, setCargando] = useState(true)
     const [error, setError] = useState(false)
 
-    /* con esta funcion se comprueba si el usuario esta o no auth */
     const [isAuthenticated, setIsAuth] = useState(true)
     const [busqueda, setBusqueda] = useState("")
 
-    //Equipo
     const [equipo, setEquipo] = useState([]);
     const [loadingEquipo, setLoadingEquipo] = useState(true);
     const [errorEquipo, setErrorEquipo] = useState(null);
 
-    //productos
     useEffect(() => {
         fetch('https://6840875d5b39a8039a5860f6.mockapi.io/productos')
 
@@ -40,11 +37,9 @@ export const CartProvider = ({ children }) => {
             })
 
     }, [])
-    // Guardar carrito en localStorage
     useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(cart))
     }, [cart])
-    // Cargar equipo para AcercaDe
     useEffect(() => {
         fetch('https://6812b137129f6313e20f46de.mockapi.io/productos-ecommerce/productos')
             .then((respuesta) => respuesta.json())
@@ -63,14 +58,12 @@ export const CartProvider = ({ children }) => {
     const productosFiltrados = productos.filter((producto) => producto?.nombre.toLowerCase().includes(busqueda.toLocaleLowerCase()))
 
     const handleAddToCart = (product) => {
-        // Validación de cantidad
         if (!product.cantidad || product.cantidad <= 0) {
             alert('Debes seleccionar una cantidad válida');
             return;
         }
 
         const productInCart = cart.find((item) => item.id === product.id);
-
 
         if (productInCart) {
             setCart(cart.map((item) =>
@@ -90,12 +83,12 @@ export const CartProvider = ({ children }) => {
                     if (item.cantidad > 1) {
                         return { ...item, cantidad: item.cantidad - 1 };
                     } else {
-                        return null; // Si cantidad es 1, marcamos para eliminar
+                        return null; 
                     }
                 } else {
-                    return item; // Si no es el producto, lo dejamos igual
+                    return item; 
                 }
-            }).filter(item => item !== null); // Quitamos los productos nulos
+            }).filter(item => item !== null);
         });
     };
 

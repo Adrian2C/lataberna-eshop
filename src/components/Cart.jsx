@@ -1,6 +1,9 @@
 import React, { useContext } from 'react'
 import { CartContext } from '../context/CartContext'
 import '../assets/style/style.css'
+import Swal from 'sweetalert2'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 const Cart = ({ isOpen, onClose }) => {
     const { cart, handleDeleteFromCart, clearCart } = useContext(CartContext)
@@ -31,17 +34,12 @@ const Cart = ({ isOpen, onClose }) => {
                                         )}
 
                                         <div className="flex flex-col sm:flex-row justify-between flex-1 min-w-[150px] gap-2 sm:gap-0">
-                                            {/* Nombre del producto */}
                                             <p className="text-black font-semibold break-words text-sm sm:text-base sm:w-1/2">{item.nombre}</p>
 
-                                            {/* Cantidad */}
                                             <p className="text-sm text-gray-700 sm:text-center sm:w-1/4">Cant: {item.cantidad}</p>
-
-                                            {/* Precio */}
                                             <p className="text-xl font-extrabold text-right sm:text-center sm:w-1/4">${item.precio}</p>
                                         </div>
 
-                                        {/* Botón eliminar */}
                                         <button
                                             onClick={() => handleDeleteFromCart(item)}
                                             className="w-8 h-8 flex justify-center items-center"
@@ -66,12 +64,49 @@ const Cart = ({ isOpen, onClose }) => {
                                 </>
                             ))}
                         </ul>
-                        <div className="cart-footer">
-                            <p>
-                                Total: ${cart.reduce((total, item) => total + (item.precio * item.cantidad), 0)}
+                        <div className="cart-footer mt-6">
+                            <p className="text-black text-right font-bold text-lg mb-4">
+                                Total: ${cart.reduce((total, item) => total + item.precio * item.cantidad, 0)}
                             </p>
-                            <button className="rounded-lg bg-[#435a12b4] text-gray-200 text-lg font-bold py-2 w-full hover:bg-[#3e4e1e] btnCheckout" onClick={() => clearCart()}>Finalizar Compra</button>
+
+                            <div className="flex flex-col sm:flex-row gap-4">
+                                <button
+                                    onClick={() => {
+                                        clearCart()
+                                        toast.info('🦄 Wow so easy!', {
+                                            position: "top-left",
+                                            autoClose: 5000,
+                                            hideProgressBar: false,
+                                            closeOnClick: false,
+                                            pauseOnHover: true,
+                                            draggable: true,
+                                            progress: undefined,
+                                            theme: "light",
+                                            transition: Bounce,
+                                        });
+                                    }}
+                                    className="rounded-lg bg-dragon/80 text-white text-lg font-bold py-2 px-4 w-full sm:w-1/2 hover:bg-dragon transition-colors"
+                                >
+                                    Vaciar Carrito
+                                </button>
+
+                                <button
+                                    onClick={() => {
+                                        Swal.fire({
+                                            icon: 'success',
+                                            title: '¡Compra finalizada!',
+                                            text: 'Gracias por tu compra.',
+                                            confirmButtonColor: '#435a12'
+                                        })
+                                        clearCart()
+                                    }}
+                                    className="rounded-lg bg-druid text-gray-200 text-lg font-bold py-2 px-4 w-full sm:w-1/2 hover:bg-[#3e4e1e] transition-colors"
+                                >
+                                    Finalizar Compra
+                                </button>
+                            </div>
                         </div>
+
                     </>)}
             </div>
         </div>

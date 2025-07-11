@@ -5,8 +5,7 @@ const AdminNavbar = ({ onLogout }) => {
     return (
         <nav className="w-max flex px-4 py-2">
             <button
-                className="flex items-center px-4 h-10 rounded-lg text-white hover:text-yellow-100 group
-                 bg-dragon"
+                className="flex items-center px-4 h-10 rounded-lg bg-rune text-bg hover:text-rune hover:bg-dragon group"
                 onClick={onLogout}
                 aria-label="Cerrar sesión"
             >

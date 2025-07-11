@@ -7,18 +7,17 @@ function FormularioEdicion({ productoSeleccionado, onActualizar, onClose }) {
         setProducto(productoSeleccionado);
     }, [productoSeleccionado]);
 
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setProducto({ ...producto, [name]: value });
+    };
+
     useEffect(() => {
-        // Bloquea el scroll de fondo mientras el modal esté abierto
         document.body.style.overflow = 'hidden';
         return () => {
             document.body.style.overflow = 'auto';
         };
     }, []);
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setProducto({ ...producto, [name]: value });
-    };
 
     const handleCerrar = () => {
         if (window.confirm('¿Seguro que querés cerrar el formulario sin guardar?')) {
@@ -41,7 +40,6 @@ function FormularioEdicion({ productoSeleccionado, onActualizar, onClose }) {
         <div className="fixed inset-0 z-50 bg-black bg-opacity-60 flex items-center justify-center">
             <div className="bg-pergamino rounded-lg shadow-2xl w-full max-w-xl mx-4 p-6 relative border border-bg">
 
-                {/* Botón de cierre */}
                 <button
                     onClick={handleCerrar}
                     className="absolute top-3 right-3 text-red-700 hover:text-red-900 font-bold text-xl"
@@ -50,7 +48,7 @@ function FormularioEdicion({ productoSeleccionado, onActualizar, onClose }) {
                     ×
                 </button>
 
-                <h2 className="text-2xl font-extrabold mb-4 text-druid text-center">Editar Producto</h2>
+                <h2 className="text-2xl font-extrabold mb-4 text-dragon text-center">Editar Producto</h2>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
@@ -62,7 +60,6 @@ function FormularioEdicion({ productoSeleccionado, onActualizar, onClose }) {
                             onChange={handleChange}
                             required
                             min="0"
-                            step="0.01" // ✅ permite decimales con punto
                             className="w-full bg-white text-arcane/80 px-3 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-rune"
                         />
 
@@ -115,7 +112,7 @@ function FormularioEdicion({ productoSeleccionado, onActualizar, onClose }) {
                     <div className="pt-4 flex justify-end">
                         <button
                             type="submit"
-                            className="bg-druid text-white hover:bg-dragon font-semibold px-6 py-2 rounded transition-all duration-200"
+                            className="bg-rune text-bg hover:text-pergamino hover:bg-dragon  font-semibold px-6 py-2 rounded transition-all duration-200"
                         >
                             Actualizar Producto
                         </button>

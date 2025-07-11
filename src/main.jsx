@@ -15,8 +15,8 @@ createRoot(document.getElementById('root')).render(
       <CartProvider>
         <AdminProvider>
           <AuthProvider>
-            <App />
             <ToastContainer />
+            <App />
           </AuthProvider>
         </AdminProvider>
       </CartProvider>

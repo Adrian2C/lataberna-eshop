@@ -11,7 +11,6 @@ function FormularioProducto({ onAgregar, onClose }) {
   const [errores, setErrores] = useState({});
 
   useEffect(() => {
-    // Bloquea el scroll de fondo mientras el modal esté abierto
     document.body.style.overflow = 'hidden';
     return () => {
       document.body.style.overflow = 'auto';
@@ -48,7 +47,7 @@ function FormularioProducto({ onAgregar, onClose }) {
     e.preventDefault();
     if (!validarFormulario()) return;
     onAgregar(producto);
-    onClose();  
+    onClose();
   };
 
   const handleCerrar = () => {
@@ -60,7 +59,6 @@ function FormularioProducto({ onAgregar, onClose }) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60">
       <div className="relative bg-pergamino text-druid rounded-2xl w-full max-w-xl p-8 shadow-xl overflow-y-auto max-h-[90vh]">
-        {/* Botón de cierre */}
         <button
           onClick={handleCerrar}
           className="absolute top-3 right-3 text-red-700 hover:text-red-900 font-bold text-xl"
@@ -69,7 +67,7 @@ function FormularioProducto({ onAgregar, onClose }) {
           ×
         </button>
 
-        <h2 className="text-2xl font-extrabold mb-4 text-druid text-center">Agregar Producto</h2>
+        <h2 className="text-2xl font-extrabold mb-4 text-dragon text-center">Agregar Producto</h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
@@ -93,7 +91,6 @@ function FormularioProducto({ onAgregar, onClose }) {
               onChange={handleChange}
               required
               min="0"
-              step="0.01" // ✅ permite decimales con punto
               className="w-full bg-white text-arcane/80 px-3 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-rune"
             />
 
@@ -139,7 +136,7 @@ function FormularioProducto({ onAgregar, onClose }) {
           <div className="pt-4">
             <button
               type="submit"
-              className="w-full py-2 px-4 hover:bg-arcane text-white bg-dragon  font-semibold rounded- transition-colors duration-300"
+              className="w-full py-2 px-4 bg-rune text-bg hover:text-yellow-100 hover:bg-dragon font-semibold rounded- transition-colors duration-300"
             >
               Agregar Producto
             </button>

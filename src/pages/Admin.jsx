@@ -62,7 +62,7 @@ const Admin = () => {
                         <div className="flex flex-col-reverse md:flex-row md:justify-around md:items-center bg-rune/20">
                             <div className="text-center my-2">
                                 <button
-                                    className="bg-rune text-3xl text-bg hover:text-white px-6 py-3 rounded-xl"
+                                    className="flex items-center px-4 h-10 rounded-lg border-3 hover:border-rune border-dragon bg-rune text-bg hover:text-pergamino hover:bg-dragon"
                                     onClick={() => setOpen(true)}
                                     aria-label="Agregar nuevo producto"
                                 >
@@ -140,7 +140,6 @@ const Admin = () => {
                             </ul>
                         </section>
 
-                        {/* 🔽 Controles de paginación */}
                         {totalPaginas > 1 && (
                             <nav className="flex justify-center items-center gap-4 my-6 border" aria-label="Controles de paginación">
                                 <button
