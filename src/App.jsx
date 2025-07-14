@@ -22,7 +22,7 @@ function App() {
       <Route path='/' element={<Home />} />
       <Route path='/acercade' element={<AcercaDe />} />
       <Route path='/productos' element={<Galeria />} />
-      <Route path='/productos/:id' element={<DetalleProductos />} />
+      <Route path="/productos/:slug" element={<DetalleProducto />} />
 
       <Route path='/contacto' element={<Contacto />} />
       <Route path='/admin' element={<RutaProtegida isAuthenticated={isAuthenticated}> <Admin /></RutaProtegida>} />

@@ -12,12 +12,10 @@ export const AuthProvider = ({ children }) => {
     const location = useLocation();
     const { setIsAuth } = useContext(CartContext);
 
-    // Redirige si ya está autenticado y no está en /admin
     useEffect(() => {
         const isAuthenticated = localStorage.getItem('isAuth') === 'true';
         if (isAuthenticated) {
             setIsAuth(true);
-            // Solo redirige si no estás ya en /admin o en otra ruta protegida
             if (location.pathname === '/login' || location.pathname === '/') {
                 navigate('/admin');
             }

@@ -16,7 +16,6 @@ const GaleriaDeProductos = () => {
         <h2 className="text-[#D4AF37] text-3xl font-bold text-center mt-20 mb-6 py-5 bg-dragon">
           Nuestros productos
         </h2>
-
         {
           cargando ?
             <div className="flex justify-center items-center h-dvh">
@@ -24,10 +23,8 @@ const GaleriaDeProductos = () => {
             </div>
             :
             <ProductList />
-
         }
       </div>
-
       <Footer />
     </>
   )
