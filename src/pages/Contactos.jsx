@@ -88,7 +88,7 @@ const Contactos = () => {
             <div className="sm:col-span-2">
               <button
                 type="submit"
-                className="w-full bg-rune text-bg hover:text-pergamino hover:bg-dragon font-semibold py-3 rounded-md transition duration-300 focus:outline-none"
+                className="w-full bg-rune text-bg hover:text-pergamino hover:bg-dragon font-semibold py-3 rounded-md transition duration-300 focus:outline-none active:scale-95"
               >
                 Enviar
               </button>

@@ -62,7 +62,7 @@ const Admin = () => {
                         <div className="flex flex-col-reverse md:flex-row md:justify-around md:items-center bg-rune/20">
                             <div className="text-center my-2">
                                 <button
-                                    className="flex items-center px-4 h-10 rounded-lg border-3 hover:border-rune border-dragon bg-rune text-bg hover:text-pergamino hover:bg-dragon"
+                                        className="flex items-center px-4 h-10 rounded-lg  bg-rune text-bg hover:text-rune hover:bg-dragon group"
                                     onClick={() => setOpen(true)}
                                     aria-label="Agregar nuevo producto"
                                 >

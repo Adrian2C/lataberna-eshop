@@ -14,9 +14,9 @@
   --font-regular: "Lora", serif;
 
   /* Escala tipográfica */
-  --text-main: 2.25rem;
-  --text-sub: 1.5rem;
-  --text-body: 1.2rem;
+  --text-main: 36px;
+  --text-sub: 24px;
+  --text-body: 19.2px;
 }
 
 /* ====== GENERAL ====== */
@@ -29,7 +29,7 @@ body {
   background-color: var(--color-druid);
   color: var(--color-pergamino);
   font-size: var(--text-body);
-  padding-top:32px;
+  padding-top:2rem;
 }
 h1,
 h2 {
@@ -42,13 +42,13 @@ h2 {
 .qtyButton,
 .error-back {
   font-family: var(--font-regular);
-  border-radius: 8px;
+  border-radius: .5rem;
   font-weight: 600;
   transition: background-color 0.3s ease;
 }
 
 .close {
-  padding: 0 .625rem;
+  padding: 0 10px;
 }
 .close:hover {
   background-color: var(--color-rune);
@@ -71,13 +71,13 @@ header {
   top: 0;
   width: 100dvw;
   z-index: 200;
-  box-shadow: 0 .125rem .3125rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 .navbar-list {
   list-style: none;
   display: flex;
   justify-content: space-evenly;
-  gap:3rem;
+  gap:48px;
   align-items: center;
   margin: 0;
 }
@@ -93,13 +93,13 @@ header {
   height: 100%;
   background: var(--color-pergamino);
   color: var(--color-dragon);
-  box-shadow: -0.125rem 0 .625rem rgba(0, 0, 0, 0.2);
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
   transform: translateX(100%);
   transition: transform 0.3s ease-in-out;
   z-index: 999;
   overflow-y: auto;  
 }
-@media screen and (min-width:768px){
+@media screen and (min-width:48rem){
   .cart-drawer{
     width:50%;
   }
@@ -113,26 +113,26 @@ header {
 ========================= */
 .contact-title{
   text-align: center;
-  font-size: clamp(1.6rem, .175rem + 3vw, 3.5rem);
+  font-size: clamp(25.6px, 2.8px + 3vw, 56px);
   font-weight: bold;
   color:var(--color-dragon);
 }
 .text-main{
-  font-size:clamp(1.125rem, -0.0563rem + 4.5070vw, 1.5rem);
+  font-size:clamp(18px, -0.9008px + 4.5070vw, 24px);
 }
 .text-display{
-    font-size:clamp(2.5rem, -0.0563rem + 4.5070vw, 4rem);
+    font-size:clamp(40px, -0.9008px + 4.5070vw, 64px);
 }
 /* =========================
    TARJETAS
 ========================= */
 .cardAbout {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr));
-  max-width: 67.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  max-width: 1080px;
   margin: 0 auto;
-  gap: 24px;
-  padding: 1rem;
+  gap: 1.5rem;
+  padding: 16px;
 }
 
 .cardProdContainer {
@@ -145,13 +145,13 @@ header {
 .admin {
   background: url("../images/bg-admin.jpg");
   display: flex;
-  margin-top:-32px;
+  margin-top:-2rem;
 }
 
 .admin-panel{
   background-color:var(--color-dragon);
   width:100%;
-  font-size: clamp(1.5rem,-0.0563rem + 4.5070vw,2.25rem);
+  font-size: clamp(24px,-0.9008px + 4.5070vw,36px);
   text-align: center; 
 }
 
@@ -160,7 +160,7 @@ header {
 ========================= */
 .error {
   height: 100%;
-  background: #ffbc2c;
+  background: var(--color-rune);
   display: flex;
   justify-content: center;
 }
@@ -170,21 +170,21 @@ header {
 }
 
 .error-back {
-  border: .1875rem solid #996e11;
-  background: #ffc547;
-  border-radius: .9375rem;
-  font-size: 1.75rem;
-  padding: .3125rem 1.875rem;
+  border: 3px solid #996e11;
+  background: var(--color-rune);
+  border-radius: 15px;
+  font-size: 28px;
+  padding: 5px 30px;
   color: #4a3402;
 }
 
 .error-back:hover {
   background: #4a3402;
-  color: #ffc547;
+  color:var(--color-rune);
 }
 
 .error-back:active {
-  border: .375rem solid #996e11;
+  border: 6px solid #996e11;
 }
 /* =========================
    ANIMACIONES
@@ -192,7 +192,7 @@ header {
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(.625rem);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;

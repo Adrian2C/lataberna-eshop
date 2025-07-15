@@ -31,7 +31,7 @@ const AcercaDe = () => {
                             {equipo.map((persona) => (
                                 <div
                                     key={persona.id}
-                                    className="bg-forge/30 p-6 rounded-xl shadow-lg hover:shadow-xl transition border border-forge text-center"
+                                    className="bg-forge/30 p-6 rounded-xl shadow-lg hover:shadow-xl hover:shadow-dragon hover:bg-rune/20 transition border border-forge text-center"
                                 >
                                     <img
                                         src={persona.imagen}

@@ -44,7 +44,7 @@ const Home = () => {
                             La Taberna del Rol
                         </h1>
 
-                        <Link to="/productos"><button className="font-semibold mt-8 py-2 px-6 bg-dragon border-b-2 border-rune text-pergamino hover:px-10 hover:rounded-2xl hover:text-2xl transition:ease-out duration-500 cursor-pointer"
+                        <Link to="/productos"><button className="active:scale-95 font-semibold mt-8 py-2 px-6 bg-dragon border-b-2 border-rune text-pergamino hover:px-10 hover:rounded-2xl hover:text-2xl transition:ease-out duration-500 cursor-pointer"
                         >
                             Explorar Articulos
                         </button>

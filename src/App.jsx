@@ -1,4 +1,3 @@
-import { useContext } from 'react'
 import './assets/style/style.css'
 import { Routes, Route } from 'react-router-dom'
 
@@ -7,22 +6,22 @@ import AcercaDe from './pages/AcercaDe'
 import Contacto from './pages/Contactos'
 import Galeria from './pages/GaleriaDeProductos'
 import NotFound from './pages/NotFound'
-
 import Admin from './pages/Admin'
 import DetalleProductos from './components/DetalleProductos'
 import Login from './pages/Login'
 import RutaProtegida from './Auth/RutasProtegidas'
 import { CartContext } from './context/CartContext'
+import { useContext } from 'react'
 
 function App() {
+  
   const { isAuthenticated } = useContext(CartContext)
-
   return (
     <Routes>
       <Route path='/' element={<Home />} />
       <Route path='/acercade' element={<AcercaDe />} />
       <Route path='/productos' element={<Galeria />} />
-      <Route path="/productos/:slug" element={<DetalleProducto />} />
+      <Route path='/productos/:id' element={<DetalleProductos />} />
 
       <Route path='/contacto' element={<Contacto />} />
       <Route path='/admin' element={<RutaProtegida isAuthenticated={isAuthenticated}> <Admin /></RutaProtegida>} />
@@ -31,5 +30,4 @@ function App() {
     </Routes>
   )
 }
-
 export default App
