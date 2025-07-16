@@ -1,13 +1,13 @@
 /* ========= VARIABLES =========== */
 :root {
-  /* Colores medieval fantasy */
-  --color-bg: #2f2f2f; /* Fondo principal oscuro (piedra/caverna) */
-  --color-pergamino: #f6f1e7; /* Fondo claro tipo pergamino */
-  --color-dragon: #8b0000; /* Rojo dragón para acciones intensas */
-  --color-arcane: #5e4b8b; /* Azul arcano para enlaces y detalles mágicos */
-  --color-rune: #c9b037; /* Amarillo runa para hover y acentos */
-  --color-forge: #bdbdbd; /* Gris forja para elementos neutros */
-  --color-druid: #2c5e4a; /* Verde druídico para fondos suaves */
+  
+  --color-bg: #2f2f2f;
+  --color-pergamino: #f6f1e7; 
+  --color-dragon: #8b0000;
+  --color-arcane: #5e4b8b; 
+  --color-rune: #c9b037;
+  --color-forge: #bdbdbd;
+  --color-druid: #2c5e4a; 
 
   /* Tipografía */
   --font-main: "Cinzel Decorative", serif;

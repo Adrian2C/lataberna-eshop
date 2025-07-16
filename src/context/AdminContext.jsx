@@ -6,7 +6,7 @@ export const AdminProvider = ({ children }) => {
     const [productos, setProductos] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false)
-    const [open, setOpen] = useState(false)//se encarga cuando se muestre el formulario y cuando no
+    const [open, setOpen] = useState(false)
     const [seleccionado, setSeleccionado] = useState(null)
     const [openEditor, setOpenEditor] = useState(false)
     const apiUrl = 'https://6840875d5b39a8039a5860f6.mockapi.io/productos'

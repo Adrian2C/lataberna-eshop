@@ -40,7 +40,6 @@ const DetalleProductos = () => {
             <Header />
             <main className="min-h-screen pt-24 pb-16 px-4 bg-druid">
                 <div className="max-w-6xl mx-auto rounded-2xl p-4 shadow-2xl border border-forge/50 bg-pergamino">
-                    {/* Botón de regreso */}
                     <div className="mb-2">
                         <Link
                             to="/"
@@ -50,7 +49,7 @@ const DetalleProductos = () => {
                         </Link>
                     </div>
                     <section className="flex flex-col md:flex-row overflow-hidden rounded-xl shadow-md">
-                        {/* Imagen */}
+
                         <div className="w-full md:w-1/2 h-96 md:h-auto">
                             <img
                                 src={product.imagen}
@@ -59,7 +58,6 @@ const DetalleProductos = () => {
                             />
                         </div>
 
-                        {/* Info */}
                         <div className="p-6 md:w-1/2 flex flex-col justify-between space-y-6">
                             <div>
                                 <h1 className="text-4xl font-bold text-dragon mb-2">{product.nombre}</h1>
@@ -68,7 +66,6 @@ const DetalleProductos = () => {
                                 <p className="text-bg font-medium">Stock disponible: <span className="font-bold">{product.stock}</span></p>
                                 <p className="text-4xl font-semibold text-black mt-2">${product.precio}</p>
 
-                                {/* Controles de cantidad */}
                                 <div className="flex items-center gap-4 justify-center mt-6">
                                     <button
                                         className="bg-forge text-bg px-4 py-1 rounded-md text-2xl font-bold hover:bg-rune hover:text-pergamino transition"
