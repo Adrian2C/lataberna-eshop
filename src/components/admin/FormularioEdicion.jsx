@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Swal from 'sweetalert2';
 
 function FormularioEdicion({ productoSeleccionado, onActualizar, onClose }) {
     const [producto, setProducto] = useState(productoSeleccionado);
@@ -20,10 +21,23 @@ function FormularioEdicion({ productoSeleccionado, onActualizar, onClose }) {
     }, []);
 
     const handleCerrar = () => {
-        if (window.confirm('¿Seguro que querés cerrar el formulario sin guardar?')) {
-            onClose();
-        }
+        Swal.fire({
+            title: "¿Estás seguro?",
+            text: "Se perderán los cambios no guardados.",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: '#2c5e4a',
+            cancelButtonColor: "#8b0000",
+            confirmButtonText: "Sí, cerrar",
+            cancelButtonText: "Cancelar",
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                onClose();
+            }
+        });
     };
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -33,7 +47,6 @@ function FormularioEdicion({ productoSeleccionado, onActualizar, onClose }) {
             alert("El precio debe tener como máximo dos decimales.");
             return;
         }
-
         onActualizar(producto);
     };
     return (
@@ -42,7 +55,7 @@ function FormularioEdicion({ productoSeleccionado, onActualizar, onClose }) {
 
                 <button
                     onClick={handleCerrar}
-                    className="absolute top-3 right-3 text-red-700 hover:text-red-900 font-bold text-xl"
+                    className="absolute top-3 right-3 text-dragon font-bold text-4xl hover:text-rune hover:text-5xl"
                     aria-label="Cerrar formulario"
                 >
                     ×
@@ -54,12 +67,11 @@ function FormularioEdicion({ productoSeleccionado, onActualizar, onClose }) {
                     <div>
                         <label className="block font-semibold text-sm mb-1 text-bg">ID:</label>
                         <input
-                            type="number"
-                            name="precio"
-                            value={producto.precio || ''}
+                            type="text"
+                            name="id"
+                            value={producto.id || ''}
                             onChange={handleChange}
-                            required
-                            min="0"
+                            readOnly
                             className="w-full bg-white text-arcane/80 px-3 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-rune"
                         />
 

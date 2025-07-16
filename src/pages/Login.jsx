@@ -12,7 +12,7 @@ const Login = () => {
     return (
         <main className="admin h-dvh flex items-center justify-center bg-gray-100">
             <section
-                className="bg-druid p-8 rounded-2xl shadow-lg w-full max-w-md"
+                className="bg-druid border-4 border-green-950 p-8 rounded-2xl shadow-lg "
                 aria-label="Formulario de inicio de sesión"
             >
                 <form onSubmit={handleSubmit} className="flex flex-col gap-4" noValidate>

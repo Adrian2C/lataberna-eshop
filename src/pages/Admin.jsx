@@ -31,7 +31,7 @@ const Admin = () => {
         localStorage.removeItem('isAuth');
     };
 
-    // 🔄 Paginación
+
     const [paginaActual, setPaginaActual] = useState(1);
     const productosPorPagina = 6;
 
@@ -53,16 +53,14 @@ const Admin = () => {
                     <p className="text-center py-10 text-lg">Cargando productos...</p>
                 ) : (
                     <>
-                        <h1 className="admin-panel py-6 text-4xl font-bold text-center">
+                        <h1 className="bg-dragon w-full py-6 text-2xl sm:text-3xl md:text-5xl font-bold text-center">
                             Panel Administrativo
                         </h1>
 
-
-
-                        <div className="flex flex-col-reverse md:flex-row md:justify-around md:items-center bg-rune/20">
+                        <div className="flex flex-col-reverse items-center py-2 sm:flex-row sm:justify-around sm:items-center bg-rune/20">
                             <div className="text-center my-2">
                                 <button
-                                        className="flex items-center px-4 h-10 rounded-lg  bg-rune text-bg hover:text-rune hover:bg-dragon group"
+                                    className="flex items-center px-4 h-10 rounded-lg  bg-rune text-bg hover:text-rune hover:bg-dragon group"
                                     onClick={() => setOpen(true)}
                                     aria-label="Agregar nuevo producto"
                                 >
@@ -124,11 +122,7 @@ const Admin = () => {
 
                                                 <button
                                                     className="w-full bg-rune text-bg hover:bg-dragon hover:text-pergamino mt-2 py-1 rounded-xl font-bold"
-                                                    onClick={() => {
-                                                        if (window.confirm(`¿Eliminar el producto "${product.nombre}"?`)) {
-                                                            eliminarProducto(product.id);
-                                                        }
-                                                    }}
+                                                    onClick={() => eliminarProducto(product.id)}
                                                     aria-label={`Eliminar producto ${product.nombre}`}
                                                 >
                                                     Eliminar

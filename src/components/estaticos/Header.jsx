@@ -44,7 +44,7 @@ const Header = () => {
                             <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
                     </button>
-                    <div ref={searchRef} className="relative w-8">
+                    <div ref={searchRef} className=" hidden md:flex relative w-8">
                         {!showSearch ? (
                             <button onClick={() => setShowSearch(true)} className="hover:text-yellow-300 transition-colors">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="size-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">

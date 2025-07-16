@@ -83,10 +83,10 @@ export const CartProvider = ({ children }) => {
                     if (item.cantidad > 1) {
                         return { ...item, cantidad: item.cantidad - 1 };
                     } else {
-                        return null; 
+                        return null;
                     }
                 } else {
-                    return item; 
+                    return item;
                 }
             }).filter(item => item !== null);
         });
@@ -95,7 +95,6 @@ export const CartProvider = ({ children }) => {
     const clearCart = () => {
         setCart([])
         localStorage.removeItem("cart")
-        toast.info('Compra finalizada!')
     }
     return (
         <CartContext.Provider

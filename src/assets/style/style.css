@@ -148,12 +148,6 @@ header {
   margin-top:-2rem;
 }
 
-.admin-panel{
-  background-color:var(--color-dragon);
-  width:100%;
-  font-size: clamp(24px,-0.9008px + 4.5070vw,36px);
-  text-align: center; 
-}
 
 /* =========================
    ERROR

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Swal from 'sweetalert2';
 
 function FormularioProducto({ onAgregar, onClose }) {
   const [producto, setProducto] = useState({
@@ -6,7 +7,6 @@ function FormularioProducto({ onAgregar, onClose }) {
     precio: '',
     stock: '',
     imagen: '',
-    categoria: '',
   });
   const [errores, setErrores] = useState({});
 
@@ -36,9 +36,6 @@ function FormularioProducto({ onAgregar, onClose }) {
     if (!producto.imagen.trim()) {
       nuevosErrores.imagen = 'La URL de la imagen es obligatoria.';
     }
-    if (!producto.categoria.trim() || producto.categoria.length < 3) {
-      nuevosErrores.categoria = 'La categoría debe tener al menos 3 caracteres.';
-    }
     setErrores(nuevosErrores);
     return Object.keys(nuevosErrores).length === 0;
   };
@@ -51,9 +48,21 @@ function FormularioProducto({ onAgregar, onClose }) {
   };
 
   const handleCerrar = () => {
-    if (window.confirm('¿Seguro que querés cerrar el formulario sin guardar?')) {
-      onClose();
-    }
+    Swal.fire({
+      title: "¿Estás seguro?",
+      text: "Se perderán los cambios no guardados.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: '#2c5e4a',
+      cancelButtonColor: "#8b0000",
+      confirmButtonText: "Sí, cerrar",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+
+        onClose();
+      }
+    });
   };
 
   return (
@@ -61,7 +70,7 @@ function FormularioProducto({ onAgregar, onClose }) {
       <div className="relative bg-pergamino text-druid rounded-2xl w-full max-w-xl p-8 shadow-xl overflow-y-auto max-h-[90vh]">
         <button
           onClick={handleCerrar}
-          className="absolute top-3 right-3 text-red-700 hover:text-red-900 font-bold text-xl"
+          className="absolute top-3 right-3 text-dragon font-bold text-4xl hover:text-rune hover:text-5xl"
           aria-label="Cerrar formulario"
         >
           ×
@@ -119,18 +128,6 @@ function FormularioProducto({ onAgregar, onClose }) {
               className="w-full text-arcane/80 bg-white rounded-md px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-rune"
             />
             {errores.imagen && <p className="text-sm text-red-600">{errores.imagen}</p>}
-          </div>
-
-          <div>
-            <label className="block text-sm font-semibold mb-1">Categoría</label>
-            <input
-              type="text"
-              name="categoria"
-              value={producto.categoria}
-              onChange={handleChange}
-              className="w-full text-arcane/80 bg-white rounded-md px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-rune"
-            />
-            {errores.categoria && <p className="text-sm text-red-600">{errores.categoria}</p>}
           </div>
 
           <div className="pt-4">
