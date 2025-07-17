@@ -1,10 +1,18 @@
 import React from 'react'
 import Header from '../components/estaticos/Header'
 import Footer from '../components/estaticos/Footer'
+import { Helmet } from 'react-helmet-async'
 
 const Contactos = () => {
   return (
     <>
+      <Helmet>
+        <title>Contacto | La Taberna del Rol</title>
+        <meta name="description" content="Formulario de contacto para consultas, dudas o sugerencias. Cuéntanos tus necesidades y encontraremos una solución juntos." />
+        <meta name="keywords" content="contacto, formulario, soporte, ayuda, mensajes" />
+        <link rel="canonical" href="https://www.tutaberna.com/contacto" />
+      </Helmet>
+
       <Header />
       <main className="min-h-screen bg-druid px-4 py-16 sm:py-24">
         <section className="bg-pergamino/90 backdrop-blur-md max-w-4xl mx-auto p-8 rounded-xl shadow-lg border border-forge">
@@ -78,7 +86,7 @@ const Contactos = () => {
               <textarea
                 id="message"
                 name="message"
-                placeholder='Cuentanos un poco mas...'
+                placeholder='Cuéntanos un poco más...'
                 rows={4}
                 required
                 className="rounded-md px-4 py-2 bg-white text-gray-900 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-rune"

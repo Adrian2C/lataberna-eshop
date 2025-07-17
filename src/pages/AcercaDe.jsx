@@ -1,14 +1,24 @@
-import React, { useContext } from 'react'
-import Header from '../components/estaticos/Header'
-import Footer from '../components/estaticos/Footer'
-import cargando from '../assets/images/loading.gif'
-import { CartContext } from '../context/CartContext'
+import React, { useContext } from 'react';
+import Header from '../components/estaticos/Header';
+import Footer from '../components/estaticos/Footer';
+import cargando from '../assets/images/loading.gif';
+import { CartContext } from '../context/CartContext';
+import { Helmet } from 'react-helmet-async';
 
 const AcercaDe = () => {
-    const { equipo, loadingEquipo, errorEquipo } = useContext(CartContext)
+    const { equipo, loadingEquipo, errorEquipo } = useContext(CartContext);
 
     return (
         <>
+            <Helmet>
+                <html lang="es" />
+                <title>Acerca de | La Taberna del Rol</title>
+                <meta name="description" content="Conocé al equipo detrás de La Taberna del Rol. Nuestra pasión por el rol, la fantasía y la comunidad." />
+                <meta property="og:title" content="Nuestro Equipo - La Taberna del Rol" />
+                <meta property="og:description" content="Descubrí quiénes están detrás de este proyecto. Guías, aventuras y pasión por el rol." />
+                <meta property="og:type" content="website" />
+            </Helmet>
+
             <Header />
 
             <main className="min-h-screen px-4 py-16 text-pergamino">
@@ -49,7 +59,7 @@ const AcercaDe = () => {
 
             <Footer />
         </>
-    )
-}
+    );
+};
 
-export default AcercaDe
+export default AcercaDe;

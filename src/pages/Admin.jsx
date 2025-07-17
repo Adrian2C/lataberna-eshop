@@ -5,7 +5,8 @@ import AdminNavbar from '../components/admin/AdminNavbar';
 import { CartContext } from "../context/CartContext";
 import { AdminContext } from "../context/AdminContext";
 import { useNavigate } from "react-router-dom";
-import '../assets/style/adminStyle.css'
+import '../assets/style/adminStyle.css';
+import { Helmet } from 'react-helmet-async'; 
 
 const Admin = () => {
     const { setIsAuth } = useContext(CartContext);
@@ -31,7 +32,6 @@ const Admin = () => {
         localStorage.removeItem('isAuth');
     };
 
-
     const [paginaActual, setPaginaActual] = useState(1);
     const productosPorPagina = 6;
 
@@ -48,7 +48,19 @@ const Admin = () => {
 
     return (
         <div className="w-full">
-            <main role="main ">
+            <Helmet>
+                <html lang="es" />
+                <title>Panel de Administración | La Taberna del Rol</title>
+                <meta
+                    name="description"
+                    content="Administra productos, edita información y gestiona el contenido de La Taberna del Rol desde el panel administrativo."
+                />
+                <meta property="og:title" content="Administración - La Taberna del Rol" />
+                <meta property="og:description" content="Gestión y control de productos en La Taberna del Rol." />
+                <meta property="og:type" content="website" />
+            </Helmet>
+
+            <main role="main">
                 {loading ? (
                     <p className="text-center py-10 text-lg">Cargando productos...</p>
                 ) : (
@@ -60,7 +72,7 @@ const Admin = () => {
                         <div className="flex flex-col-reverse items-center py-2 sm:flex-row sm:justify-around sm:items-center bg-rune/20">
                             <div className="text-center my-2">
                                 <button
-                                    className="flex items-center px-4 h-10 rounded-lg  bg-rune text-bg hover:text-rune hover:bg-dragon group"
+                                    className="flex items-center px-4 h-10 rounded-lg bg-rune text-bg hover:text-rune hover:bg-dragon group"
                                     onClick={() => setOpen(true)}
                                     aria-label="Agregar nuevo producto"
                                 >
@@ -68,9 +80,7 @@ const Admin = () => {
                                 </button>
                             </div>
                             <AdminNavbar onLogout={handleLogout} />
-
                         </div>
-
 
                         {open && (
                             <FormularioProducto
@@ -88,7 +98,7 @@ const Admin = () => {
                         )}
 
                         <section aria-label="Lista de productos" className="px-2">
-                            <ul className="w-full text-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-4 p-4">
+                            <ul className="w-full text-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4">
                                 {productosPagina.length === 0 ? (
                                     <p className="col-span-full text-gray-500 text-lg">No hay productos disponibles.</p>
                                 ) : (
@@ -110,7 +120,7 @@ const Admin = () => {
 
                                             <div className="mt-4">
                                                 <button
-                                                    className="w-full border-2 hover:bg-dragon  hover:text-pergamino py-1 rounded-xl font-bold"
+                                                    className="w-full border-2 hover:bg-dragon hover:text-pergamino py-1 rounded-xl font-bold"
                                                     onClick={() => {
                                                         setOpenEditor(true);
                                                         setSeleccionado(product);
@@ -136,52 +146,32 @@ const Admin = () => {
 
                         {totalPaginas > 1 && (
                             <nav className="flex justify-center items-center gap-4 my-6 border" aria-label="Controles de paginación">
-                                <button
-                                    onClick={() => cambiarPagina(1)}
-                                    disabled={paginaActual === 1}
-                                    className="sm:px-1 md:px-2 lg:px-3 py-1 hover:text-bg text-pergamino rounded hover:bg-pergamino"
-                                >
+                                <button onClick={() => cambiarPagina(1)} disabled={paginaActual === 1} className="sm:px-1 md:px-2 lg:px-3 py-1 hover:text-bg text-pergamino rounded hover:bg-pergamino">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="m18.75 4.5-7.5 7.5 7.5 7.5m-6-15L5.25 12l7.5 7.5" />
                                     </svg>
-
                                 </button>
 
-                                <button
-                                    onClick={() => cambiarPagina(paginaActual - 1)}
-                                    disabled={paginaActual === 1}
-                                    className="sm:px-1 md:px-2 lg:px-3 py-1 hover:text-bg text-pergamino rounded hover:bg-pergamino"
-                                >
+                                <button onClick={() => cambiarPagina(paginaActual - 1)} disabled={paginaActual === 1} className="sm:px-1 md:px-2 lg:px-3 py-1 hover:text-bg text-pergamino rounded hover:bg-pergamino">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
                                     </svg>
-
                                 </button>
 
                                 <span className="text-lg font-semibold">
                                     Página {paginaActual} de {totalPaginas}
                                 </span>
 
-                                <button
-                                    onClick={() => cambiarPagina(paginaActual + 1)}
-                                    disabled={paginaActual === totalPaginas}
-                                    className="sm:px-1 md:px-2 lg:px-3 py-1 hover:text-bg text-pergamino rounded hover:bg-pergamino"
-                                >
+                                <button onClick={() => cambiarPagina(paginaActual + 1)} disabled={paginaActual === totalPaginas} className="sm:px-1 md:px-2 lg:px-3 py-1 hover:text-bg text-pergamino rounded hover:bg-pergamino">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                                     </svg>
-
                                 </button>
 
-                                <button
-                                    onClick={() => cambiarPagina(totalPaginas)}
-                                    disabled={paginaActual === totalPaginas}
-                                    className="sm:px-1 md:px-2 lg:px-3 py-1 hover:text-bg text-pergamino rounded hover:bg-pergamino"
-                                >
+                                <button onClick={() => cambiarPagina(totalPaginas)} disabled={paginaActual === totalPaginas} className="sm:px-1 md:px-2 lg:px-3 py-1 hover:text-bg text-pergamino rounded hover:bg-pergamino">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
                                     </svg>
-
                                 </button>
                             </nav>
                         )}

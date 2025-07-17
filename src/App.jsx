@@ -14,7 +14,7 @@ import { CartContext } from './context/CartContext'
 import { useContext } from 'react'
 
 function App() {
-  
+
   const { isAuthenticated } = useContext(CartContext)
   return (
     <Routes>
@@ -22,7 +22,6 @@ function App() {
       <Route path='/acercade' element={<AcercaDe />} />
       <Route path='/productos' element={<Galeria />} />
       <Route path='/productos/:id' element={<DetalleProductos />} />
-
       <Route path='/contacto' element={<Contacto />} />
       <Route path='/admin' element={<RutaProtegida isAuthenticated={isAuthenticated}> <Admin /></RutaProtegida>} />
       <Route path='/login' element={<Login />} />
